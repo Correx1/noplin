@@ -1,0 +1,83 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
+
+export default function FinalCTASection() {
+  return (
+    <section className="relative overflow-hidden force-dark" style={{ padding: '112px 0' }}>
+      {/* Background mesh — always dark for impact */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 70% at 50% 50%, rgba(26,86,219,0.28) 0%, transparent 65%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 40% 40% at 80% 20%, rgba(6,182,212,0.12) 0%, transparent 60%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: '#0A0A1F', zIndex: -1 }} />
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+          backgroundSize: '72px 72px',
+        }} />
+      </div>
+
+      <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center text-center gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="flex flex-col gap-4"
+        >
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#FFFFFF', lineHeight: 1.1 }}>
+            Ready to Grow?{' '}
+            <span style={{ color: '#1A56DB' }}>Let&rsquo;s Talk.</span>
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '18px', color: '#94A3B8', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}>
+            Whether you need a brand identity, a website, content, or a full digital strategy — we&rsquo;re ready.
+          </p>
+          <a
+            href="mailto:hello@noplin.com"
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '15px', color: '#06B6D4' }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.textDecoration = 'underline'; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.textDecoration = 'none'; }}
+          >
+            hello@noplin.com
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.15 }}
+          className="flex flex-wrap items-center justify-center gap-3"
+        >
+          <Link
+            href="/contact"
+            className="btn-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
+            Get a Free Quote
+          </Link>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white transition-all duration-200"
+            style={{ fontFamily: 'var(--font-display)', border: '1px solid rgba(255,255,255,0.18)', background: 'transparent' }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = '#1A56DB';
+              el.style.background = 'rgba(26,86,219,0.08)';
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = 'rgba(255,255,255,0.18)';
+              el.style.background = 'transparent';
+            }}
+          >
+            View Services
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
