@@ -34,7 +34,7 @@ export default function SocialProofStrip() {
           text-[var(--text-muted)]
         "
       >
-        Clients &amp; Partners
+        Trusted By 
       </p>
 
       {/* Slider with faded edges */}

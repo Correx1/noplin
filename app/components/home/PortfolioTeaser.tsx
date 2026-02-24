@@ -7,22 +7,22 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const projects = [
   {
-    name: 'Project Alpha',
+    name: 'Web Design',
     tag: 'Web Design',
     href: '/work',
     image: '/portfolio/site.png',
   },
   {
-    name: 'Project Beta',
+    name: 'Product Branding',
     tag: 'Brand Identity',
     href: '/work',
-    image: '/portfolio/web.png',
+    image: '/portfolio/branding.png',
   },
   {
-    name: 'Project Gamma',
+    name: 'Web App Development',
     tag: 'Web App Dev',
     href: '/work',
-    image: '/portfolio/web2.png',
+    image: '/portfolio/webapp.png',
   },
 ];
 
