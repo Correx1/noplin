@@ -12,6 +12,7 @@ export default function SeoContentPage() {
       serviceName="Authority Content™ (SEO)"
       department="Content"
       leadSpecialist="Funke"
+      about=""
       tagline="SEO blog content that ranks on Google and converts readers into leads — written by experts, not AI."
       startingPrice="From ₦60,000/mo"
       turnaround="Ongoing"

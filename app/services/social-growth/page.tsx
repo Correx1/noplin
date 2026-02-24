@@ -11,6 +11,7 @@ export default function SocialMediaPage() {
     <ServicePageTemplate
       serviceName="Social Growth Engine™"
       department="Marketing"
+      about=""
       leadSpecialist="Jessica"
       tagline="Full social media management that grows real audiences, drives genuine engagement, and builds brands people actually love."
       startingPrice="From ₦80,000/mo"

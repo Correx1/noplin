@@ -11,6 +11,7 @@ export default function VideoContentPage() {
     <ServicePageTemplate
       serviceName="Video Script & Editing™"
       department="Content"
+      about=""
       leadSpecialist="Funke + Jessica"
       tagline="Professional scripts and editing for YouTube, Instagram, TikTok, and corporate videos that actually get watched."
       startingPrice="From ₦25,000/video"

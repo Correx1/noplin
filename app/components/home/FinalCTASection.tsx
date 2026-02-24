@@ -50,7 +50,7 @@ export default function FinalCTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE, delay: 0.15 }}
-          className="flex flex-wrap items-center justify-center gap-3"
+          className=" items-center justify-center"
         >
           <Link
             href="/contact"
@@ -59,23 +59,7 @@ export default function FinalCTASection() {
           >
             Get a Free Quote
           </Link>
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white transition-all duration-200"
-            style={{ fontFamily: 'var(--font-display)', border: '1px solid rgba(255,255,255,0.18)', background: 'transparent' }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.borderColor = '#1A56DB';
-              el.style.background = 'rgba(26,86,219,0.08)';
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.borderColor = 'rgba(255,255,255,0.18)';
-              el.style.background = 'transparent';
-            }}
-          >
-            View Services
-          </Link>
+         
         </motion.div>
       </div>
     </section>

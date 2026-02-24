@@ -12,6 +12,7 @@ export default function WebAppDevelopmentPage() {
       serviceName="Custom Web App Development™"
       department="Web & Dev"
       leadSpecialist="Gilbert"
+      about="We build custom web applications using Laravel — from core business apps to complex enterprise platforms. Engineered for performance, built for growth."
       tagline="Scalable web applications built on Laravel — engineered for performance, built for growth."
       startingPrice="From ₦500,000"
       turnaround="4–8 weeks"

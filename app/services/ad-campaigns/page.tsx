@@ -11,6 +11,7 @@ export default function PaidAdsPage() {
     <ServicePageTemplate
       serviceName="Precision Ad Campaigns™"
       department="Marketing"
+      about=""
       leadSpecialist="Benedict"
       tagline="Google and Meta ad campaigns managed by specialists — built to generate leads, sales, and measurable ROI."
       startingPrice="From ₦50,000 setup"

@@ -12,6 +12,7 @@ export default function MvpDevelopmentPage() {
       serviceName="MVP Development for Startups™"
       department="Web & Dev"
       leadSpecialist="Gilbert"
+      about=""
       tagline="Launch your startup idea fast with a built-to-scale MVP — test the market without wasting runway."
       startingPrice="From ₦400,000"
       turnaround="3–6 weeks"

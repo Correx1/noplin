@@ -143,9 +143,7 @@ export default function AboutPageClient() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {pillars.map((p, i) => (
               <motion.div key={p.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: EASE, delay: i * 0.1 }}
-                className="flex flex-col gap-4 p-6" style={{ background: 'var(--bg-card)', border: '1px solid var(--border-card)', borderRadius: '16px', boxShadow: 'var(--shadow-card-theme)', transition: 'border-color 0.2s, box-shadow 0.2s' }}
-                onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.borderColor = `${p.glow}44`; el.style.boxShadow = `0 0 24px ${p.glow}15`; }}
-                onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--border-card)'; el.style.boxShadow = 'var(--shadow-card-theme)'; }}>
+                className="flex flex-col gap-4 p-6" style={{ background: 'var(--bg-card)', border: '1px solid var(--border-card)', borderRadius: '16px', boxShadow: 'var(--shadow-card-theme)', transition: 'border-color 0.2s, box-shadow 0.2s' }}>
                 <IconBox Icon={p.Icon} glow={p.glow} />
                 <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '18px', color: 'var(--text-primary)' }}>{p.title}</h3>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{p.body}</p>

@@ -12,6 +12,7 @@ export default function EmailMarketingPage() {
       serviceName="Revenue Email System™"
       department="Content"
       leadSpecialist="Funke"
+      about=""
       tagline="Automated email sequences and campaigns that nurture leads, build loyalty, and sell while you sleep."
       startingPrice="From ₦60,000/mo"
       turnaround="Ongoing"

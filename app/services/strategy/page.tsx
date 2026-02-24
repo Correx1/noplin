@@ -12,6 +12,7 @@ export default function StrategyConsultingPage() {
       serviceName="Digital Strategy Consulting™"
       department="Marketing"
       leadSpecialist="CEO"
+      about=""
       tagline="End-to-end digital strategy for serious business leaders who want real competitive advantage — not generic advice."
       startingPrice="From ₦1,000,000"
       turnaround="Project-based"

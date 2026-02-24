@@ -12,6 +12,7 @@ export default function PitchDeckPage() {
       serviceName="Pitch Deck & Presentation™"
       department="Design"
       leadSpecialist="Malachy"
+      about=""
       tagline="Investor-ready pitch decks and presentations that command attention and win rooms."
       startingPrice="From ₦80,000"
       turnaround="3–5 days"

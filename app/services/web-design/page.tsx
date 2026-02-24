@@ -12,6 +12,7 @@ export default function WebDesignPage() {
       serviceName="Conversion-First Web Design™"
       department="Web & Dev"
       leadSpecialist="Gilbert"
+      about=""
       tagline="Websites that rank, convert, and impress — built for your business goals, not just aesthetics."
       startingPrice="From ₦300,000"
       turnaround="7–10 days"

@@ -11,6 +11,7 @@ export default function ApiIntegrationPage() {
     <ServicePageTemplate
       serviceName="API Development & Integration™"
       department="Web & Dev"
+      about=""
       leadSpecialist="Gilbert"
       tagline="Connect your tools, automate your workflows, and scale your operations with precision-built APIs."
       startingPrice="From ₦150,000"

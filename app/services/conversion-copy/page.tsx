@@ -12,6 +12,7 @@ export default function ConversionCopyPage() {
       serviceName="Conversion Copy™"
       department="Content"
       leadSpecialist="Funke"
+      about=""
       tagline="Website copy, landing pages, and ad copy written to stop scrolling and drive immediate action."
       startingPrice="From ₦50,000"
       turnaround="3–5 days"

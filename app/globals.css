@@ -59,11 +59,10 @@
   --bg-card:#FFFFFF;
   --bg-card-hover:#F9FAFB;
   --bg-navbar:rgba(255, 255, 255, 0.85);
-  --bg-mega:#FFFFFF;
-  --bg-footer:#0D0D2B;
+  --bg-mega:         #FFFFFF;
+  --bg-footer:       #0D0D2B;
 
   --text-primary:#0D0D2B;
-  --text-hero-header:#FFFFFF;
   --text-secondary:#64748B;
   --text-muted:#94A3B8;
   --text-on-dark:#FFFFFF;

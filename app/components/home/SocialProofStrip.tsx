@@ -2,11 +2,11 @@
 
 const clients = [
   { name: 'Ford',     svg: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg' },
-  { name: 'Coinbase', svg: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/24px-Coinbase_coin.svg.png' },
   { name: 'Google',   svg: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
   { name: 'Shopify',  svg: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg' },
-  { name: 'Mindbody', svg: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Mindbody_logo.svg' },
-  { name: 'MetLife',  svg: 'https://upload.wikimedia.org/wikipedia/commons/0/04/MetLife_logo.svg' },
+  { name: 'Stripe',   svg: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg' },
+  { name: 'Slack',    svg: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg' },
+  { name: 'Shopify',  svg: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg' },
   { name: 'Stripe',   svg: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg' },
   { name: 'Slack',    svg: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg' },
 ];

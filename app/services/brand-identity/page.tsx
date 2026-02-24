@@ -11,6 +11,7 @@ export default function BrandIdentityPage() {
     <ServicePageTemplate
       serviceName="A-Grade Brand Identity™"
       department="Design"
+      about="A-Grade Brand Identity™ is our premium brand design service — creating logos, visual systems, and complete brand kits that position your business as a leader in its market. We build identities that are memorable, scalable, and designed to command premium positioning."
       leadSpecialist="Malachy"
       tagline="Logos, visual systems, and brand kits that make your business unforgettable and command premium positioning."
       startingPrice="From ₦80,000"

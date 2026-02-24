@@ -12,6 +12,7 @@ export default function CorporateCommsPage() {
       serviceName="Corporate Comms Suite™"
       department="Content"
       leadSpecialist="Funke"
+      about=""
       tagline="Professional business proposals, reports, and corporate communications that reflect your organization's excellence."
       startingPrice="From ₦30,000"
       turnaround="2–3 days"

@@ -12,6 +12,7 @@ export default function EcommerceDevelopmentPage() {
       serviceName="E-Commerce Development™"
       department="Web & Dev"
       leadSpecialist="Gilbert"
+      about=""
       tagline="Online stores built for conversions, growth, and seamless customer experiences."
       startingPrice="From ₦400,000"
       turnaround="2–4 weeks"
