@@ -33,23 +33,24 @@ export default function ComplementaryServices({ services }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {services.map((cs, i) => (
             <motion.div
-              key={cs.name}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, ease: EASE, delay: i * 0.1 }}
-              className="relative group flex flex-col justify-between p-6 rounded-2xl bg-white shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-transform duration-300 cursor-pointer"
-            >
-              <div>
-                <p className="text-lg font-semibold text-gray-900 mb-2">{cs.name}</p>
-                <p className="text-gray-500 text-sm">Boost your results with this complementary service.</p>
-              </div>
-              <div className="mt-4 flex items-center text-blue-500 font-semibold">
-                <span className="mr-1">Explore</span>
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </div>
-              <Link href={cs.url} className="absolute inset-0" />
-            </motion.div>
+  key={cs.name}
+  initial={{ opacity: 0, y: 24 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.55, ease: EASE, delay: i * 0.1 }}
+  className="flex flex-col justify-between p-6 rounded-2xl bg-white shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-transform duration-300 cursor-pointer"
+>
+  <div>
+    <p className="text-lg font-semibold text-gray-900 mb-2">{cs.name}</p>
+    <p className="text-gray-500 text-sm">Boost your results with this complementary service.</p>
+  </div>
+  <Link
+    href={cs.url}
+    className="mt-4 inline-flex items-center text-blue-500 font-semibold"
+  >
+    Explore <ArrowRight className="ml-1" size={16} />
+  </Link>
+</motion.div>
           ))}
         </div>
       </div>
