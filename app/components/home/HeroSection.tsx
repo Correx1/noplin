@@ -28,87 +28,42 @@ export default function HeroSection() {
       style={{ paddingTop: '72px', minHeight: '82vh' }}
     >
       {/* ── Background layers ───────────────────────────────── */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
-
-        {/* Abstract flowing SVG art — Stripe-inspired, very subtle */}
-        <svg
-          className="hero-art absolute inset-0 w-full h-full"
-          viewBox="0 0 1440 820"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <defs>
-            <radialGradient id="rg1" cx="75%" cy="30%" r="55%">
-              <stop offset="0%" stopColor="var(--hero-art-c1)" />
-              <stop offset="100%" stopColor="transparent" />
-            </radialGradient>
-            <radialGradient id="rg2" cx="90%" cy="70%" r="45%">
-              <stop offset="0%" stopColor="var(--hero-art-c2)" />
-              <stop offset="100%" stopColor="transparent" />
-            </radialGradient>
-            <radialGradient id="rg3" cx="60%" cy="10%" r="40%">
-              <stop offset="0%" stopColor="var(--hero-art-c3)" />
-              <stop offset="100%" stopColor="transparent" />
-            </radialGradient>
-            <filter id="blur-art">
-              <feGaussianBlur stdDeviation="32" />
-            </filter>
-          </defs>
-
-          {/* Soft colour blobs behind the curves */}
-          <ellipse cx="1150" cy="260" rx="480" ry="340" fill="url(#rg1)" filter="url(#blur-art)" opacity="0.9" />
-          <ellipse cx="1300" cy="600" rx="380" ry="280" fill="url(#rg2)" filter="url(#blur-art)" opacity="0.7" />
-          <ellipse cx="900"  cy="80"  rx="300" ry="200" fill="url(#rg3)" filter="url(#blur-art)" opacity="0.6" />
-
-          {/* Flowing organic arc 1 */}
-          <path
-            d="M900 -60 C980 120 1260 180 1380 320 C1460 420 1400 580 1300 700 C1180 840 980 860 860 780"
-            fill="none"
-            stroke="var(--hero-art-stroke1)"
-            strokeWidth="2"
-            opacity="0.45"
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0 bg-navy overflow-hidden">
+        
+        {/* Moving Background Image */}
+        <div className="absolute inset-0 w-[110%] h-[110%] -top-[5%] -left-[5%] animate-[panRight_30s_ease-in-out_infinite]">
+          <Image
+            src="/images/hero.png"
+            alt="Hero background"
+            fill
+            className="object-cover object-[80%_center] opacity-50"
+            priority
           />
-          {/* Flowing organic arc 2 */}
-          <path
-            d="M1000 -20 C1100 160 1350 200 1430 380 C1490 520 1420 680 1340 780"
-            fill="none"
-            stroke="var(--hero-art-stroke2)"
-            strokeWidth="1.5"
-            opacity="0.3"
-          />
-          {/* Flowing organic arc 3 — wider sweep */}
-          <path
-            d="M820 40 C920 200 1180 240 1320 420 C1420 560 1380 720 1240 820"
-            fill="none"
-            stroke="var(--hero-art-stroke3)"
-            strokeWidth="1"
-            opacity="0.2"
-          />
-          {/* Filled ribbon — gives the colour wash */}
-          <path
-            d="M880 -80 C980 100 1260 170 1390 330 C1480 450 1420 610 1300 730 C1160 865 940 880 820 800 L860 780 C980 860 1180 840 1300 700 C1400 580 1460 420 1380 320 C1260 180 980 120 900 -60 Z"
-            fill="url(#rg1)"
-            opacity="0.12"
-          />
-        </svg>
+        </div>
 
-        {/* Primary radial — electric blue top-center */}
-        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90vw] h-[70vh] bg-[radial-gradient(ellipse,rgba(26,86,219,0.10)_0%,transparent_65%)]" />
+        {/* Perfect Gradient Overlays */}
+        {/* Horizontal gradient mapping from solid navy to transparent */}
+        <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/90 to-transparent" />
+        
+        {/* Subtle vertical gradient for depth */}
+        <div className="absolute inset-0 bg-linear-to-t from-navy via-transparent to-navy/70" />
 
-        {/* Grid overlay */}
+        {/* Grid overlay for texture */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 mix-blend-overlay opacity-20"
           style={{
             backgroundImage:
               'linear-gradient(var(--grid-line-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px)',
             backgroundSize: '72px 72px',
           }}
         />
+        
+        {/* Primary radial — electric blue top-center for branding */}
+        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90vw] h-[70vh] bg-[radial-gradient(ellipse,rgba(26,86,219,0.15)_0%,transparent_60%)]" />
       </div>
-
       {/* ── Content ────────────────────────────────────────── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-28 w-full">
-        <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-8 items-center">
+        <div className="max-w-2xl lg:max-w-4xl">
 
           {/* Left — copy */}
           <div className="flex flex-col items-start gap-6">
@@ -208,51 +163,16 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right — video */}
-          <motion.div
-  initial={{ opacity: 0, y: 32 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
-  className="hidden lg:flex items-center justify-center"
-          >
-             <div className="relative w-[120%] max-w-[1200px] animate-[heroFloat_4s_ease-in-out_infinite]">
-  
-            <div className="relative w-full">
-            <Image
-  src="/images/hero.png"
-  alt="Dashboard mockup"
-  width={18000}
-  height={11000}
-  priority
-  className="relative w-[180%] h-auto select-none scale-[2] origin-center"
-  draggable={false}
-/>
-              </div>
-                </div>
-          </motion.div>
-
         </div>
       </div>
      
 
-      {/* Float + hero-art CSS vars injected */}
+      {/* Background Pan Animation CSS injected */}
       <style>{`
-        @keyframes heroFloat {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-12px); }
+        @keyframes panRight {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(-4%); }
         }
-
-        /* Light mode art palette */
-        :root {
-        --hero-art-c1:       rgba(99, 102, 241, 0.22);
-          --hero-art-c2:       rgba(6, 182, 212, 0.18);
-          --hero-art-c3:       rgba(26, 86, 219, 0.15);
-          --hero-art-stroke1:  rgba(99, 102, 241, 0.40);
-          --hero-art-stroke2:  rgba(6, 182, 212, 0.35);
-          --hero-art-stroke3:  rgba(245, 158, 11, 0.25);
-        }
-
-     
       `}</style>
     </section>
   );

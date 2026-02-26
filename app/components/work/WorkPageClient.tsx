@@ -3,6 +3,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+import Fade from 'embla-carousel-fade';
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -34,29 +38,117 @@ export default function WorkPageClient() {
   const [active, setActive] = useState('All');
   const visible = active === 'All' ? allProjects : allProjects.filter((p) => p.filter === active);
 
+  const [emblaRef] = useEmblaCarousel({ loop: true, duration: 40 }, [
+    Autoplay({ delay: 5000, stopOnInteraction: false }),
+    Fade()
+  ]);
+
   return (
     <main>
 
       {/* ── HERO ──────────────────────────────── */}
-      <section className="relative overflow-hidden gradient-mesh force-dark" style={{ paddingTop: '120px', paddingBottom: '72px' }}>
-        <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div style={{ position: 'absolute', top: '-10%', left: '50%', transform: 'translateX(-50%)', width: '70vw', height: '50vh', background: 'radial-gradient(ellipse, rgba(26,86,219,0.12) 0%, transparent 65%)' }} />
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(var(--grid-line-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px)', backgroundSize: '72px 72px' }} />
+      <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-[var(--bg-page)] pt-[160px] pb-[120px]">
+        {/* Minimal background curves */}
+        <div aria-hidden className="absolute inset-0 pointer-events-none">
+          <svg
+            className="absolute inset-0 w-full h-full opacity-10"
+            viewBox="0 0 1000 600"
+            preserveAspectRatio="none"
+          >
+            {/* Single smooth parabolic curves */}
+            <path
+              d="M0,400 Q500,100 1000,400"
+              fill="none"
+              stroke="#1A56DB"
+              strokeWidth="2"
+            />
+            <path
+              d="M0,500 Q500,200 1000,500"
+              fill="none"
+              stroke="#06B6D4"
+              strokeWidth="1.5"
+            />
+          </svg>
         </div>
-        <div className="relative max-w-4xl mx-auto px-6 flex flex-col items-center text-center gap-6">
-          <motion.span initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }}
-            style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#06B6D4' }}>Portfolio</motion.span>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE, delay: 0.08 }}
-            style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(2rem,5vw,3.5rem)', color: 'var(--text-primary)', lineHeight: 1.1 }}>
-            Our Work Speaks for Itself.
-          </motion.h1>
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE, delay: 0.15 }}
-            className="flex flex-wrap gap-6 justify-center">
-            {['50+ Projects', '4 Departments', 'Multiple Industries'].map((s) => (
-              <span key={s} style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--text-secondary)' }}>
-                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{s.split(' ')[0]}</span>{' '}{s.split(' ').slice(1).join(' ')}
-              </span>
-            ))}
+
+        {/* Optional grid lines for subtle structure */}
+        <div aria-hidden className="absolute inset-0 pointer-events-none opacity-30">
+          <div className="mx-auto grid h-full max-w-7xl grid-cols-4 px-6">
+            <div className="h-full border-l border-[var(--grid-line-color)]" />
+            <div className="h-full border-l border-[var(--grid-line-color)]" />
+            <div className="h-full border-l border-[var(--grid-line-color)]" />
+            <div className="h-full border-l border-r border-[var(--grid-line-color)]" />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 px-6 lg:grid-cols-[1fr_450px] lg:gap-24">
+
+          {/* Left copy */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: EASE }}
+            className="flex max-w-2xl flex-col items-start gap-6"
+          >
+            <span className="font-display text-[13px] font-semibold tracking-[0.05em] text-[#1A56DB] uppercase">
+              Portfolio
+            </span>
+
+            <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[var(--text-primary)]">
+              Our Work Speaks 
+              <br />
+              for Itself.
+            </h1>
+
+            <p className="mt-2 font-body text-[18px] leading-[1.6] text-[var(--text-secondary)]">
+              We build brands that mean something, websites that convert, and campaigns that scale. Explore a selection of our recent projects.
+            </p>
+          </motion.div>
+
+          {/* Right side - Stacked & Slanted Portfolio Preview */}
+          <motion.div
+            initial={{ opacity: 0, x: 32 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
+            className="relative w-full h-[500px] flex items-center justify-center lg:justify-end mt-12 lg:mt-0"
+          >
+            {/* Subtle glow behind the stack */}
+            <div className="absolute top-1/2 right-20 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-[#1A56DB] blur-[120px] opacity-20" />
+            
+            <div className="relative w-full max-w-[480px] h-full">
+              
+              {/* Large Back Image Carousel (Straight) */}
+              <div className="absolute right-0 top-6 w-[85%] aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] transition-all duration-700 hover:-translate-y-2 z-10 group">
+                <div className="w-full h-full relative" ref={emblaRef}>
+                  <div className="flex h-full w-full">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="relative flex-[0_0_100%] h-full min-w-0">
+                        <Image src={`/portfolio/web${i === 1 ? 2 : i === 2 ? 1 : i === 3 ? 2 : 1}.png`} alt={`Project preview ${i}`} fill className="object-cover transition-transform duration-1000 group-hover:scale-105" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent opacity-80" />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
+                    <span className="font-display text-white text-2xl font-bold tracking-tight">Our Portfolio</span>
+                    <p className="font-body text-slate-300 text-sm mt-1">Stunning digital experiences</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Smaller Front Image (Straight, overlapping) */}
+              <div className="absolute left-0 bottom-12 w-[55%] aspect-[4/5] overflow-hidden rounded-2xl border-[6px] border-[var(--bg-page)] bg-[var(--bg-card)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] transition-all duration-700 hover:-translate-y-2 z-20 group">
+                <div className="w-full h-full relative">
+                  <Image src="/portfolio/web2.png" alt="Project preview" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute bottom-5 left-5 right-5 pointer-events-none">
+                    <span className="font-display text-white text-lg font-bold tracking-tight">LaunchPad UI</span>
+                    <p className="font-body text-slate-300 text-xs mt-0.5">App Design</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </motion.div>
         </div>
       </section>
