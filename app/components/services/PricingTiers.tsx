@@ -19,7 +19,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function PricingTiers({ tiers }: PricingProps) {
   return (
-    <section className="bg-[var(--bg-page)] py-28">
+    <section className="bg-[var(--bg-page)] pt-4 pb-12" >
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
@@ -30,7 +30,7 @@ export default function PricingTiers({ tiers }: PricingProps) {
           transition={{ duration: 0.6, ease: EASE }}
           className="flex flex-col items-center text-center gap-4 mb-20"
         >
-          <span className="font-[var(--font-display)] font-semibold text-xs tracking-[0.18em] uppercase text-cyan-500">
+          <span className="font-[var(--font-display)] font-semibold text-xs tracking-widest uppercase text-cyan">
             Pricing
           </span>
 
@@ -83,8 +83,10 @@ export default function PricingTiers({ tiers }: PricingProps) {
               {/* Includes */}
               <ul className="flex flex-col gap-3 text-[15px] leading-relaxed text-[var(--text-secondary)] font-[var(--font-body)]">
                 {tier.includes.map((point) => (
-                  <li key={point} className="flex gap-3">
-                    <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-cyan-500 shrink-0" />
+                  <li key={point} className="flex gap-3 items-start">
+                    <svg className="mt-1 h-4 w-4 text-electric shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
                     <span>{point}</span>
                   </li>
                 ))}
@@ -103,8 +105,8 @@ export default function PricingTiers({ tiers }: PricingProps) {
               {/* CTA */}
               <Link
                 href="/contact"
-                className={`mt-3 py-3 rounded-xl text-sm font-semibold text-center font-[var(--font-display)] ${
-                  tier.best ? 'bg-amber-500 text-black' : 'bg-blue-100 text-blue-900'
+                className={`mt-3 py-3 rounded-xl text-sm font-semibold text-center font-[var(--font-display)] transition-colors ${
+                  tier.best ? 'bg-amber-500 text-black hover:bg-amber-400' : 'bg-electric/10 text-electric hover:bg-electric hover:text-white'
                 }`}
               >
                 Get Started →

@@ -9,8 +9,8 @@ export default function AboutHero() {
       
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        <div className="absolute w-[150%] h-[250px] bg-gradient-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-        <div className="absolute w-[150%] h-[150px] bg-gradient-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+        <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
+        <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
       </div>
 
       {/* Minimal background curves */}
@@ -80,7 +80,7 @@ export default function AboutHero() {
           transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
           className="relative w-full"
         >
-          <div className="absolute -inset-4 rounded-[30px] bg-gradient-to-tr from-[#1A56DB]/20 to-[#06B6D4]/20 blur-2xl opacity-60" />
+          <div className="absolute -inset-4 rounded-[30px] bg-linear-to-tr from-[#1A56DB]/20 to-[#06B6D4]/20 blur-2xl opacity-60" />
           <div className="relative flex h-[400px] flex-col overflow-hidden rounded-[20px] border border-[var(--border-card)] bg-[var(--bg-card)] shadow-2xl">
             <div className="flex items-center gap-3 border-b border-[var(--border-card)] px-5 py-4">
               <svg className="h-4 w-4 text-[var(--text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -92,8 +92,8 @@ export default function AboutHero() {
               <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Why Choose Us</span>
             </div>
             <div className="relative flex-1 overflow-hidden p-5">
-              <div className="pointer-events-none absolute top-0 left-0 right-0 z-10 h-6 bg-gradient-to-b from-[var(--bg-card)] to-transparent" />
-              <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-10 bg-gradient-to-t from-[var(--bg-card)] to-transparent" />
+              <div className="pointer-events-none absolute top-0 left-0 right-0 z-10 h-6 bg-linear-to-b from-[var(--bg-card)] to-transparent" />
+              <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-10 bg-linear-to-t from-[var(--bg-card)] to-transparent" />
               <div className="flex flex-col gap-5 animate-[scrollList_15s_linear_infinite] hover:[animation-play-state:paused]">
                 {[
                   { id: 'results', val: 'Results-First Focus' },

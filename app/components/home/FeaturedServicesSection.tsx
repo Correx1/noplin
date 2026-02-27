@@ -98,12 +98,7 @@ function ServiceItem({ s, i }: { s: typeof services[0]; i: number }) {
 
 export default function FeaturedServicesSection() {
   return (
-    <section
-      className="
-        relative overflow-hidden bg-navy py-[140px]
-        [clip-path:polygon(0_3%,100%_0,100%_97%,0_100%)]
-      "
-    >
+    <section className="relative overflow-hidden bg-navy py-[140px] [clip-path:polygon(0_3%,100%_0,100%_97%,0_100%)]">
       {/* === BACKGROUND ART === */}
       <div className="pointer-events-none absolute inset-0">
         {/* Curved glowing paths */}
@@ -177,12 +172,7 @@ export default function FeaturedServicesSection() {
           <div className="md:col-span-2">
             <Link
               href="/services"
-              className="
-                inline-flex items-center gap-2 px-8 py-3 rounded-full
-                bg-white text-[#0D0D2B]
-                font-display font-semibold text-[14px]
-                hover:bg-white/90 transition
-              "
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white text-[#0D0D2B] font-display font-semibold text-[14px] hover:bg-white/90 transition"
             >
               View all services →
             </Link>

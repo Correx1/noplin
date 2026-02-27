@@ -254,8 +254,8 @@ body {
     0 0 24px rgba(6, 182, 212, 0.5);
 }
 
-/* Hero mesh gradient background */
-.gradient-mesh {
+/* Hero mesh linear background */
+.linear-mesh {
   background: var(--hero-radial), var(--hero-gradient);
 }
 
@@ -286,7 +286,7 @@ body {
   transform: translateY(-4px);
 }
 
-/* Electric gradient button */
+/* Electric linear button */
 .btn-electric {
   background: linear-gradient(135deg, #1A56DB 0%, #06B6D4 100%);
   color: #ffffff;

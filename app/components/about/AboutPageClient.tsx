@@ -5,6 +5,7 @@ import AboutStoryAndPurpose from './AboutStoryAndPurpose';
 import AboutPillars from './AboutPillars';
 import AboutTeam from './AboutTeam';
 import AboutValues from './AboutValues';
+import FinalCTASection from '../home/FinalCTASection';
 
 
 export default function AboutPageClient() {
@@ -16,7 +17,7 @@ export default function AboutPageClient() {
       <AboutTeam />
     
       <AboutValues />
-     
+     <FinalCTASection/>
     </main>
   );
 }

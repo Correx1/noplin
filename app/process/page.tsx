@@ -85,7 +85,7 @@ export default function ProcessPage() {
     <main>
 
       {/* Hero */}
-      <section className="relative overflow-hidden gradient-mesh force-dark" style={{ paddingTop: '120px', paddingBottom: '72px' }}>
+      <section className="relative overflow-hidden linear-mesh force-dark" style={{ paddingTop: '120px', paddingBottom: '72px' }}>
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div style={{ position: 'absolute', top: '-10%', left: '50%', transform: 'translateX(-50%)', width: '70vw', height: '50vh', background: 'radial-gradient(ellipse, rgba(26,86,219,0.12) 0%, transparent 65%)' }} />
           <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(var(--grid-line-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px)', backgroundSize: '72px 72px' }} />

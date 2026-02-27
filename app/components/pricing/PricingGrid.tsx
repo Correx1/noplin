@@ -89,7 +89,7 @@ export default function PricingGrid() {
               {activeService.tiers.map((t, i) => (
                 <div 
                   key={t.label} 
-                  className={`flex flex-col md:flex-row gap-8 md:gap-12 p-8 hover:bg-[#1A56DB]/[0.02] transition-colors ${
+                  className={`flex flex-col md:flex-row gap-8 md:gap-12 p-8 hover:bg-electric/[0.02] transition-colors ${
                     i !== activeService.tiers.length - 1 ? 'border-b border-[var(--border-card)]' : ''
                   }`}
                 >
@@ -139,7 +139,7 @@ export default function PricingGrid() {
                       href="/contact" 
                       className={`mt-4 w-full px-6 py-3 text-[15px] font-bold transition-all duration-200 rounded-lg flex items-center justify-center gap-2 ${
                         i === 1 
-                          ? 'bg-electric text-white hover:bg-[#1A56DB]/90 shadow-sm shadow-electric/20' 
+                          ? 'bg-electric text-white hover:bg-electric/90 shadow-sm shadow-electric/20' 
                           : 'bg-[var(--bg-page)] border border-[var(--border-card)] text-[var(--text-primary)] hover:bg-[var(--border-default)]'
                       }`}
                       style={{ fontFamily: 'var(--font-display)' }}

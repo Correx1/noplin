@@ -26,11 +26,11 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function AboutTeam() {
   return (
-    <section className="relative overflow-hidden bg-stone-50 py-28 sm:py-36">
+    <section className="relative overflow-hidden bg-(--bg-section-alt) py-28 sm:py-36">
 
       {/* ── Decorative background grid ── */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:48px_48px]" />
-      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-px w-2/3 bg-gradient-to-r from-transparent via-cyan-500/60 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--grid-line-color)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-line-color)_1px,transparent_1px)] bg-[size:48px_48px] opacity-50" />
+      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-px w-2/3 bg-linear-to-r from-transparent via-cyan/60 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-6">
 
@@ -59,13 +59,13 @@ export default function AboutTeam() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: EASE }}
-              className="relative mx-auto w-64 sm:w-72 lg:mx-0 lg:w-80"
+              className="relative mx-auto w-72 sm:w-80 lg:w-88"
             >
               {/* Corner accents */}
               <span className="absolute -left-3 -top-3 h-12 w-12 rounded-tl-2xl border-l-2 border-t-2 border-cyan-500" />
               <span className="absolute -bottom-3 -right-3 h-12 w-12 rounded-br-2xl border-b-2 border-r-2 border-cyan-500" />
 
-              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl">
+              <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl">
                 <Image
                   src={ceo.image}
                   alt={ceo.name}
@@ -73,7 +73,7 @@ export default function AboutTeam() {
                   className="object-cover grayscale"
                 />
                 {/* Tinted overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/70 via-zinc-900/10 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-zinc-900/70 via-zinc-900/10 to-transparent" />
               </div>
             </motion.div>
 
@@ -85,19 +85,19 @@ export default function AboutTeam() {
               transition={{ duration: 0.65, ease: EASE, delay: 0.12 }}
               className="flex flex-col gap-7 pb-6"
             >
-              <h2 className="font-serif text-5xl font-bold leading-[1.1] text-zinc-900 sm:text-6xl">
+              <h2 className="font-[var(--font-display)] text-5xl font-bold leading-[1.1] text-[var(--text-primary)] sm:text-6xl">
                 Meet the<br />
-                <span className="text-cyan-500">Visionary</span>
+                <span className="text-cyan">Visionary</span>
               </h2>
 
               <div>
-                <p className="text-2xl font-semibold text-zinc-900">{ceo.name}</p>
-                <p className="mt-1 font-mono text-xs uppercase tracking-widest text-zinc-500">
+                <p className="font-[var(--font-display)] text-2xl font-bold text-[var(--text-primary)]">{ceo.name}</p>
+                <p className="mt-1 font-[var(--font-display)] text-[11px] font-semibold uppercase tracking-widest text-cyan">
                   {ceo.role}
                 </p>
               </div>
 
-              <p className="text-base leading-relaxed text-zinc-600 max-w-md">
+              <p className="font-[var(--font-body)] text-[16px] leading-[1.6] text-[var(--text-secondary)] max-w-md">
                 {ceo.bio}
               </p>
 
@@ -129,17 +129,17 @@ export default function AboutTeam() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
-          className="mb-14 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"
+          className="mb-14 flex flex-col items-center text-center gap-4"
         >
           <div>
-            <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.25em] text-cyan-400">
+            <p className="mb-3 font-[var(--font-display)] text-[11px] font-semibold uppercase tracking-widest text-cyan">
               Our Experts
             </p>
-            <h2 className="font-serif text-4xl font-bold text-zinc-900 sm:text-5xl">
+            <h2 className="font-[var(--font-display)] text-4xl font-bold text-[var(--text-primary)] sm:text-5xl">
               The People Behind<br className="hidden sm:block" /> the Results
             </h2>
           </div>
-          <p className="max-w-xs text-sm text-zinc-500 sm:text-right">
+          <p className="max-w-md font-[var(--font-body)] text-[15px] text-[var(--text-secondary)]">
             A cross-functional team built to deliver end-to-end excellence.
           </p>
         </motion.div>
@@ -156,31 +156,31 @@ export default function AboutTeam() {
               className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 transition-all duration-500 hover:border-zinc-400"
             >
               {/* Image */}
-              <div className="relative aspect-[3/4] overflow-hidden">
+              <div className="relative aspect-4/5 overflow-hidden rounded-t-[15px]">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
                   className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/30 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#0A101D] via-[#0A101D]/40 to-transparent" />
               </div>
 
               {/* Info */}
-              <div className="absolute bottom-0 left-0 w-full px-4 py-4">
-                <p className="font-semibold text-white text-sm">{member.name}</p>
-                <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400 leading-tight">
+              <div className="absolute bottom-0 left-0 w-full px-4 py-4 rounded-b-2xl">
+                <p className="font-[var(--font-display)] font-semibold text-white text-[15px] leading-tight">{member.name}</p>
+                <p className="mt-1 font-[var(--font-display)] text-[10px] uppercase tracking-widest text-[#94A3B8]">
                   {member.role}
                 </p>
               </div>
 
               {/* Hover arrow badge */}
-              <div className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-cyan-500 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2">
-                <ArrowUpRight size={13} className="text-zinc-950" />
+              <div className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-cyan opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2">
+                <ArrowUpRight size={13} className="text-[#0D0D2B]" />
               </div>
 
               {/* Top cyan line reveal */}
-              <span className="absolute left-0 top-0 h-0.5 w-0 bg-cyan-500 transition-all duration-500 group-hover:w-full" />
+              <span className="absolute left-0 top-0 h-[2px] w-0 bg-cyan transition-all duration-500 group-hover:w-full z-10" />
             </motion.div>
           ))}
         </div>

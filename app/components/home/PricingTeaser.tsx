@@ -82,13 +82,7 @@ export default function PricingTeaser() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, ease: EASE, delay: i * 0.12 }}
-              className={`
-                relative flex flex-col gap-8 p-9 rounded-3xl border
-                shadow-[var(--shadow-card-theme)]
-                ${tier.highlight
-                  ? 'bg-amber-500/5 border-amber-400/60'
-                  : 'bg-[var(--bg-card)] border-[var(--border-card)]'}
-              `}
+              className={`relative flex flex-col gap-8 p-9 rounded-3xl border shadow-[var(--shadow-card-theme)] ${tier.highlight ? 'bg-amber-500/5 border-amber-400/60' : 'bg-[var(--bg-card)] border-[var(--border-card)]'}`}
             >
               {tier.badge && (
                 <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-[#0D0D2B] px-5 py-1.5 rounded-full text-[11px] font-extrabold tracking-widest font-[var(--font-display)]">

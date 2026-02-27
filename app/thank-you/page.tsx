@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <main
-      className="min-h-screen flex items-center justify-center px-6 gradient-mesh force-dark"
+      className="min-h-screen flex items-center justify-center px-6 linear-mesh force-dark"
     >
       <div className="flex flex-col items-center text-center gap-8 max-w-xl">
 

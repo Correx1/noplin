@@ -24,12 +24,11 @@ const trustBadges = [
 export default function HeroSection() {
   return (
     <section
-      className="relative flex items-center overflow-hidden gradient-mesh force-dark"
+      className="relative flex items-center overflow-hidden linear-mesh force-dark"
       style={{ paddingTop: '72px', minHeight: '82vh' }}
     >
       {/* ── Background layers ───────────────────────────────── */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0 bg-navy overflow-hidden">
-        
         {/* Moving Background Image */}
         <div className="absolute inset-0 w-[110%] h-[110%] -top-[5%] -left-[5%] animate-[panRight_30s_ease-in-out_infinite]">
           <Image
@@ -41,11 +40,11 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Perfect Gradient Overlays */}
-        {/* Horizontal gradient mapping from solid navy to transparent */}
+        {/* Perfect Linear Overlays */}
+        {/* Horizontal linear mapping from solid navy to transparent */}
         <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/90 to-transparent" />
         
-        {/* Subtle vertical gradient for depth */}
+        {/* Subtle vertical linear for depth */}
         <div className="absolute inset-0 bg-linear-to-t from-navy via-transparent to-navy/70" />
 
         {/* --- COLORFUL BACKGROUND SWOOP (Blended for Dark Theme) --- */}
@@ -53,7 +52,6 @@ export default function HeroSection() {
           <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-transparent via-[#1A56DB] to-[#06B6D4] opacity-30 blur-[60px] -rotate-12 translate-y-10" />
           <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-[#1A56DB] to-transparent opacity-20 blur-[50px] -rotate-12 translate-y-36 translate-x-[5%]" />
         </div>
-
         {/* Grid overlay for texture */}
         <div
           className="absolute inset-0 mix-blend-overlay opacity-20"
@@ -70,10 +68,8 @@ export default function HeroSection() {
       {/* ── Content ────────────────────────────────────────── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-28 w-full">
         <div className="max-w-2xl lg:max-w-4xl">
-
           {/* Left — copy */}
           <div className="flex flex-col items-start gap-6">
-
             {/* Badge */}
             <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium border border-cyan-400/40 bg-cyan-400/[0.08] text-cyan-400 font-body tracking-[0.02em]">
@@ -168,11 +164,8 @@ export default function HeroSection() {
               ))}
             </motion.div>
           </div>
-
         </div>
       </div>
-     
-
       {/* Background Pan Animation CSS injected */}
       <style>{`
         @keyframes panRight {

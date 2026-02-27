@@ -61,14 +61,7 @@ export default function PortfolioTeaser() {
               transition={{ duration: 0.7, ease: EASE }}
               className="relative overflow-hidden rounded-lg bg-[var(--bg-card)] shadow-sm"
             >
-              <div
-                className={`
-                  relative z-10 flex min-h-[420px]
-                  flex-row
-                  ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}
-                  max-md:flex-col
-                `}
-              >
+              <div className={`relative z-10 flex min-h-[420px] flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} max-md:flex-col`}>
                 {/* Image — always first on mobile */}
                 <div className="w-[56%] max-md:w-full">
                   <div className="w-full p-4">

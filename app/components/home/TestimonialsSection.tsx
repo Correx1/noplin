@@ -70,13 +70,7 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: EASE, delay: i * 0.12 }}
-              className="
-                flex flex-col gap-5 p-7
-                bg-[var(--bg-card)]
-                border border-[var(--border-card)]
-                rounded-2xl
-                shadow-[var(--shadow-card-theme)]
-              "
+              className="flex flex-col gap-5 p-7 bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl shadow-[var(--shadow-card-theme)]"
             >
               <Stars />
 

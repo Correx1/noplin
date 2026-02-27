@@ -14,10 +14,10 @@ export default function PricingHero() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
         {/* Electric blue and navy angled slash */}
         <div 
-          className="absolute w-[150%] h-[250px] bg-gradient-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10"
+          className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10"
         />
         <div 
-          className="absolute w-[150%] h-[150px] bg-gradient-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]"
+          className="absolute w-[150%] h-[150px] bg-linear-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]"
         />
       </div>
 

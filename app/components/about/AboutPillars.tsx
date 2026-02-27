@@ -48,10 +48,10 @@ export default function AboutPillars() {
           fill="none"
         >
           <defs>
-            <linearGradient id="curveGrad" x1="0" y1="0" x2="1" y2="1">
+            <linearLinear id="curveGrad" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#22D3EE" />
               <stop offset="100%" stopColor="#3B82F6" />
-            </linearGradient>
+            </linearLinear>
             <filter id="glow">
               <feGaussianBlur stdDeviation="6" result="blur" />
               <feMerge>

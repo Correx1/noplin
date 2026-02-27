@@ -8,8 +8,8 @@ export default function BlogHero() {
       
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        <div className="absolute w-[150%] h-[250px] bg-gradient-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-        <div className="absolute w-[150%] h-[150px] bg-gradient-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+        <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-electric to-cyan opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
+        <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
       </div>
 
       {/* Minimal background curves */}
@@ -54,7 +54,7 @@ export default function BlogHero() {
           transition={{ duration: 0.65, ease: EASE }}
           className="flex max-w-2xl flex-col items-start gap-5"
         >
-          <span className="font-display text-[13px] font-semibold tracking-[0.05em] text-[#1A56DB] uppercase">
+          <span className="font-display text-[13px] font-semibold tracking-widest text-electric uppercase">
             Noplin Insights
           </span>
 
@@ -75,7 +75,7 @@ export default function BlogHero() {
            className="hidden lg:flex"
         >
           <div
-            className="group relative flex h-56 w-56 cursor-pointer items-center justify-center rounded-full border border-[var(--border-card)] bg-transparent shadow-sm transition-all duration-500 hover:border-[#1A56DB] hover:bg-[var(--bg-card)] hover:shadow-lg hover:shadow-[#1A56DB]/10"
+            className="group relative flex h-56 w-56 cursor-pointer items-center justify-center rounded-full border border-[var(--border-card)] bg-transparent shadow-sm transition-all duration-500 hover:border-electric hover:bg-[var(--bg-card)] hover:shadow-lg hover:shadow-electric/10"
             onClick={() => {
               window.scrollTo({ top: window.innerHeight * 0.7, behavior: 'smooth' });
             }}
@@ -85,7 +85,7 @@ export default function BlogHero() {
                   Read Latest<br />Insights
                 </span>
                 <svg 
-                  className="h-6 w-6 text-[var(--text-muted)] transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#1A56DB]" 
+                  className="h-6 w-6 text-[var(--text-muted)] transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-electric" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"

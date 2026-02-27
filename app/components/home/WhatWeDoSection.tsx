@@ -63,10 +63,7 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
       {/* Grid texture */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none z-0
-                   bg-[linear-gradient(var(--grid-line-color)_1px,transparent_1px),
-                       linear-gradient(90deg,var(--grid-line-color)_1px,transparent_1px)]
-                   bg-[size:52px_52px]"
+        className="absolute inset-0 pointer-events-none z-0 bg-[linear-gradient(var(--grid-line-color)_1px,transparent_1px),linear-gradient(90deg,var(--grid-line-color)_1px,transparent_1px)] bg-[size:52px_52px]"
       />
 
       <div className="relative z-10 flex service-inner">

@@ -10,8 +10,8 @@ export default function WorkHero() {
     <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-[var(--bg-page)] pt-[140px] pb-[100px] sm:pt-[160px] sm:pb-[120px]">
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        <div className="absolute w-[150%] h-[250px] bg-gradient-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-        <div className="absolute w-[150%] h-[150px] bg-gradient-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+        <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
+        <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
       </div>
 
       {/* Minimal background curves */}
@@ -55,7 +55,7 @@ export default function WorkHero() {
           transition={{ duration: 0.65, ease: EASE }}
           className="flex max-w-2xl flex-col items-start gap-6"
         >
-          <span className="font-display text-[13px] font-semibold uppercase tracking-[0.05em] text-[#1A56DB]">
+          <span className="font-display text-[13px] font-semibold uppercase tracking-widest text-electric">
             Portfolio
           </span>
 
@@ -79,7 +79,7 @@ export default function WorkHero() {
           className="relative mt-10 flex w-full items-center justify-center lg:mt-0 lg:justify-end"
         >
           {/* Subtle glow */}
-          <div className="absolute right-16 top-1/2 h-[320px] w-[320px] -translate-y-1/2 rounded-full bg-[#1A56DB] opacity-15 blur-[140px]" />
+          <div className="absolute right-16 top-1/2 h-[320px] w-[320px] -translate-y-1/2 rounded-full bg-electric opacity-15 blur-[140px]" />
 
           {/* Image container */}
           <div className="relative w-full overflow-hidden rounded  bg-[--bg-card] shadow-[0_16px_36px_-20px_rgba(0,0,0,0.35)]

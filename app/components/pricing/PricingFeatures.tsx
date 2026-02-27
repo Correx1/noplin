@@ -109,8 +109,7 @@ export default function PricingFeatures() {
             </p>
             <Link 
               href="/contact" 
-              className="mt-8 inline-flex bg-electric text-white px-6 py-3 rounded-full font-bold items-center gap-2 hover:bg-[#1A56DB]/90 transition-colors shadow-lg shadow-electric/20"
-              style={{ fontFamily: 'var(--font-display)' }}
+              className="mt-8 inline-flex bg-electric text-white px-6 py-3 rounded-full font-bold items-center gap-2 hover:bg-electric/90 transition-colors shadow-lg shadow-electric/20 font-display"
             >
               Contact sales <span className="font-normal text-[18px] leading-none mb-0.5">›</span>
             </Link>
@@ -202,8 +201,8 @@ export default function PricingFeatures() {
             >
               {/* Icon */}
               <div className="text-electric mb-6 flex items-center justify-center p-3 rounded-xl bg-[var(--border-default)] w-14 h-14 relative">
-                {/* Subtle gradient behind icon */}
-                <div className="absolute inset-0 bg-gradient-to-br from-electric/20 to-transparent rounded-xl opacity-50" />
+                {/* Subtle linear behind icon */}
+                <div className="absolute inset-0 bg-linear-to-br from-electric/20 to-transparent rounded-xl opacity-50" />
                 <div className="relative z-10">{feature.icon}</div>
               </div>
 

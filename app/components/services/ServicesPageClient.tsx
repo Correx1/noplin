@@ -4,6 +4,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import FinalCTASection from '../home/FinalCTASection';
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -52,17 +53,28 @@ function ServiceCard({ s }: { s: any }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5, ease: EASE }}
-      className="group flex flex-col gap-4 p-6 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white"
+      className="group flex flex-col gap-4 p-8 border border-[var(--border-card)] rounded-2xl shadow-[var(--shadow-card-theme)] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-[var(--bg-card)] cursor-pointer"
     >
-      <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{s.name}</h3>
-      <p className="text-sm sm:text-base text-gray-700 flex-1">{s.desc}</p>
-      <div className="flex items-center gap-3 text-sm text-gray-700">
-        <span>{s.price}</span>
-        <span className="w-1 h-1 rounded-full bg-gray-300" />
+      <h3 className="text-xl font-bold text-[var(--text-primary)] font-[var(--font-display)] leading-tight tracking-tight">{s.name}</h3>
+      <p className="text-[15px] sm:text-base text-[var(--text-secondary)] font-[var(--font-body)] leading-relaxed flex-1">{s.desc}</p>
+      
+      <div className="flex items-center gap-3 text-[13px] text-[var(--text-secondary)] font-[var(--font-body)] font-medium mt-2">
+        <span className="px-3 py-1 bg-[var(--bg-page)] rounded-full border border-[var(--border-default)]">{s.price}</span>
+        <span className="w-1.5 h-1.5 rounded-full bg-[var(--text-muted)] shrink-0" />
         <span>{s.turnaround}</span>
       </div>
-      <Link href={s.href} className="text-blue-600 font-semibold mt-2 hover:underline text-sm sm:text-base">
-        Learn More →
+
+      <Link href={s.href} className="text-electric font-[var(--font-display)] tracking-wider font-semibold mt-4 hover:text-cyan text-sm sm:text-base transition-colors duration-200 flex items-center gap-2">
+        Learn More 
+        <svg 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor" 
+          strokeWidth={2}
+          className="w-4 h-4 transition-transform group-hover:translate-x-1"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
       </Link>
     </motion.div>
   );
@@ -77,8 +89,8 @@ export default function ServicesPageClient() {
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-[var(--bg-page)] pt-[160px] pb-[120px]">
         {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-          <div className="absolute w-[150%] h-[250px] bg-gradient-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-          <div className="absolute w-[150%] h-[150px] bg-gradient-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+          <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-electric to-cyan opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
+          <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
         </div>
 
         {/* Minimal background curves (From AboutHero for uniformity) */}
@@ -123,18 +135,17 @@ export default function ServicesPageClient() {
             transition={{ duration: 0.65, ease: EASE }}
             className="flex max-w-2xl flex-col items-start gap-4"
           >
-            <span className="font-display text-[13px] font-semibold tracking-[0.05em] text-[#1A56DB] uppercase">
+            <span className="font-[var(--font-display)] text-[13px] font-semibold tracking-widest text-electric uppercase">
               Our Services
             </span>
 
-            <h1 className="font-display text-[clamp(2.5rem,5vw,5.5rem)] font-extrabold leading-[1] tracking-[-0.03em] text-[var(--text-primary)] uppercase">
+            <h1 className="font-[var(--font-display)] text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-tight text-[var(--text-primary)]">
               We Provide
-            </h1>
-            <h1 className="font-display text-[clamp(2.5rem,5vw,5.5rem)] font-extrabold leading-[1] tracking-[-0.03em] text-[var(--text-primary)] uppercase">
+              <br/>
               Smart Solutions.
             </h1>
 
-            <p className="mt-4 font-body text-[18px] leading-[1.6] text-[var(--text-secondary)]">
+            <p className="mt-4 font-[var(--font-body)] text-[18px] leading-[1.6] text-[var(--text-secondary)]">
               Strategists dedicated to creating stunning, functional digital experiences that align with your unique business goals. 15 specialized services across 4 departments.
             </p>
           </motion.div>
@@ -147,7 +158,7 @@ export default function ServicesPageClient() {
             className="hidden lg:flex"
           >
             <div
-              className="group relative flex h-56 w-56 cursor-pointer items-center justify-center rounded-full border border-[var(--border-card)] bg-transparent shadow-sm transition-all duration-500 hover:border-[#1A56DB] hover:bg-[var(--bg-card)] hover:shadow-lg hover:shadow-[#1A56DB]/10"
+              className="group relative flex h-56 w-56 cursor-pointer items-center justify-center rounded-full border border-[var(--border-card)] bg-transparent shadow-sm transition-all duration-500 hover:border-electric hover:bg-[var(--bg-card)] hover:shadow-lg hover:shadow-electric/10"
               onClick={() => {
                 const firstDept = document.getElementById(departments[0].id);
                 if (firstDept) {
@@ -160,7 +171,7 @@ export default function ServicesPageClient() {
                   View All<br />Solutions
                 </span>
                 <svg 
-                  className="h-6 w-6 text-[var(--text-muted)] transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#1A56DB]" 
+                  className="h-6 w-6 text-[var(--text-muted)] transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-electric" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
@@ -174,22 +185,23 @@ export default function ServicesPageClient() {
       </section>
 
       {/* ── SERVICE SECTIONS ────────────────────── */}
-      <div className="py-16">
-        {departments.map((dept) => (
-          <section key={dept.id} id={dept.id} ref={(el) => { sectionRefs.current[dept.id] = el; }} className="mb-20">
+      <div className="py-24 bg-[var(--bg-page)] relative z-10 w-full overflow-hidden">
+        {departments.map((dept, idx) => (
+          <section key={dept.id} id={dept.id} ref={(el) => { sectionRefs.current[dept.id] = el; }} className={idx !== departments.length - 1 ? "mb-28" : "mb-16"}>
             <div className="max-w-7xl mx-auto px-6">
-              <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: EASE }} className="mb-10">
-                <span className="text-sm sm:text-base font-semibold uppercase tracking-widest text-gray-900 mb-2 block">{dept.label}</span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{dept.headline}</h2>
-                <p className="text-gray-700 text-base sm:text-lg">{dept.sub}</p>
+              <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: EASE }} className="mb-12 flex flex-col gap-3">
+                <span className="text-sm font-[var(--font-display)] font-semibold uppercase tracking-widest text-electric">{dept.label}</span>
+                <h2 className="text-3xl sm:text-4xl font-[var(--font-display)] font-bold text-[var(--text-primary)] tracking-tight">{dept.headline}</h2>
+                <p className="text-[var(--text-secondary)] font-[var(--font-body)] text-base sm:text-lg leading-relaxed max-w-2xl">{dept.sub}</p>
               </motion.div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {dept.services.map((s) => <ServiceCard key={s.name} s={s} />)}
               </div>
             </div>
           </section>
         ))}
       </div>
+         <FinalCTASection/>
     </main>
   );
 }

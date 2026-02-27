@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import ThemeToggle from '../ui/ThemeToggle';
 import Image from 'next/image';
 
 const megaMenu = [
@@ -60,17 +60,11 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const [servicesExpanded, setServicesExpanded] = useState(false);
   const megaTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
@@ -91,11 +85,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 ${
-          scrolled
-            ? 'bg-white/80 backdrop-blur-md border-b border-gray-200'
-            : 'bg-transparent border-b border-transparent'
-        }`}
+        className="sticky top-0 z-[100] w-full transition-all duration-300 py-3 bg-[var(--bg-page)] border-b border-[var(--border-default)] shadow-xs"
         style={{ height: '72px' }}
       >
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
@@ -111,7 +101,11 @@ export default function Navbar() {
             <div className="relative" onMouseEnter={openMega} onMouseLeave={closeMega}>
               <Link
                 href="/services"
-                className="flex items-center gap-1 px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg transition-colors duration-200 font-sans"
+                className={`flex items-center gap-1.5 px-4 py-2 text-[14px] font-medium rounded-lg transition-colors duration-200 font-sans ${
+                  pathname?.startsWith('/services') || megaOpen
+                    ? 'text-[var(--text-primary)] bg-[var(--bg-card)]'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+                }`}
               >
                 Services
                 <svg
@@ -135,12 +129,12 @@ export default function Navbar() {
                     transition={{ duration: 0.18, ease: 'easeOut' }}
                     onMouseEnter={openMega}
                     onMouseLeave={closeMega}
-                    className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[760px] bg-white border border-gray-200 rounded-xl shadow-lg p-7"
+                    className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[840px] bg-[var(--bg-page)] border border-[var(--border-default)] rounded-2xl shadow-xl p-8"
                   >
-                    <div className="grid grid-cols-4 gap-6">
+                    <div className="grid grid-cols-4 gap-8">
                       {megaMenu.map((col) => (
                         <div key={col.heading}>
-                          <p className="mb-3 text-xs uppercase tracking-widest text-cyan-500 font-semibold">
+                          <p className="mb-3 text-xs uppercase tracking-widest text-[#1A56DB] font-semibold">
                             {col.heading}
                           </p>
                           <ul className="space-y-1.5">
@@ -149,9 +143,15 @@ export default function Navbar() {
                                 <Link
                                   href={svc.href}
                                   onClick={() => setMegaOpen(false)}
-                                  className="flex items-center gap-2 text-[13px] text-gray-500 hover:text-gray-900 transition-colors duration-150"
+                                  className={`flex items-center gap-2 px-3 py-2 -ml-3 rounded-lg text-[13.5px] font-medium transition-colors duration-150 group ${
+                                    pathname === svc.href
+                                      ? 'text-[#1A56DB] bg-[var(--bg-card)]'
+                                      : 'text-[var(--text-secondary)] hover:text-[#1A56DB] hover:bg-[var(--bg-card)]'
+                                  }`}
                                 >
-                                  <span className="w-1 h-1 rounded-full bg-transparent group-hover:bg-cyan-400 transition-colors shrink-0" />
+                                  <span className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${
+                                    pathname === svc.href ? 'bg-[#06B6D4]' : 'bg-transparent group-hover:bg-[#06B6D4]'
+                                  }`} />
                                   {svc.label}
                                 </Link>
                               </li>
@@ -162,12 +162,12 @@ export default function Navbar() {
                     </div>
 
                     {/* Bottom CTA */}
-                    <div className="mt-6 pt-5 border-t border-gray-200 flex items-center justify-between">
-                      <p className="text-xs text-gray-500">
+                    <div className="mt-6 pt-5 border-t border-[var(--border-default)] flex items-center justify-between">
+                      <p className="text-xs text-[var(--text-secondary)]">
                         Not sure what you need?{' '}
                         <Link
                           href="/contact"
-                          className="text-cyan-400 hover:underline"
+                          className="text-[#1A56DB] hover:text-[#06B6D4] hover:underline transition-colors"
                           onClick={() => setMegaOpen(false)}
                         >
                           Lets talk →
@@ -175,7 +175,7 @@ export default function Navbar() {
                       </p>
                       <Link
                         href="/services"
-                        className="text-xs font-semibold text-cyan-500 hover:text-cyan-400 transition-colors"
+                        className="text-xs font-semibold text-[#1A56DB] hover:text-[#06B6D4] transition-colors"
                         onClick={() => setMegaOpen(false)}
                       >
                         View all services →
@@ -186,15 +186,21 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            {navLinks.map((link) => (
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || pathname?.startsWith(`${link.href}/`);
+              return (
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm text-gray-500 hover:text-gray-900 transition-colors duration-200 rounded-lg font-sans"
+                className={`px-4 py-2 text-[14px] font-medium transition-colors duration-200 rounded-lg font-sans ${
+                  isActive
+                    ? 'text-[var(--text-primary)] bg-[var(--bg-card)]'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+                }`}
               >
                 {link.label}
               </Link>
-            ))}
+            )})}
           </nav>
 
           {/* ThemeToggle + CTA + Hamburger */}
@@ -203,7 +209,7 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className="hidden lg:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white rounded-lg transition-all duration-200 bg-cyan-500 hover:bg-cyan-600 shadow-md"
+              className="hidden lg:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white rounded-lg transition-all duration-200 bg-[#1A56DB] hover:bg-[#06B6D4] shadow-md"
             >
               Get a Free Quote
             </Link>
@@ -242,17 +248,17 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-0 z-40 flex flex-col bg-white pt-18"
+            className="fixed inset-0 z-40 flex flex-col bg-[var(--bg-page)] pt-[72px]"
           >
             <div className="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-2">
 
               {/* Services Accordion with Link + Toggle */}
-              <div className="border-b border-gray-200">
+              <div className="border-b border-[var(--border-default)]">
                 <div className="flex w-full items-center justify-between">
                   <Link
                     href="/services"
                     onClick={() => setMobileOpen(false)}
-                    className="flex-1 py-3 text-xl font-semibold text-gray-900"
+                    className="flex-1 py-3 text-xl font-semibold text-[var(--text-primary)]"
                   >
                     Services
                   </Link>
@@ -289,9 +295,9 @@ export default function Navbar() {
                           <Link
                             href={svc.href}
                             onClick={() => setMobileOpen(false)}
-                            className="flex items-center gap-3 py-2.5 pl-6 text-sm text-gray-500 hover:text-gray-900 transition-colors border-b border-gray-200"
+                            className="flex items-center gap-3 py-2.5 pl-6 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors border-b border-[var(--border-card)] last:border-0"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] shrink-0" />
                             {svc.label}
                           </Link>
                         </li>
@@ -302,24 +308,28 @@ export default function Navbar() {
               </div>
 
               {/* Other Nav Links */}
-              {navLinks.map((link) => (
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href || pathname?.startsWith(`${link.href}/`);
+                return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="py-3 text-xl font-semibold text-gray-900 transition-colors border-b border-gray-200"
+                  className={`py-3 text-xl font-semibold transition-colors border-b border-[var(--border-default)] ${
+                    isActive ? 'text-[#1A56DB]' : 'text-[var(--text-primary)] hover:text-[#1A56DB]'
+                  }`}
                 >
                   {link.label}
                 </Link>
-              ))}
+              )})}
             </div>
 
             {/* Mobile CTA */}
-            <div className="px-6 pb-10 pt-4 border-t border-gray-200">
+            <div className="px-6 pb-10 pt-4 border-t border-[var(--border-default)] mt-auto">
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-center w-full py-4 text-base font-semibold text-white rounded-xl transition-all bg-gradient-to-r from-blue-600 to-cyan-400 shadow-md"
+                className="flex items-center justify-center w-full py-4 text-[15px] font-semibold text-white rounded-xl transition-all bg-[#1A56DB] hover:bg-[#06B6D4] shadow-md"
               >
                 Get a Free Quote
               </Link>

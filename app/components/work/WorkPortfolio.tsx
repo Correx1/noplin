@@ -213,15 +213,14 @@ export default function WorkPortfolio() {
   return (
     <>
       {/* ── FILTER TABS ────────────────────────── */}
-      <div className="sticky top-[72px] z-40" style={{ background: 'var(--bg-navbar)', backdropFilter: 'blur(16px)', borderBottom: '1px solid var(--border-default)' }}>
+      <div className="sticky top-[72px] z-40 bg-[var(--bg-navbar)] backdrop-blur-md border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-2 overflow-x-auto py-4 scrollbar-hide">
             {filters.map((f) => (
               <button key={f} onClick={() => setActive(f)}
-                className="flex-shrink-0 px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-150"
-                style={{ fontFamily: 'var(--font-display)', background: active === f ? '#1A56DB' : 'transparent', color: active === f ? '#fff' : 'var(--text-secondary)' }}
-                onMouseEnter={(e) => { if (active !== f) (e.currentTarget as HTMLElement).style.color = 'var(--text-primary)'; }}
-                onMouseLeave={(e) => { if (active !== f) (e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)'; }}>
+                className={`flex-shrink-0 px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 font-[var(--font-display)] ${
+                  active === f ? 'bg-[#1A56DB] text-white' : 'bg-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}>
                 {f}
               </button>
             ))}
@@ -250,12 +249,17 @@ export default function WorkPortfolio() {
               {/* Content Side */}
               <div className="w-full lg:w-2/5 flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
-                  <span style={{ alignSelf: 'flex-start', fontSize: '12px', padding: '4px 12px', borderRadius: '99px', background: `${tagColors[cs.tag] ?? '#1A56DB'}18`, color: tagColors[cs.tag] ?? '#1A56DB', fontFamily: 'var(--font-display)', fontWeight: 600 }}>{cs.tag}</span>
-                  <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', color: 'var(--text-primary)', lineHeight: 1.1 }}>{cs.name}</h3>
-                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--text-secondary)' }}>Client: {cs.client}</p>
+                  <span
+                    className="self-start text-[12px] px-3 py-1 rounded-full font-[var(--font-display)] font-semibold"
+                    style={{ background: `${tagColors[cs.tag] ?? '#1A56DB'}18`, color: tagColors[cs.tag] ?? '#1A56DB' }}
+                  >
+                    {cs.tag}
+                  </span>
+                  <h3 className="font-[var(--font-display)] font-bold text-[clamp(1.75rem,3vw,2.25rem)] text-[var(--text-primary)] leading-[1.1]">{cs.name}</h3>
+                  <p className="font-[var(--font-body)] text-[15px] text-[var(--text-secondary)]">Client: {cs.client}</p>
                 </div>
 
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                <p className="font-[var(--font-body)] text-[16px] text-[var(--text-secondary)] leading-[1.6]">
                   {cs.description}
                 </p>
 
@@ -267,12 +271,12 @@ export default function WorkPortfolio() {
                           <circle cx="12" cy="12" r="8" />
                         </svg>
                       </div>
-                      <span style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--text-secondary)' }}>{highlight}</span>
+                      <span className="font-[var(--font-body)] text-[15px] text-[var(--text-secondary)]">{highlight}</span>
                     </li>
                   ))}
                 </ul>
 
-                <Link href={`/work/${cs.slug}`} className="mt-6 px-7 py-3 border border-[var(--border-default)] hover:border-[var(--accent)] hover:text-[#06B6D4] text-[var(--text-primary)] transition-all inline-flex items-center justify-center gap-2 self-start font-semibold rounded-lg text-sm bg-[var(--bg-card)] shadow-sm group" style={{ fontFamily: 'var(--font-display)' }}>
+                <Link href={`/work/${cs.slug}`} className="mt-6 px-7 py-3 border border-[var(--border-default)] hover:border-[var(--accent)] hover:text-[#06B6D4] text-[var(--text-primary)] transition-all inline-flex items-center justify-center gap-2 self-start font-semibold rounded-lg text-sm bg-[var(--bg-card)] shadow-[var(--shadow-card-theme)] group font-[var(--font-display)]">
                   Read Case Study
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </Link>
@@ -283,7 +287,7 @@ export default function WorkPortfolio() {
 
         {visible.length === 0 && (
           <div className="py-24 text-center">
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--text-secondary)' }}>No case studies found for this category.</p>
+            <p className="font-[var(--font-body)] text-[16px] text-[var(--text-secondary)]">No case studies found for this category.</p>
           </div>
         )}
       </section>

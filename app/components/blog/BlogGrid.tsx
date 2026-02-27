@@ -40,35 +40,35 @@ export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
                   {p.categories?.map((cat: string) => (
                     <span 
                       key={cat}
-                      style={{ fontSize: '11px', fontFamily: 'var(--font-display)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: categoryColors[cat] ?? '#06B6D4' }}
-                      className="px-3 py-1 bg-[var(--bg-page)] rounded-sm border border-[var(--border-default)]"
+                      style={{ color: categoryColors[cat] ?? 'var(--color-cyan)' }}
+                      className="px-3 py-1 bg-[var(--bg-page)] rounded-sm border border-[var(--border-default)] font-[var(--font-display)] text-[11px] font-semibold tracking-widest uppercase"
                     >
                       {cat}
                     </span>
                   ))}
                 </div>
                 
-                <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(1.15rem, 2vw, 1.35rem)', color: 'var(--text-primary)', lineHeight: 1.3 }}>
-                  <Link href={p.href} className="hover:text-[#1A56DB] transition-colors duration-200">
+                <h3 className="font-[var(--font-display)] font-bold text-[clamp(1.15rem,2vw,1.35rem)] text-[var(--text-primary)] leading-[1.3]">
+                  <Link href={p.href} className="hover:text-electric transition-colors duration-200">
                     {p.title}
                   </Link>
                 </h3>
                 
-                <p className="line-clamp-2" style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                <p className="line-clamp-2 font-[var(--font-body)] text-[14px] text-[var(--text-secondary)] leading-[1.6]">
                   {p.excerpt || 'Read this article to learn more.'}
                 </p>
                 
-                <div className="flex flex-wrap items-center gap-3 mt-1" style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--text-primary)' }}>
+                <div className="flex flex-wrap items-center gap-3 mt-1 font-[var(--font-body)] text-[12px] text-[var(--text-primary)]">
                   <span className="font-semibold">{p.author?.name || 'Noplin Team'}</span>
-                  <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--text-muted)' }} />
-                  <span style={{ color: 'var(--text-secondary)' }}>
+                  <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
+                  <span className="text-[var(--text-secondary)]">
                     {p.date ? new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Unknown Date'}
                   </span>
-                  <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--text-muted)' }} />
-                  <span style={{ color: 'var(--text-secondary)' }}>{p.readTime || '5 min read'}</span>
+                  <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
+                  <span className="text-[var(--text-secondary)]">{p.readTime || '5 min read'}</span>
                 </div>
 
-                <Link href={p.href} style={{ fontFamily: 'var(--font-display)' }} className="mt-3 font-semibold text-[13px] text-[var(--accent)] hover:text-[#06B6D4] flex items-center gap-2 group/btn self-start transition-colors duration-200">
+                <Link href={p.href} className="mt-3 font-[var(--font-display)] font-semibold text-[13px] text-[var(--accent)] hover:text-cyan flex items-center gap-2 group/btn self-start transition-colors duration-200">
                   Read More
                   <span className="transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
                 </Link>
@@ -94,7 +94,7 @@ export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
             <div className="flex justify-center mt-6">
               <button 
                 onClick={() => setVisibleCount(v => v + 3)}
-                className="px-8 py-3 rounded-xl border border-[var(--border-default)] hover:border-[#1A56DB] hover:text-[#1A56DB] text-[var(--text-primary)] font-semibold transition-all duration-200 text-sm bg-[var(--bg-card)] shadow-sm font-display flex items-center gap-2 group"
+                className="px-8 py-3 rounded-xl border border-[var(--border-default)] hover:border-electric hover:text-electric text-[var(--text-primary)] font-[var(--font-display)] font-semibold transition-all duration-200 text-sm bg-[var(--bg-card)] shadow-sm flex items-center gap-2 group"
               >
                 Load More Articles
                 <svg className="w-4 h-4 transition-transform group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,8 +109,8 @@ export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
         <div className="lg:col-span-4">
           <div className="sticky top-[100px] flex flex-col p-8 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-sm">
             <div className="border-b border-[var(--border-card)] pb-5 mb-6 flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-[#1A56DB]" />
-              <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '18px', color: 'var(--text-primary)' }}>
+              <div className="w-2 h-2 rounded-full bg-electric" />
+              <h3 className="font-[var(--font-display)] font-bold text-[18px] text-[var(--text-primary)]">
                 Other Available Articles
               </h3>
             </div>
@@ -120,12 +120,12 @@ export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
                 <Link key={post.id} href={post.href} className="group flex flex-col gap-2">
                   <div className="flex flex-wrap gap-1">
                     {post.categories?.slice(0, 2).map((cat: string) => (
-                      <span key={cat} style={{ fontSize: '10px', fontFamily: 'var(--font-display)', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: categoryColors[cat] ?? '#06B6D4' }}>
+                      <span key={cat} className="font-[var(--font-display)] font-semibold text-[10px] tracking-widest uppercase" style={{ color: categoryColors[cat] ?? 'var(--color-cyan)' }}>
                         {cat}
                       </span>
                     ))}
                   </div>
-                  <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '15px', color: 'var(--text-primary)', lineHeight: 1.4 }} className="transition-colors duration-200 group-hover:text-[#1A56DB]">
+                  <h4 className="font-[var(--font-display)] font-semibold text-[15px] text-[var(--text-primary)] leading-[1.4] transition-colors duration-200 group-hover:text-electric">
                     {post.title}
                   </h4>
                 </Link>

@@ -15,67 +15,21 @@ const track = [...clients, ...clients];
 
 export default function SocialProofStrip() {
   return (
-    <section
-      className="
-        overflow-hidden
-        bg-[var(--bg-section)]
-        border-y border-[var(--border-default)]
-        py-7
-      "
-    >
-      {/* Label */}
-      <p
-        className="
-          text-center mb-5
-          font-[var(--font-body)]
-          text-[11px]
-          tracking-[0.12em]
-          uppercase
-          text-[var(--text-muted)]
-        "
-      >
+    <section className="overflow-hidden bg-[var(--bg-section)] border-y border-[var(--border-default)] py-7">
+      <p className="text-center mb-5 font-[var(--font-body)] text-[11px] tracking-widest uppercase text-[var(--text-muted)]">
         Trusted By 
       </p>
 
       {/* Slider with faded edges */}
-      <div
-        className="
-          overflow-hidden
-         mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]
-          [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]
-        "
-      >
-        <div
-          className="
-            logo-track
-            flex
-            w-max
-          "
-        >
+      <div className="overflow-hidden mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="logo-track flex w-max">
           {track.map((c, i) => (
-            <div
-              key={i}
-              className="
-                flex items-center justify-center
-                shrink-0
-                w-[140px] h-[44px]
-                mx-6
-              "
-            >
+              <div key={i} className="flex items-center justify-center shrink-0 w-[140px] h-[44px] mx-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={c.svg}
                 alt={c.name}
-                className="
-                  max-w-[110px]
-                  max-h-[36px]
-                  object-contain
-                  opacity-[0.85]
-                  transition
-                  duration-300
-                  hover:opacity-100
-                  hover:scale-[1.06]
-                "
+                className="max-w-[110px] max-h-[36px] object-contain opacity-[0.85] transition duration-300 hover:opacity-100 hover:scale-[1.06]"
               />
             </div>
           ))}

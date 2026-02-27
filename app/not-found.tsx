@@ -5,7 +5,7 @@ import { Home, Zap, MessageCircle } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex items-center justify-center px-6 overflow-hidden relative gradient-mesh force-dark">
+    <main className="min-h-screen flex items-center justify-center px-6 overflow-hidden relative linear-mesh force-dark">
 
       {/* Floating geometric shapes */}
       <style>{`

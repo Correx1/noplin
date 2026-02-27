@@ -9,8 +9,8 @@ export default function ContactHero() {
     <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden border-b border-(--grid-line-color) bg-[var(--bg-page)] z-0">
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        <div className="absolute w-[150%] h-[250px] bg-gradient-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-        <div className="absolute w-[150%] h-[150px] bg-gradient-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+        <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
+        <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
       </div>
 
       {/* Subtle geometric dot grid background, minimalist */}
@@ -29,7 +29,7 @@ export default function ContactHero() {
           className="flex items-center gap-3 mb-6"
         >
           <div className="w-2 h-2 rounded-full bg-electric"></div>
-          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '12px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
+          <span className="font-[var(--font-display)] font-semibold text-xs tracking-widest uppercase text-[var(--text-secondary)]">
             Start your project
           </span>
         </motion.div>
@@ -38,8 +38,7 @@ export default function ContactHero() {
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.6, ease: EASE, delay: 0.05 }} 
-          className="text-4xl md:text-6xl lg:text-7xl max-w-4xl"
-          style={{ fontFamily: 'var(--font-display)', fontWeight: 600, color: 'var(--text-primary)', lineHeight: 1.05, letterSpacing: '-0.02em' }}
+          className="text-4xl md:text-6xl lg:text-7xl max-w-4xl font-[var(--font-display)] font-semibold text-[var(--text-primary)] leading-[1.05] tracking-tight"
         >
           Let's build something <span className="text-electric">extraordinary</span> together.
         </motion.h1>
@@ -48,8 +47,7 @@ export default function ContactHero() {
           initial={{ opacity: 0, y: 12 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.5, ease: EASE, delay: 0.1 }} 
-          className="mt-8 max-w-xl"
-          style={{ fontFamily: 'var(--font-body)', fontSize: '18px', color: 'var(--text-secondary)', lineHeight: 1.6 }}
+          className="mt-8 max-w-xl font-[var(--font-body)] text-lg text-[var(--text-secondary)] leading-relaxed"
         >
           Fill out the brief below to help us understand your needs. We review every submission manually and will respond within two business hours.
         </motion.p>

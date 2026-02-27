@@ -31,24 +31,23 @@ export default function WhyNoplinSection() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-         <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.55, ease: EASE }}
-                  className="flex flex-col items-center text-center gap-3 mb-14"
-                >
-                  <span className="font-[var(--font-display)] font-semibold text-[11px] tracking-[0.14em] uppercase text-cyan-500">
-                    Why Us
-                  </span>
-        
-                  <h2 className="font-[var(--font-display)] font-bold text-[clamp(1.75rem,4vw,2.625rem)] text-[var(--text-primary)]">
-                    Why Businesses Choose<br />Noplin Digital
-          </h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: EASE }}
+            className="flex flex-col items-center text-center gap-3 mb-14"
+          >
+            <span className="font-[var(--font-display)] font-semibold text-[11px] tracking-widest uppercase text-cyan-500">
+              Why Us
+            </span>
+            <h2 className="font-[var(--font-display)] font-bold text-[clamp(1.75rem,4vw,2.625rem)] text-[var(--text-primary)]">
+              Why Businesses Choose<br />Noplin Digital
+            </h2>
             <p className="font-[var(--font-body)] text-[var(--text-secondary)] max-w-md">
-            Eight principles that define how we work — and why clients come back.
-          </p>
-                </motion.div>
+              Eight principles that define how we work — and why clients come back.
+            </p>
+          </motion.div>
 
         {/* ── Items: 2-column split list ── */}
         <div className="grid grid-cols-1 md:grid-cols-2">
@@ -61,10 +60,9 @@ export default function WhyNoplinSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, ease: EASE, delay: i * 0.055 }}
-                className={[
-                  'grid grid-cols-[3rem_1fr] gap-6 py-8 border-t border-white/[0.07] cursor-default transition-colors duration-200 hover:bg-blue-700/[0.04]',
-                  isLeft ? 'pr-0 pl-0 md:pr-12' : 'pl-0 pr-0 md:pl-12 md:border-l border-white/[0.07]',
-                ].join(' ')}
+                className={`grid grid-cols-[3rem_1fr] gap-6 py-8 border-t border-white/[0.07] cursor-default transition-colors duration-200 hover:bg-blue-700/[0.04] ${
+                  isLeft ? 'pr-0 pl-0 md:pr-12' : 'pl-0 pr-0 md:pl-12 md:border-l'
+                }`}
               >
                 {/* Icon */}
                 <div className="w-10 h-10 flex items-center justify-center shrink-0 mt-0.5">

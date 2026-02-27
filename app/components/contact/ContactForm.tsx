@@ -61,12 +61,8 @@ const formSchema = z.object({
   email: z.string().email("Please enter a valid email address."),
   company: z.string().min(2, "Company name is required."),
   phone: z.string().min(8, "Please enter a valid phone number."),
-  service: z.string({
-    required_error: "Please select a service.",
-  }),
-  budget: z.string({
-    required_error: "Please select a budget range.",
-  }),
+  service: z.string().min(1, "Please select a service."),
+  budget: z.string().min(1, "Please select a budget range."),
   message: z.string().min(20, "Please provide a little more detail about your project."),
 })
 
@@ -126,12 +122,12 @@ export default function ContactForm() {
         >
           {status === 'done' ? (
             <div className="flex flex-col items-center justify-center text-center gap-6 py-20 bg-(--bg-card) border border-(--border-card) rounded-2xl">
-              <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(26,86,219,0.1)', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center' }}>
+              <div className="w-16 h-16 rounded-full bg-electric/10 flex flex-col items-center justify-center">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A56DB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '24px', color: 'var(--text-primary)', marginBottom: '8px' }}>Inquiry Received</h2>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--text-secondary)', maxWidth: '300px', margin: '0 auto' }}>
+                <h2 className="font-[var(--font-display)] font-semibold text-2xl text-[var(--text-primary)] mb-2">Inquiry Received</h2>
+                <p className="font-[var(--font-body)] text-base text-[var(--text-secondary)] max-w-[300px] mx-auto">
                   We'll review your brief and follow up via email within two hours during business operations.
                 </p>
               </div>
@@ -148,7 +144,7 @@ export default function ContactForm() {
                 
                 {/* Personal Details */}
                 <div className="flex flex-col gap-8">
-                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: 'var(--text-primary)', paddingBottom: '16px', fontWeight: 500 }}>Personal Details</h3>
+                  <h3 className="font-[var(--font-display)] text-xl text-[var(--text-primary)] pb-4 font-medium">Personal Details</h3>
                   <div className="grid sm:grid-cols-2 gap-8">
                     <FormField
                       control={form.control}
@@ -209,7 +205,7 @@ export default function ContactForm() {
 
                 {/* Project Details */}
                 <div className="flex flex-col gap-8 mt-4">
-                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: 'var(--text-primary)', paddingBottom: '16px', fontWeight: 500 }}>Project Details</h3>
+                  <h3 className="font-[var(--font-display)] text-xl text-[var(--text-primary)] pb-4 font-medium">Project Details</h3>
                   <div className="grid sm:grid-cols-2 gap-8">
                     <FormField
                       control={form.control}
@@ -278,21 +274,14 @@ export default function ContactForm() {
                   <button 
                     type="submit" 
                     disabled={status === 'sending'}
-                    className="w-full sm:w-auto px-10 py-5 rounded-none font-medium flex items-center justify-center gap-3 transition-colors duration-200"
-                    style={{ 
-                      background: 'var(--text-primary)', 
-                      color: 'var(--bg-page)',
-                      fontFamily: 'var(--font-display)', 
-                      fontSize: '15px', 
-                      opacity: status === 'sending' ? 0.6 : 1, 
-                      cursor: status === 'sending' ? 'not-allowed' : 'pointer',
-                      letterSpacing: '0.02em'
-                    }}
+                    className={`w-full sm:w-auto px-10 py-5 rounded-none font-medium flex items-center justify-center gap-3 transition-colors duration-200 bg-[var(--text-primary)] text-[var(--bg-page)] font-[var(--font-display)] text-[15px] tracking-wide ${
+                      status === 'sending' ? 'opacity-60 cursor-not-allowed' : 'hover:opacity-90'
+                    }`}
                   >
                     {status === 'sending' ? 'Submitting...' : 'Submit Inquiry'}
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </button>
-                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--text-muted)' }}>
+                  <p className="font-[var(--font-body)] text-sm text-[var(--text-muted)]">
                     Your data is secure. No spam, ever.
                   </p>
                 </div>
@@ -311,13 +300,13 @@ export default function ContactForm() {
           {/* Contact details */}
           <div className="flex flex-col gap-8">
             <div>
-              <p style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '8px' }}>Direct Email</p>
-              <a href="mailto:hello@noplin.com" className="hover:text-electric transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '18px', color: 'var(--text-primary)' }}>hello@noplin.com</a>
+              <p className="font-[var(--font-display)] font-semibold text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-2">Direct Email</p>
+              <a href="mailto:hello@noplin.com" className="hover:text-electric transition-colors font-[var(--font-body)] text-lg text-[var(--text-primary)]">hello@noplin.com</a>
             </div>
             
             <div>
-              <p style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '8px' }}>Operating Hours</p>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--text-primary)', lineHeight: 1.6 }}>
+              <p className="font-[var(--font-display)] font-semibold text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-2">Operating Hours</p>
+              <p className="font-[var(--font-body)] text-base text-[var(--text-primary)] leading-relaxed">
                 Monday — Friday<br/>
                 9:00 AM — 6:00 PM (WAT)
               </p>
@@ -328,16 +317,14 @@ export default function ContactForm() {
 
           {/* Trust signals */}
           <div>
-            <p style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '16px' }}>Project Structure</p>
+            <p className="font-[var(--font-display)] font-semibold text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-4">Project Structure</p>
             <ul className="flex flex-col gap-4">
               {trustSignals.map((t, index) => (
                 <li key={t} className="flex gap-4 items-start">
-                  <span 
-                    style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '11px', color: 'var(--text-secondary)', marginTop: '2px' }}
-                  >
+                  <span className="font-[var(--font-display)] font-semibold text-[11px] text-[var(--text-secondary)] mt-1">
                     (0{index + 1})
                   </span>
-                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--text-secondary)' }}>{t}</span>
+                  <span className="font-[var(--font-body)] text-[15px] text-[var(--text-secondary)]">{t}</span>
                 </li>
               ))}
             </ul>
@@ -345,7 +332,7 @@ export default function ContactForm() {
 
           {/* Socials */}
           <div>
-            <p style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '16px' }}>Network</p>
+            <p className="font-[var(--font-display)] font-semibold text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-4">Network</p>
             <div className="flex flex-col gap-3">
               {socials.map((s) => (
                 <Link 
@@ -355,8 +342,8 @@ export default function ContactForm() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 transition-colors group"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-(--text-muted) group-hover:text-electric transition-colors"><path d={s.icon}/></svg>
-                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--text-secondary)' }} className="group-hover:text-primary transition-colors">{s.label}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-[var(--text-muted)] group-hover:text-electric transition-colors"><path d={s.icon}/></svg>
+                  <span className="font-[var(--font-body)] text-[15px] text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">{s.label}</span>
                 </Link>
               ))}
             </div>
