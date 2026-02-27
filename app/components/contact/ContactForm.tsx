@@ -59,7 +59,7 @@ const socials = [
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email address."),
-  company: z.string().optional(),
+  company: z.string().min(2, "Company name is required."),
   phone: z.string().min(8, "Please enter a valid phone number."),
   service: z.string({
     required_error: "Please select a service.",
@@ -183,7 +183,7 @@ export default function ContactForm() {
                       name="company"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Company Name</FormLabel>
+                          <FormLabel>Company Name *</FormLabel>
                           <FormControl>
                             <Input placeholder="Acme Corp" {...field} />
                           </FormControl>

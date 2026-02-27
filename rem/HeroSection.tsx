@@ -48,12 +48,6 @@ export default function HeroSection() {
         {/* Subtle vertical gradient for depth */}
         <div className="absolute inset-0 bg-linear-to-t from-navy via-transparent to-navy/70" />
 
-        {/* --- COLORFUL BACKGROUND SWOOP (Blended for Dark Theme) --- */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center mix-blend-screen opacity-90">
-          <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-transparent via-[#1A56DB] to-[#06B6D4] opacity-30 blur-[60px] -rotate-12 translate-y-10" />
-          <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-[#1A56DB] to-transparent opacity-20 blur-[50px] -rotate-12 translate-y-36 translate-x-[5%]" />
-        </div>
-
         {/* Grid overlay for texture */}
         <div
           className="absolute inset-0 mix-blend-overlay opacity-20"
@@ -76,7 +70,7 @@ export default function HeroSection() {
 
             {/* Badge */}
             <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium border border-cyan-400/40 bg-cyan-400/[0.08] text-cyan-400 font-body tracking-[0.02em]">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium border border-cyan-400/40 bg-cyan-400/[0.08] text-cyan-400 font-[var(--font-body)] tracking-[0.02em]">
                 Results-First Digital Agency 
               </span>
             </motion.div>
@@ -87,7 +81,7 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={0.1}
-              className="leading-[1.1] tracking-tight font-display text-[clamp(2.25rem,6vw,4.5rem)] text-[var(--text-primary)]"
+              className="leading-[1.1] tracking-tight font-[--font-display] text-[clamp(2.25rem,6vw,4.5rem)] text-[--text-primary]"
             >
               Your Growth.{' '}
               <span className="relative inline-block ">
@@ -97,7 +91,7 @@ export default function HeroSection() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.7, ease: EASE, delay: 0.5 }}
-                  className="absolute bottom-[-4px] left-0 right-0 h-[3px] bg-linear-to-r from-[#1A56DB] to-[#06B6D4] rounded-full origin-left block"
+                  className="absolute bottom-[-4px] left-0 right-0 h-[3px] bg-gradient-to-r from-[#1A56DB] to-[#06B6D4] rounded-full origin-left block"
                 />
               </span>
             </motion.h1>
@@ -108,7 +102,7 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={0.2}
-              className="text-lg lg:text-xl leading-relaxed max-w-[580px] text-[var(--text-secondary)] font-body"
+              className="text-lg lg:text-xl leading-relaxed max-w-[580px] text-[var(--text-secondary)] font-[var(--font-body)]"
             >
               We are a results-obsessed digital agency delivering premium design,
               development, content and marketing —{' '}
@@ -121,7 +115,7 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={0.28}
-              className="text-sm text-[var(--text-muted)] font-body"
+              className="text-sm text-[var(--text-muted)] font-[var(--font-body)]"
             >
               Trusted by startups, SMEs, and growing businesses across Africa and beyond.
             </motion.p>
@@ -136,14 +130,14 @@ export default function HeroSection() {
             >
               <Link
                 href="/contact"
-                className="btn-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white font-display"
+                className="btn-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white font-[var(--font-display)]"
               >
                 Get a Free Quote
                 <span aria-hidden>→</span>
               </Link>
               <Link
                 href="/work"
-                className="btn-ghost inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold font-display"
+                className="btn-ghost inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold font-[var(--font-display)]"
               >
                 See Our Work
               </Link>
@@ -160,7 +154,7 @@ export default function HeroSection() {
               {trustBadges.map((badge) => (
                 <span
                   key={badge}
-                  className="flex items-center gap-2 text-xs text-[var(--text-secondary)] font-body"
+                  className="flex items-center gap-2 text-xs text-[var(--text-secondary)] font-[var(--font-body)]"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 inline-block shrink-0" />
                   {badge}

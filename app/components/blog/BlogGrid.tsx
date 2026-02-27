@@ -4,11 +4,11 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { categoryColors, posts } from './BlogData';
+import { categoryColors } from './BlogData';
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-export default function BlogGrid() {
+export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
   const [visibleCount, setVisibleCount] = useState(5);
 
   const visiblePosts = posts.slice(0, visibleCount);
@@ -20,7 +20,12 @@ export default function BlogGrid() {
         
         {/* ── LEFT COLUMN: MAIN LIST (8 COLS) ──────────────── */}
         <div className="lg:col-span-8 flex flex-col gap-8">
-          {visiblePosts.map((p, i) => (
+          {posts.length === 0 ? (
+            <div className="py-16 px-6 text-center border border-dashed border-[var(--border-default)] rounded-2xl bg-[var(--bg-card)] shadow-sm">
+              <h3 className="text-xl font-display font-semibold text-[var(--text-primary)] mb-3">No posts available right now</h3>
+              <p className="text-[var(--text-secondary)] font-body">Check back later for new updates and insights.</p>
+            </div>
+          ) : visiblePosts.map((p, i) => (
             <motion.div 
               key={p.id} 
               initial={{ opacity: 0, y: 20 }} 
@@ -32,7 +37,7 @@ export default function BlogGrid() {
               {/* Content (Left side text) */}
               <div className="flex-1 flex flex-col gap-3 p-5 sm:p-6 lg:p-8 justify-center">
                 <div className="flex flex-wrap gap-2">
-                  {p.categories.map(cat => (
+                  {p.categories?.map((cat: string) => (
                     <span 
                       key={cat}
                       style={{ fontSize: '11px', fontFamily: 'var(--font-display)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: categoryColors[cat] ?? '#06B6D4' }}
@@ -50,15 +55,17 @@ export default function BlogGrid() {
                 </h3>
                 
                 <p className="line-clamp-2" style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                  {p.excerpt}
+                  {p.excerpt || 'Read this article to learn more.'}
                 </p>
                 
                 <div className="flex flex-wrap items-center gap-3 mt-1" style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--text-primary)' }}>
-                  <span className="font-semibold">{p.author.name}</span>
+                  <span className="font-semibold">{p.author?.name || 'Noplin Team'}</span>
                   <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--text-muted)' }} />
-                  <span style={{ color: 'var(--text-secondary)' }}>{p.date}</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>
+                    {p.date ? new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Unknown Date'}
+                  </span>
                   <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--text-muted)' }} />
-                  <span style={{ color: 'var(--text-secondary)' }}>{p.readTime}</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>{p.readTime || '5 min read'}</span>
                 </div>
 
                 <Link href={p.href} style={{ fontFamily: 'var(--font-display)' }} className="mt-3 font-semibold text-[13px] text-[var(--accent)] hover:text-[#06B6D4] flex items-center gap-2 group/btn self-start transition-colors duration-200">
@@ -69,12 +76,14 @@ export default function BlogGrid() {
 
               {/* Image (Right side pix) */}
               <Link href={p.href} className="relative w-full sm:w-[240px] md:w-[280px] shrink-0 aspect-[3/2] sm:aspect-auto border-b sm:border-b-0 sm:border-l border-[var(--border-default)] overflow-hidden">
-                <Image 
-                  src={p.mainImage} 
-                  alt={p.title} 
-                  fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
-                />
+                {p.mainImage && (
+                  <Image 
+                    src={p.mainImage} 
+                    alt={p.title} 
+                    fill 
+                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                )}
               </Link>
 
             </motion.div>
@@ -110,7 +119,7 @@ export default function BlogGrid() {
               {sidebarPosts.map((post) => (
                 <Link key={post.id} href={post.href} className="group flex flex-col gap-2">
                   <div className="flex flex-wrap gap-1">
-                    {post.categories.slice(0, 2).map(cat => (
+                    {post.categories?.slice(0, 2).map((cat: string) => (
                       <span key={cat} style={{ fontSize: '10px', fontFamily: 'var(--font-display)', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: categoryColors[cat] ?? '#06B6D4' }}>
                         {cat}
                       </span>

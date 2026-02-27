@@ -1,24 +1,42 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { categoryColors, posts } from '../../components/blog/BlogData';
+import { categoryColors } from '../../components/blog/BlogData';
 import BlogCTA from '../../components/blog/BlogCTA';
+import { client } from '../../../sanity/lib/client';
+import { getPostBySlugQuery, getRelatedPostsQuery } from '../../../sanity/lib/queries';
+import { PortableText } from '@portabletext/react';
 
-// Removed static params, indicating dynamic fetching
+export const revalidate = 60; // 60 seconds
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   
-  // Find the post matching the slug (temporarily using placeholder data, but simulating dynamic fetch structure)
-  const post = posts.find((p) => p.id === slug);
+  // Fetch the post from Sanity
+  let post;
+  try {
+    post = await client.fetch(getPostBySlugQuery, { slug });
+  } catch (error) {
+    console.error(`Failed to fetch blog post ${slug}:`, error);
+    notFound();
+  }
 
   if (!post) {
     notFound();
   }
 
-  // Get up to 4 related posts sharing at least one category
-  const relatedPosts = posts
-    .filter(p => p.id !== post.id && p.categories.some(cat => post.categories.includes(cat)))
-    .slice(0, 4);
+  // Fetch related posts from Sanity based on the current post's categories
+  let relatedPosts = [];
+  if (post.categories?.length > 0) {
+    try {
+      relatedPosts = await client.fetch(getRelatedPostsQuery, { 
+        currentSlug: slug, 
+        categories: post.categories 
+      });
+    } catch (error) {
+      console.error(`Failed to fetch related posts for ${slug}:`, error);
+    }
+  }
 
   return (
     <main className="bg-white min-h-screen pt-[120px] pb-[120px]">
@@ -29,7 +47,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           
           <div className="flex flex-col items-start gap-4 mb-4">
             <div className="flex flex-wrap gap-2">
-              {post.categories.map(cat => (
+              {post.categories?.map((cat: string) => (
                 <span 
                   key={cat}
                   style={{ fontSize: '11px', fontFamily: 'var(--font-display)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: categoryColors[cat] ?? '#06B6D4' }}
@@ -47,27 +65,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="flex flex-wrap items-center gap-4 mt-2" style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: '#52525b' }}>
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full overflow-hidden relative shrink-0">
-                  <Image src={post.author.image} alt={post.author.name} fill className="object-cover" />
+                  {post.author?.image ? (
+                    <Image src={post.author.image} alt={post.author.name} fill className="object-cover" />
+                  ) : (
+                    <div className="w-full h-full bg-gray-200" />
+                  )}
                 </div>
-                <span className="font-semibold text-[#09090b]">{post.author.name}</span>
+                <span className="font-semibold text-[#09090b]">{post.author?.name || 'Noplin Team'}</span>
               </div>
               <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#d4d4d8' }} />
-              <time dateTime={post.date}>{post.date}</time>
+              <time dateTime={post.date}>
+                {post.date ? new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Unknown Date'}
+              </time>
               <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#d4d4d8' }} />
-              <span>{post.readTime}</span>
+              <span>{post.readTime || '5 min read'}</span>
             </div>
           </div>
 
           {/* 1. MAIN IMAGE: This is the primary feature image at the top of the article (from post.mainImage) */}
-          <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl overflow-hidden mb-8 border border-gray-200">
-            <Image 
-              src={post.mainImage} 
-              alt={post.title} 
-              fill 
-              className="object-cover"
-              priority
-            />
-          </div>
+          {post.mainImage && (
+            <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl overflow-hidden mb-8 border border-gray-200">
+              <Image 
+                src={post.mainImage} 
+                alt={post.title} 
+                fill 
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
 
           {/* 2. BODY CONTENT (PORTABLE TEXT): 
                This is where your actual article text goes! 
@@ -76,14 +102,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           */}
           <div className="prose prose-lg max-w-none text-[#3f3f46]" style={{ fontFamily: 'var(--font-body)', lineHeight: 1.8 }}>
             {post.body ? (
-              post.body
+              <PortableText value={post.body} />
             ) : (
               <>
                 <p className="text-xl font-medium leading-relaxed text-[#09090b] mb-8">
-                  {post.excerpt}
+                  {post.excerpt || 'Read this article to learn more.'}
                 </p>
                 <p>
-                  This is a placeholder post body because real content hasn't been fetched from Sanity yet. The layout above demonstrates how text will fall back if no rich body is present.
+                  No formatted body content found.
                 </p>
               </>
             )}
@@ -101,10 +127,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
 
             <div className="flex flex-col gap-6">
-              {relatedPosts.map((related) => (
+              {relatedPosts.map((related: any) => (
                 <Link key={related.id} href={related.href} className="group flex flex-col gap-1.5 pb-5 border-b border-gray-100 last:border-0 last:pb-0">
                   <div className="flex flex-wrap gap-1 mb-1">
-                    {related.categories.slice(0, 2).map(cat => (
+                    {related.categories?.slice(0, 2).map((cat: string) => (
                       <span key={cat} style={{ fontSize: '10px', fontFamily: 'var(--font-display)', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: categoryColors[cat] ?? '#06B6D4' }}>
                         {cat}
                       </span>
@@ -114,9 +140,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     {related.title}
                   </h4>
                   <div className="flex items-center gap-2 mt-1" style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: '#71717a' }}>
-                    <span>{related.date}</span>
+                    <span>
+                      {related.date ? new Date(related.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Unknown Date'}
+                    </span>
                     <span style={{ width: 3, height: 3, borderRadius: '50%', background: '#e4e4e7' }} />
-                    <span>{related.readTime}</span>
+                    <span>{related.readTime || '5 min read'}</span>
                   </div>
                 </Link>
               ))}
@@ -130,12 +158,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Author snippet in sidebar */}
           <div className="mt-8 p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center text-center gap-4">
             <div className="w-20 h-20 rounded-full overflow-hidden relative shrink-0 border border-gray-200">
-               <Image src={post.author.image} alt={post.author.name} fill className="object-cover" />
+               {post.author?.image ? (
+                 <Image src={post.author.image} alt={post.author.name} fill className="object-cover" />
+               ) : (
+                 <div className="w-full h-full bg-gray-200" />
+               )}
             </div>
             <div>
-               <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1.125rem', color: '#09090b' }}>{post.author.name}</h4>
+               <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1.125rem', color: '#09090b' }}>{post.author?.name || 'Noplin Digital Team'}</h4>
                <span style={{ fontFamily: 'var(--font-display)', fontSize: '12px', color: '#1A56DB', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>Author</span>
-               {post.author.bio && (
+               {post.author?.bio && (
                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: '#52525b', lineHeight: 1.6 }} className="mt-3">
                    {post.author.bio}
                  </p>

@@ -4,11 +4,9 @@ import { Suspense } from 'react';
 import './globals.css';
 import ThemeProvider from './components/providers/ThemeProvider';
 import LenisProvider from './components/providers/LenisProvider';
-import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
+import ConditionalLayoutWrapper from './components/layout/ConditionalLayoutWrapper';
 import GoogleAnalytics from './components/analytics/GoogleAnalytics';
 import MetaPixel from './components/analytics/MetaPixel';
-import WhatsAppButton from './components/ui/WhatsAppButton';
 import { OrganizationSchema } from './components/seo/JsonLd';
 
 const spaceGrotesk = Space_Grotesk({
@@ -67,11 +65,9 @@ export default function RootLayout({
       <body className="font-body overflow-x-hidden antialiased" style={{ backgroundColor: 'var(--bg-page)', color: 'var(--text-primary)' }}>
         <ThemeProvider>
           <LenisProvider>
-            <Navbar />
-            {children}
-            
-            <Footer />
-            <WhatsAppButton />
+            <ConditionalLayoutWrapper>
+              {children}
+            </ConditionalLayoutWrapper>
           </LenisProvider>
         </ThemeProvider>
         <Suspense>
