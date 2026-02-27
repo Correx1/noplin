@@ -5,7 +5,7 @@ import { EASE } from './AboutShared';
 
 export default function AboutHero() {
   return (
-    <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-[var(--bg-page)] pt-[160px] pb-[120px]">
+    <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-[var(--bg-page)] pt-[80px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
       
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">

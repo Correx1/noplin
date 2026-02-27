@@ -24,7 +24,7 @@ export default function HeroSection({
   deptColor,
 }: HeroProps) {
   return (
-    <section className="relative flex min-h-[50vh] flex-col justify-center overflow-hidden bg-[var(--bg-page)] pt-[160px] pb-[100px]">
+    <section className="relative flex min-h-[50vh] flex-col justify-center overflow-hidden bg-[var(--bg-page)] pt-[80px] sm:pt-[120px] pb-[80px] sm:pb-[100px]">
       
       {/* Colorful background swoop */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center z-0">

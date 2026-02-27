@@ -50,17 +50,17 @@ export default function PricingCallouts() {
               <c.Icon size={20} color={c.glow} strokeWidth={2} />
             </div>
             
-            <h3 className="relative font-display font-bold text-[22px] text-[var(--text-primary)] mt-2">
+            <h3 className="relative font-[var(--font-display)] font-bold text-[22px] text-[var(--text-primary)] mt-2">
               {c.title}
             </h3>
             
-            <p className="relative font-body text-[15px] text-[var(--text-secondary)] leading-[1.7] max-w-sm">
+            <p className="relative font-[var(--font-body)] text-[15px] text-[var(--text-secondary)] leading-[1.7] max-w-sm">
               {c.body}
             </p>
             
             <Link 
               href="/contact" 
-              className="relative inline-flex font-display font-bold text-[14px] uppercase tracking-wider mt-4 transition-opacity hover:opacity-75"
+              className="relative inline-flex font-[var(--font-display)] font-bold text-[14px] uppercase tracking-wider mt-4 transition-opacity hover:opacity-75"
               style={{ color: c.glow }}
             >
               {c.cta} →

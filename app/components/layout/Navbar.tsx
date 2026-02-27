@@ -88,7 +88,8 @@ export default function Navbar() {
         className="sticky top-0 z-[100] w-full transition-all duration-300 py-3 bg-[var(--bg-page)] border-b border-[var(--border-default)] shadow-xs"
         style={{ height: '72px' }}
       >
-        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+        <div className="relative w-full h-full">
+          <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-0.5 shrink-0">
@@ -238,30 +239,28 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-0 z-40 flex flex-col bg-[var(--bg-page)] pt-[72px]"
-          >
-            <div className="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-2">
-
-              {/* Services Accordion with Link + Toggle */}
-              <div className="border-b border-[var(--border-default)]">
-                <div className="flex w-full items-center justify-between">
-                  <Link
-                    href="/services"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex-1 py-3 text-xl font-semibold text-[var(--text-primary)]"
-                  >
-                    Services
-                  </Link>
+        {/* Mobile Menu - Mounted inside the sticky header so it drops down from it */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'calc(100vh - 72px)', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
+              className="absolute top-[72px] left-0 w-full z-[90] flex flex-col bg-[var(--bg-page)] overflow-hidden border-b border-[var(--border-default)]"
+            >
+              <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-1">
+                {/* Services Accordion with Link + Toggle */}
+                <div className="border-b border-[var(--border-default)]">
+                  <div className="flex w-full items-center justify-between">
+                    <Link
+                      href="/services"
+                      onClick={() => setMobileOpen(false)}
+                      className="flex-1 py-3 text-[18px] font-medium text-[var(--text-primary)] font-display"
+                    >
+                      Services
+                    </Link>
                   <button
                     onClick={() => setServicesExpanded((v) => !v)}
                     className="p-3"
@@ -305,38 +304,38 @@ export default function Navbar() {
                     </motion.ul>
                   )}
                 </AnimatePresence>
+                {/* Other Nav Links */}
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href || pathname?.startsWith(`${link.href}/`);
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`py-3 text-[18px] font-medium transition-colors border-b border-[var(--border-default)] font-display ${
+                        isActive ? 'text-[#1A56DB]' : 'text-[var(--text-primary)] hover:text-[#1A56DB]'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
               </div>
 
-              {/* Other Nav Links */}
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href || pathname?.startsWith(`${link.href}/`);
-                return (
+              {/* Mobile CTA */}
+              <div className="px-6 pb-8 pt-4 border-t border-[var(--border-default)] mt-auto">
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className={`py-3 text-xl font-semibold transition-colors border-b border-[var(--border-default)] ${
-                    isActive ? 'text-[#1A56DB]' : 'text-[var(--text-primary)] hover:text-[#1A56DB]'
-                  }`}
+                  className="flex items-center justify-center w-full py-3.5 text-[15px] font-medium text-white rounded-xl transition-all bg-[#1A56DB] hover:bg-[#06B6D4] shadow-md font-display"
                 >
-                  {link.label}
+                  Get a Free Quote
                 </Link>
-              )})}
-            </div>
-
-            {/* Mobile CTA */}
-            <div className="px-6 pb-10 pt-4 border-t border-[var(--border-default)] mt-auto">
-              <Link
-                href="/contact"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-center w-full py-4 text-[15px] font-semibold text-white rounded-xl transition-all bg-[#1A56DB] hover:bg-[#06B6D4] shadow-md"
-              >
-                Get a Free Quote
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+  
   );
 }

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import WhyNoplinSection from '../home/WhyNoplinSection';
+
 import {
   Layers, Leaf, TrendingUp, Settings2,
   Target, Globe, Building2,
@@ -253,8 +253,7 @@ export default function AboutPageClient() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <WhyNoplinSection />
+    
 
       {/* Values */}
       <section style={{ background: 'var(--bg-section)', padding: '96px 0' }}>

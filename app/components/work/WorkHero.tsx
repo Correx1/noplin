@@ -7,7 +7,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function WorkHero() {
   return (
-    <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-[var(--bg-page)] pt-[140px] pb-[100px] sm:pt-[160px] sm:pb-[120px]">
+    <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-[var(--bg-page)] pt-[80px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
         <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />

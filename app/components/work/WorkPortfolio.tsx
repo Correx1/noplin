@@ -26,7 +26,7 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Web Design',
     description: 'A complete technical and visual overhaul of TechBridge\'s corporate website, focusing on driving B2B leads and establishing authority in the local tech sector.',
     highlights: ['Increased conversion rate by 45%', 'Implemented headless CMS architecture', 'Fully responsive design system'],
-    images: ['/portfolio/web1.png', '/portfolio/web2.png', '/portfolio/web3.png']
+    images: ['/portfolio/web.png', '/portfolio/web2.png', '/portfolio/web3.png']
   },
   { 
     slug: 'styleco-brand', 
@@ -56,7 +56,7 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Brand Identity',
     description: 'Developed a vibrant and approachable brand system for GreenLeaf that highlighted their sustainable mission and modern approach to agriculture.',
     highlights: ['Logo & Iconography design', 'Marketing collateral templates', 'Social media asset kit'],
-    images: ['/portfolio/web1.png', '/portfolio/web3.png']
+    images: ['/portfolio/web.png', '/portfolio/web3.png']
   },
   { 
     slug: 'launchpad-app', 
@@ -86,7 +86,7 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Web Design',
     description: 'Revamped BrightCorp\'s legacy site into a modern corporate portal, emphasizing their multi-national reach and deep industry expertise.',
     highlights: ['Multi-language support ready', 'Optimized SEO performance', 'Bespoke corporate photography'],
-    images: ['/portfolio/web1.png', '/portfolio/web2.png']
+    images: ['/portfolio/web.png', '/portfolio/web2.png']
   },
   { 
     slug: 'fundrise-brand', 
@@ -106,7 +106,7 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Social Media',
     description: 'Managed a consistent, aesthetic-driven social presence highlighting the craftsmanship and quality of locally made artisan products.',
     highlights: ['300% follower growth', 'High engagement rate formats', 'E-commerce integration'],
-    images: ['/portfolio/web3.png', '/portfolio/web1.png']
+    images: ['/portfolio/web3.png', '/portfolio/web.png']
   },
   { 
     slug: 'marketplace-app', 
@@ -116,7 +116,7 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Apps',
     description: 'Designed a highly performant mobile-first e-commerce web application focusing on fast checkouts and personalized product discovery.',
     highlights: ['Frictionless checkout flow', 'Personalized recommendation UI', 'Progressive Web App (PWA)'],
-    images: ['/portfolio/web1.png']
+    images: ['/portfolio/web.png']
   },
   { 
     slug: 'visabridge-web', 
@@ -126,7 +126,7 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Web Design',
     description: 'A global-facing website designed to simplify the complex immigration process into clear, actionable steps for prospective clients.',
     highlights: ['Clear service tier breakdowns', 'Automated consultation booking', 'Trust-building testimonial section'],
-    images: ['/portfolio/web2.png', '/portfolio/web3.png', '/portfolio/web1.png']
+    images: ['/portfolio/web2.png', '/portfolio/web3.png', '/portfolio/web.png']
   },
   { 
     slug: 'primetech-brand', 

@@ -7,7 +7,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function PricingHero() {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-[85vh] overflow-hidden bg-[var(--bg-page)] pt-[160px] pb-[120px]">
+    <section className="relative flex flex-col items-center justify-center min-h-[85vh] overflow-hidden bg-[var(--bg-page)] pt-[80px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
       
       {/* --- BACKGROUND GRAPHICS --- */}
       {/* Deep navy and electric blue theme */}
@@ -41,10 +41,10 @@ export default function PricingHero() {
           transition={{ duration: 0.7, ease: EASE }}
           className="mb-16 w-full max-w-3xl"
         >
-          <span className="font-display text-[15px] font-bold tracking-[0.1em] text-electric uppercase mb-6 block">
+          <span className="font-[var(--font-display)] text-[15px] font-bold tracking-[0.1em] text-electric uppercase mb-6 block">
             Pricing Plans
           </span>
-          <h1 className="font-display text-[48px] sm:text-[60px] lg:text-[72px] font-bold leading-[1.05] tracking-tight text-[var(--text-primary)] m-0">
+          <h1 className="font-[var(--font-display)] text-[48px] sm:text-[60px] lg:text-[72px] font-bold leading-[1.05] tracking-tight text-[var(--text-primary)] m-0">
             Pricing built for<br />
             businesses of all sizes
           </h1>
@@ -64,16 +64,16 @@ export default function PricingHero() {
               {/* Left side text/button */}
               <div className="flex flex-col justify-between flex-1">
                 <div>
-                  <h2 className="font-display font-bold text-[32px] text-[#0F172A] mb-4 tracking-tight">
+                  <h2 className="font-[var(--font-display)] font-bold text-[32px] text-[#0F172A] mb-4 tracking-tight">
                     Standard
                   </h2>
-                  <p className="font-body text-[16px] text-slate-600 leading-relaxed mb-10 max-w-[300px]">
+                  <p className="font-[var(--font-body)] text-[16px] text-slate-600 leading-relaxed mb-10 max-w-[300px]">
                     Access a complete suite of digital services with simple, clear pricing. No setup fees, monthly fees, or hidden retainers.
                   </p>
                 </div>
                 <button 
                   onClick={() => window.scrollTo({ top: window.innerHeight * 0.8, behavior: 'smooth' })}
-                  className="bg-[#6366F1] hover:bg-[#4F46E5] text-white font-display font-bold text-[15px] px-8 py-3.5 rounded-none inline-flex items-center justify-center gap-2 transition-colors w-fit shadow-md shadow-indigo-500/20"
+                  className="bg-[#6366F1] hover:bg-[#4F46E5] text-white font-[var(--font-display)] font-bold text-[15px] px-8 py-3.5 rounded-none inline-flex items-center justify-center gap-2 transition-colors w-fit shadow-md shadow-indigo-500/20"
                 >
                   Get started <span className="font-normal text-[18px] leading-none mb-0.5">›</span>
                 </button>
@@ -81,10 +81,10 @@ export default function PricingHero() {
 
               {/* Right side rate */}
               <div className="flex flex-col items-start sm:items-end sm:text-right shrink-0">
-                <span className="font-display font-bold text-[40px] text-[#0F172A] tracking-tight leading-none mb-3">
+                <span className="font-[var(--font-display)] font-bold text-[40px] text-[#0F172A] tracking-tight leading-none mb-3">
                   ₦150k+
                 </span>
-                <span className="font-body text-[14px] text-slate-500 max-w-[140px] text-left sm:text-right leading-[1.5]">
+                <span className="font-[var(--font-body)] text-[14px] text-slate-500 max-w-[140px] text-left sm:text-right leading-[1.5]">
                   starting price per standard project
                 </span>
               </div>
@@ -100,15 +100,15 @@ export default function PricingHero() {
           >
             {/* Left side text/button */}
             <div className="flex-1 p-8 sm:p-12 sm:pr-8 flex flex-col justify-center max-w-[340px]">
-              <h2 className="font-display font-bold text-[32px] text-white mb-4 tracking-tight">
+              <h2 className="font-[var(--font-display)] font-bold text-[32px] text-white mb-4 tracking-tight">
                 Custom
               </h2>
-              <p className="font-body text-[16px] text-[#94A3B8] leading-relaxed mb-10">
+              <p className="font-[var(--font-body)] text-[16px] text-[#94A3B8] leading-relaxed mb-10">
                 Design a custom package—available for businesses with large project volumes or unique workflow models.
               </p>
               <Link
                 href="/contact"
-                className="bg-[#06B6D4] hover:bg-[#0891B2] text-[#0F172A] font-display font-bold text-[15px] px-8 py-3.5 rounded-none inline-flex items-center justify-center gap-2 transition-colors w-fit shadow-md shadow-cyan-400/20"
+                className="bg-[#06B6D4] hover:bg-[#0891B2] text-[#0F172A] font-[var(--font-display)] font-bold text-[15px] px-8 py-3.5 rounded-none inline-flex items-center justify-center gap-2 transition-colors w-fit shadow-md shadow-cyan-400/20"
               >
                 Contact sales <span className="font-normal text-[18px] leading-none mb-0.5">›</span>
               </Link>
@@ -117,16 +117,16 @@ export default function PricingHero() {
             {/* Right side features list */}
             <div className="w-full sm:w-[50%] flex flex-col justify-center sm:border-l border-slate-700/50 bg-[#141E33]">
               <div className="px-6 py-5 border-t sm:border-t-0 border-b border-slate-700/50 flex items-center h-full">
-                <span className="font-body text-[15px] font-medium text-[#CBD5E1]">Dedicated retainers</span>
+                <span className="font-[var(--font-body)] text-[15px] font-medium text-[#CBD5E1]">Dedicated retainers</span>
               </div>
               <div className="px-6 py-5 border-b border-slate-700/50 flex items-center h-full">
-                <span className="font-body text-[15px] font-medium text-[#CBD5E1]">Volume discounts</span>
+                <span className="font-[var(--font-body)] text-[15px] font-medium text-[#CBD5E1]">Volume discounts</span>
               </div>
               <div className="px-6 py-5 border-b border-slate-700/50 flex items-center h-full">
-                <span className="font-body text-[15px] font-medium text-[#CBD5E1]">Multi-product bundles</span>
+                <span className="font-[var(--font-body)] text-[15px] font-medium text-[#CBD5E1]">Multi-product bundles</span>
               </div>
               <div className="px-6 py-5 flex items-center h-full">
-                <span className="font-body text-[15px] font-medium text-[#CBD5E1]">Country-specific pricing</span>
+                <span className="font-[var(--font-body)] text-[15px] font-medium text-[#CBD5E1]">Country-specific pricing</span>
               </div>
             </div>
           </motion.div>

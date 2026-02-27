@@ -20,7 +20,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         onClick={() => setOpen((v) => !v)} 
         className="flex w-full items-center justify-between py-6 text-left group transition-colors"
       >
-        <span className="font-display font-semibold text-[16px] text-[var(--text-primary)] group-hover:text-electric transition-colors">
+        <span className="font-[var(--font-display)] font-semibold text-[16px] text-[var(--text-primary)] group-hover:text-electric transition-colors">
           {q}
         </span>
         <motion.div 
@@ -40,7 +40,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             transition={{ duration: 0.22 }} 
             style={{ overflow: 'hidden' }}
           >
-            <p className="font-body text-[15px] text-[var(--text-secondary)] leading-[1.7] pb-6 max-w-3xl">
+            <p className="font-[var(--font-body)] text-[15px] text-[var(--text-secondary)] leading-[1.7] pb-6 max-w-3xl">
               {a}
             </p>
           </motion.div>
@@ -55,10 +55,10 @@ export default function PricingFAQ() {
     <section className="bg-[var(--bg-page)] max-w-7xl mx-auto px-6 pb-24">
       <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
         <div className="md:w-1/3 shrink-0">
-          <h2 className="font-display font-bold text-[36px] text-[var(--text-primary)] leading-tight tracking-tight">
+          <h2 className="font-[var(--font-display)] font-bold text-[36px] text-[var(--text-primary)] leading-tight tracking-tight">
             Common <br className="hidden md:block"/> Questions
           </h2>
-          <p className="font-body text-[15px] text-[var(--text-secondary)] mt-4">
+          <p className="font-[var(--font-body)] text-[15px] text-[var(--text-secondary)] mt-4">
             Everything you need to know about our billing, engagements, and process.
           </p>
         </div>

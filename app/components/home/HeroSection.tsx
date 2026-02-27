@@ -66,7 +66,7 @@ export default function HeroSection() {
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90vw] h-[70vh] bg-[radial-gradient(ellipse,rgba(26,86,219,0.15)_0%,transparent_60%)]" />
       </div>
       {/* ── Content ────────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-28 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-10 pb-20 sm:py-16 lg:py-24 w-full">
         <div className="max-w-2xl lg:max-w-4xl">
           {/* Left — copy */}
           <div className="flex flex-col items-start gap-6">

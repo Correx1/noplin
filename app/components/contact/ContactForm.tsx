@@ -128,7 +128,7 @@ export default function ContactForm() {
               <div>
                 <h2 className="font-[var(--font-display)] font-semibold text-2xl text-[var(--text-primary)] mb-2">Inquiry Received</h2>
                 <p className="font-[var(--font-body)] text-base text-[var(--text-secondary)] max-w-[300px] mx-auto">
-                  We'll review your brief and follow up via email within two hours during business operations.
+                  We will review your brief and follow up via email within two hours during business operations.
                 </p>
               </div>
               <button 
