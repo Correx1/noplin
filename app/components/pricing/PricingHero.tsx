@@ -7,7 +7,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function PricingHero() {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-[85vh] overflow-hidden bg-[var(--bg-page)] pt-[80px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
+    <section className="relative flex flex-col items-center justify-center min-h-[85vh] overflow-hidden bg-[var(--bg-page)] pt-[32px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
       
       {/* --- BACKGROUND GRAPHICS --- */}
       {/* Deep navy and electric blue theme */}

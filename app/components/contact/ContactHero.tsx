@@ -6,7 +6,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function ContactHero() {
   return (
-    <section className="relative pt-[80px] sm:pt-24 pb-12 sm:pb-16 lg:pt-28 lg:pb-24 overflow-hidden border-b border-(--grid-line-color) bg-[var(--bg-page)] z-0">
+    <section className="relative pt-[32px] sm:pt-24 pb-12 sm:pb-16 lg:pt-28 lg:pb-24 overflow-hidden border-b border-(--grid-line-color) bg-[var(--bg-page)] z-0">
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
         <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
