@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* 1. MAIN IMAGE: This is the primary feature image at the top of the article (from post.mainImage) */}
           {post.mainImage && (
-            <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl overflow-hidden mb-8 border border-gray-200">
+            <div className="relative w-full aspect-16/9 lg:aspect-21/9 rounded-xl overflow-hidden mb-8 border border-gray-200">
               <Image 
                 src={post.mainImage} 
                 alt={post.title} 

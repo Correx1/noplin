@@ -116,7 +116,7 @@ export default function PricingFeatures() {
           </div>
 
           {/* Right Card */}
-          <div className="flex-1 w-full max-w-[540px]">
+          <div className="flex-1 w-full max-w-[520px]">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

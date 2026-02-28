@@ -5,21 +5,21 @@ import Image from 'next/image';
 import { Mail, Linkedin, MessageCircle, ArrowUpRight } from 'lucide-react';
 
 const ceo = {
-  name: 'Malachy',
-  role: 'Creative Director & Head of Design',
+  name: 'Godwin Chibuike',
+  role: 'CEO & Lead Strategist',
   bio: 'Leads brand identity, pitch decks, and visual strategy while driving the overall creative vision and maintaining design excellence across all client engagements.',
-  image: '/portfolio/web2.png',
+  image: '/team/ceo.png',
 };
 
 const team = [
-  { name: 'Gilbert', role: 'Head of Web & Development', image: '/portfolio/web2.png' },
-  { name: 'Funke', role: 'Head of Content & SEO', image: '/portfolio/web2.png' },
-  { name: 'Benedict', role: 'Head of Marketing', image: '/portfolio/web2.png' },
-  { name: 'Jessica', role: 'Client Success Manager', image: '/portfolio/web2.png' },
-  { name: 'Vera', role: 'Client Success & Outreach', image: '/portfolio/web2.png' },
-  { name: 'Ethan', role: 'Product Manager', image: '/portfolio/web2.png' },
-  { name: 'Sophia', role: 'UX Researcher', image: '/portfolio/web2.png' },
-  { name: 'Leo', role: 'Visual Designer', image: '/portfolio/web2.png' },
+  { name: 'Gilbert', role: 'Backend Developer', image: '/team/Rex.png' },
+  { name: 'Funke', role: 'Content & SEO Specialist', image: '/team/Rex.png' },
+  { name: 'Benedict', role: 'Marketing Strategist', image: '/team/Rex.png' },
+    { name: 'Chukwu Raphael', role: 'Frontend Developer', image: '/team/Rex.png' },
+  { name: 'Jessica', role: 'Client Success Manager', image: '/team/Rex.png' },
+    { name: 'Malachy', role: 'Product Designer', image: '/team/Rex.png' },
+  { name: 'Vera', role: 'Client Success & Outreach', image: '/team/Rex.png' },
+  { name: 'Sophia', role: 'UX Researcher', image: '/team/Rex.png' },
 ];
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];

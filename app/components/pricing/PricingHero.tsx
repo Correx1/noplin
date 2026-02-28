@@ -44,7 +44,7 @@ export default function PricingHero() {
           <span className="font-[var(--font-display)] text-[15px] font-bold tracking-[0.1em] text-electric uppercase mb-6 block">
             Pricing Plans
           </span>
-          <h1 className="font-[var(--font-display)] text-[48px] sm:text-[60px] lg:text-[72px] font-bold leading-[1.05] tracking-tight text-[var(--text-primary)] m-0">
+          <h1 className="font-[var(--font-display)] text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.05] tracking-tight text-[var(--text-primary)] m-0">
             Pricing built for<br />
             businesses of all sizes
           </h1>

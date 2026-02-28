@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -81,16 +80,18 @@ export default function WorkHero() {
           {/* Subtle glow */}
           <div className="absolute right-16 top-1/2 h-[320px] w-[320px] -translate-y-1/2 rounded-full bg-electric opacity-15 blur-[140px]" />
 
-          {/* Image container */}
-          <div className="relative w-full overflow-hidden rounded  bg-[--bg-card] shadow-[0_16px_36px_-20px_rgba(0,0,0,0.35)]
+          {/* Video container */}
+          <div className="relative w-full overflow-hidden rounded bg-[--bg-card] shadow-[0_16px_36px_-20px_rgba(0,0,0,0.35)]
                           h-[340px] sm:h-[400px] lg:h-[480px]">
-            <Image
-              src="/portfolio/branding.png"
-              alt="Portfolio preview"
-              fill
-              className="object-cover"
-              priority
-            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
+            >
+              <source src="/portfolio/work.mp4" type="video/mp4" />
+            </video>
           </div>
         </motion.div>
       </div>

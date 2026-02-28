@@ -27,43 +27,47 @@ export default function PricingCallouts() {
         {callouts.map((c) => (
           <div 
             key={c.title} 
-            className="group relative flex flex-col gap-4 p-8 sm:p-10 transition-transform hover:-translate-y-1 duration-300 bg-[var(--bg-card)]" 
+            className="group relative flex flex-col gap-5 p-8 sm:p-10 transition-all hover:-translate-y-2 duration-500 bg-[var(--bg-card)] overflow-hidden rounded-[24px]" 
             style={{ 
               border: `1px solid var(--border-card)`,
-              borderTop: `3px solid ${c.glow}`,
-              borderRadius: '0px',
-              boxShadow: '0 10px 30px -10px rgba(0,0,0,0.1)'
+              boxShadow: '0 20px 40px -20px rgba(0,0,0,0.15)'
             }}
           >
+            {/* Top gradient blur */}
+            <div 
+              className="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-[80px] opacity-15 pointer-events-none transition-opacity duration-500 group-hover:opacity-40"
+              style={{ background: c.glow }}
+            />
+
             <div className="absolute top-0 right-0 p-8 opacity-5">
               <c.Icon size={120} />
             </div>
 
             <div 
-              className="relative w-12 h-12 flex items-center justify-center shadow-lg"
+              className="relative w-14 h-14 flex items-center justify-center rounded-2xl shadow-sm mb-2 transition-all duration-300 group-hover:scale-110"
               style={{ 
-                background: `color-mix(in srgb, ${c.glow} 15%, transparent)`, 
+                background: `color-mix(in srgb, ${c.glow} 10%, transparent)`, 
                 border: `1px solid color-mix(in srgb, ${c.glow} 30%, transparent)`,
-                borderRadius: '0px'
+                boxShadow: `0 0 20px 0 color-mix(in srgb, ${c.glow} 40%, transparent), inset 0 0 10px 0 color-mix(in srgb, ${c.glow} 20%, transparent)`
               }}
             >
-              <c.Icon size={20} color={c.glow} strokeWidth={2} />
+              <c.Icon size={24} color={c.glow} strokeWidth={2} style={{ filter: `drop-shadow(0 0 8px ${c.glow})` }} />
             </div>
             
-            <h3 className="relative font-[var(--font-display)] font-bold text-[22px] text-[var(--text-primary)] mt-2">
+            <h3 className="relative font-[var(--font-display)] font-bold text-[24px] text-[var(--text-primary)]">
               {c.title}
             </h3>
             
-            <p className="relative font-[var(--font-body)] text-[15px] text-[var(--text-secondary)] leading-[1.7] max-w-sm">
+            <p className="relative font-[var(--font-body)] text-[16px] text-[var(--text-secondary)] leading-[1.7] max-w-sm flex-1">
               {c.body}
             </p>
             
             <Link 
               href="/contact" 
-              className="relative inline-flex font-[var(--font-display)] font-bold text-[14px] uppercase tracking-wider mt-4 transition-opacity hover:opacity-75"
+              className="relative inline-flex items-center gap-2 font-[var(--font-display)] font-bold text-[14.5px] uppercase tracking-wider mt-4 transition-all group-hover:gap-3"
               style={{ color: c.glow }}
             >
-              {c.cta} →
+              {c.cta} <span className="text-[18px] leading-none mb-[2px] opacity-80">→</span>
             </Link>
           </div>
         ))}

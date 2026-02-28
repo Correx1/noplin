@@ -52,7 +52,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function PricingFAQ() {
   return (
-    <section className="bg-[var(--bg-page)] max-w-7xl mx-auto px-6 pb-24">
+    <section className="bg-[var(--bg-page)] max-w-7xl mx-auto px-6 pt-20 lg:pt-32 pb-24">
       <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
         <div className="md:w-1/3 shrink-0">
           <h2 className="font-[var(--font-display)] font-bold text-[36px] text-[var(--text-primary)] leading-tight tracking-tight">

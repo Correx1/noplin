@@ -44,26 +44,40 @@ export default function PricingGrid() {
         </aside>
 
         {/* Mobile dropdown navigation */}
-        <div className="w-full block md:hidden mb-6 sticky top-[72px] z-40 bg-[var(--bg-page)]/90 backdrop-blur-xl py-4 border-b border-[var(--border-card)]" style={{ margin: '0 -24px', padding: '16px 24px', width: 'calc(100% + 48px)' }}>
-          <h4 className="font-display font-bold text-[13px] text-[var(--text-primary)] uppercase tracking-wider mb-2">
-            Select a service
-          </h4>
-          <select 
-            className="w-full bg-[var(--bg-card)] border border-[var(--border-card)] text-[var(--text-primary)] rounded-md px-4 py-3 font-body text-[15px] focus:outline-none focus:border-electric"
-            value={activeService.name}
-            onChange={(e) => {
-              const selectedSvc = pricingData.flatMap(d => d.services).find(s => s.name === e.target.value);
-              if (selectedSvc) setActiveService(selectedSvc);
-            }}
-          >
-            {pricingData.map((dept) => (
-              <optgroup key={dept.dept} label={dept.dept}>
-                {dept.services.map((svc) => (
-                  <option key={svc.name} value={svc.name}>{svc.name}</option>
+        <div className="w-full block md:hidden mb-10 sticky top-[84px] z-40">
+          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] relative overflow-hidden backdrop-blur-xl">
+            {/* Subtle top glare */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white to-transparent opacity-80" />
+            
+            <h4 className="font-[var(--font-display)] font-bold text-[12px] text-slate-500 uppercase tracking-widest mb-3 pl-1">
+              Select a service
+            </h4>
+            <div className="relative">
+              <select 
+                className="appearance-none w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-xl px-4 py-3.5 font-[var(--font-display)] font-semibold text-[15px] focus:outline-none focus:ring-2 focus:ring-[#1A56DB]/20 focus:border-[#1A56DB] transition-all shadow-sm cursor-pointer"
+                value={activeService.name}
+                onChange={(e) => {
+                  const selectedSvc = pricingData.flatMap(d => d.services).find(s => s.name === e.target.value);
+                  if (selectedSvc) setActiveService(selectedSvc);
+                }}
+              >
+                {pricingData.map((dept) => (
+                  <optgroup key={dept.dept} label={dept.dept} className="font-[var(--font-display)] font-bold text-slate-400">
+                    {dept.services.map((svc) => (
+                      <option key={svc.name} value={svc.name} className="font-[var(--font-body)] text-slate-900 font-medium">
+                        {svc.name}
+                      </option>
+                    ))}
+                  </optgroup>
                 ))}
-              </optgroup>
-            ))}
-          </select>
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Right Content Area */}

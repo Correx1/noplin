@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+
 import useEmblaCarousel from 'embla-carousel-react';
 
 export interface CaseStudy {
@@ -15,6 +15,7 @@ export interface CaseStudy {
   description: string;
   highlights: string[];
   images: string[];
+  link?: string;
 }
 
 export const allCaseStudies: CaseStudy[] = [
@@ -26,7 +27,8 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Web Design',
     description: 'A complete technical and visual overhaul of TechBridge\'s corporate website, focusing on driving B2B leads and establishing authority in the local tech sector.',
     highlights: ['Increased conversion rate by 45%', 'Implemented headless CMS architecture', 'Fully responsive design system'],
-    images: ['/portfolio/web.png', '/portfolio/web2.png', '/portfolio/web3.png']
+    images: ['/portfolio/web.png', '/portfolio/web2.png', '/portfolio/web3.png'],
+    link: 'https://techbridge.com'
   },
   { 
     slug: 'styleco-brand', 
@@ -46,7 +48,8 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Web Design',
     description: 'Designed a premium, trustworthy digital presence for Apex Ventures to attract high-net-worth individuals and showcase their diverse portfolio.',
     highlights: ['Interactive portfolio showcase', 'High-performance Next.js build', 'Secure client portal UI'],
-    images: ['/portfolio/web3.png']
+    images: ['/portfolio/web3.png'],
+    link: 'https://apexventures.com'
   },
   { 
     slug: 'greenleaf-identity', 
@@ -66,7 +69,8 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Apps',
     description: 'Built a scalable and intuitive SaaS platform interface allowing users to effortlessly manage their campaigns and analytics from a single dashboard.',
     highlights: ['Complex data visualization', 'Streamlined user onboarding flow', 'Dark mode integration'],
-    images: ['/portfolio/web2.png', '/portfolio/web1.png', '/portfolio/web3.png']
+    images: ['/portfolio/web2.png', '/portfolio/web1.png', '/portfolio/web3.png'],
+    link: 'https://launchpad-app.com'
   },
   { 
     slug: 'nova-social', 
@@ -86,7 +90,8 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Web Design',
     description: 'Revamped BrightCorp\'s legacy site into a modern corporate portal, emphasizing their multi-national reach and deep industry expertise.',
     highlights: ['Multi-language support ready', 'Optimized SEO performance', 'Bespoke corporate photography'],
-    images: ['/portfolio/web.png', '/portfolio/web2.png']
+    images: ['/portfolio/web.png', '/portfolio/web2.png'],
+    link: 'https://brightcorp.com'
   },
   { 
     slug: 'fundrise-brand', 
@@ -116,7 +121,8 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Apps',
     description: 'Designed a highly performant mobile-first e-commerce web application focusing on fast checkouts and personalized product discovery.',
     highlights: ['Frictionless checkout flow', 'Personalized recommendation UI', 'Progressive Web App (PWA)'],
-    images: ['/portfolio/web.png']
+    images: ['/portfolio/web.png'],
+    link: 'https://nexamarket.com'
   },
   { 
     slug: 'visabridge-web', 
@@ -126,7 +132,8 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Web Design',
     description: 'A global-facing website designed to simplify the complex immigration process into clear, actionable steps for prospective clients.',
     highlights: ['Clear service tier breakdowns', 'Automated consultation booking', 'Trust-building testimonial section'],
-    images: ['/portfolio/web2.png', '/portfolio/web3.png', '/portfolio/web.png']
+    images: ['/portfolio/web2.png', '/portfolio/web3.png', '/portfolio/web.png'],
+    link: 'https://visabridge.com'
   },
   { 
     slug: 'primetech-brand', 
@@ -140,14 +147,14 @@ export const allCaseStudies: CaseStudy[] = [
   },
 ];
 
-export const filters = ['All', 'Web Design', 'Brand Identity', 'Social Media', 'Content', 'Apps'];
+export const filters = ['All', 'Web Design', 'Brand Identity', 'Social Media', 'Apps'];
 
 export const tagColors: Record<string, string> = {
   'Web Design': '#1A56DB',
   'Brand Identity': '#06B6D4',
   'Social Media': '#F59E0B',
   'Apps': '#8B5CF6',
-  'Content': '#10B981',
+
 };
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -229,7 +236,7 @@ export default function WorkPortfolio() {
       </div>
 
       {/* ── CASE STUDY LIST ────────────────────── */}
-      <section className="max-w-7xl mx-auto px-6 py-24 flex flex-col gap-32">
+      <section className="max-w-7xl mx-auto px-6 py-16 lg:py-24 flex flex-col gap-16 lg:gap-32">
         {visible.map((cs, i) => {
           const isReversed = i % 2 !== 0; // Alternating layout
           return (
@@ -276,10 +283,12 @@ export default function WorkPortfolio() {
                   ))}
                 </ul>
 
-                <Link href={`/work/${cs.slug}`} className="mt-6 px-7 py-3 border border-[var(--border-default)] hover:border-[var(--accent)] hover:text-[#06B6D4] text-[var(--text-primary)] transition-all inline-flex items-center justify-center gap-2 self-start font-semibold rounded-lg text-sm bg-[var(--bg-card)] shadow-[var(--shadow-card-theme)] group font-[var(--font-display)]">
-                  Read Case Study
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </Link>
+                {cs.link && (
+                  <a href={cs.link} target="_blank" rel="noopener noreferrer" className="mt-6 text-[#1A56DB] hover:text-[#06B6D4] transition-colors inline-flex items-center gap-2 self-start font-semibold text-[15.5px] group font-[var(--font-display)]">
+                    View Project
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </a>
+                )}
               </div>
             </motion.div>
           );

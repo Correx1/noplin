@@ -91,7 +91,7 @@ export default function Navbar() {
         <div className="relative w-full h-full">
           <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-0.5 shrink-0">
+            <Link href="/" className="flex items-center gap-0.5 shrink-0" onClick={() => setMobileOpen(false)}>
               <Image src="/images/logo.png" alt="Logo" width={150} height={100} />
             </Link>
 
@@ -243,12 +243,12 @@ export default function Navbar() {
             {mobileOpen && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'calc(100vh - 72px)', opacity: 1 }}
+                animate={{ height: 'calc(100dvh - 72px)', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
                 className="absolute top-[72px] left-0 w-full z-[90] flex flex-col bg-[var(--bg-page)] overflow-hidden border-b border-[var(--border-default)]"
               >
-                <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-1">
+                <div className="flex-1 overflow-y-auto px-6 pt-6 pb-28 flex flex-col gap-1">
                   {/* Services Accordion with Link + Toggle */}
                   <div className="border-b border-[var(--border-default)]">
                     <div className="flex w-full items-center justify-between">
@@ -323,11 +323,11 @@ export default function Navbar() {
                 </div>
 
                 {/* Mobile CTA */}
-                <div className="px-6 pb-8 pt-4 border-t border-[var(--border-default)] mt-auto">
+                <div className="absolute bottom-0 left-0 right-0 px-6 py-5 bg-[var(--bg-page)] border-t border-[var(--border-default)]">
                   <Link
                     href="/contact"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-center w-full py-3.5 text-[15px] font-medium text-white rounded-xl transition-all bg-[#1A56DB] hover:bg-[#06B6D4] shadow-md font-display"
+                    className="flex items-center justify-center w-full py-3.5 text-[15px] font-medium text-white rounded-xl transition-all bg-[#1A56DB] hover:bg-[#06B6D4] shadow-md font-[var(--font-display)]"
                   >
                     Get a Free Quote
                   </Link>
