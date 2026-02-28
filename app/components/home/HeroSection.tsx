@@ -24,20 +24,38 @@ const trustBadges = [
 export default function HeroSection() {
   return (
     <section
-      className="relative flex items-center overflow-hidden linear-mesh force-dark"
-      style={{ paddingTop: '72px', minHeight: '82vh' }}
+      className="relative flex items-center overflow-hidden linear-mesh force-dark w-full min-h-[70vh] lg:min-h-[82vh]"
+      style={{ paddingTop: '72px' }}
     >
       {/* ── Background layers ───────────────────────────────── */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0 bg-navy overflow-hidden">
-        {/* Moving Background Image */}
+        {/* Moving Background Image / Video */}
         <div className="absolute inset-0 w-[110%] h-[110%] -top-[5%] -left-[5%] animate-[panRight_30s_ease-in-out_infinite]">
-          <Image
-            src="/images/hero.png"
-            alt="Hero background"
-            fill
-            className="object-cover object-[80%_center] opacity-50"
-            priority
-          />
+          {(() => {
+            const bgSrc = "/images/hero.png";
+            const isVideo = bgSrc.endsWith('.mp4') || bgSrc.endsWith('.webm');
+            if (isVideo) {
+              return (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover object-[80%_center] opacity-50"
+                  src={bgSrc}
+                />
+              );
+            }
+            return (
+              <Image
+                src={bgSrc}
+                alt="Hero background"
+                fill
+                className="object-cover object-[80%_center] opacity-50"
+                priority
+              />
+            );
+          })()}
         </div>
 
         {/* Perfect Linear Overlays */}
@@ -128,18 +146,18 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={0.36}
-              className="flex flex-wrap items-center gap-3 pt-2"
+              className="flex flex-row flex-nowrap items-center gap-2 sm:gap-3 pt-2 w-full"
             >
               <Link
                 href="/contact"
-                className="btn-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white font-display"
+                className="btn-electric inline-flex items-center justify-center gap-1 sm:gap-2 px-4 sm:px-7 py-3 sm:py-3.5 rounded-xl text-[13px] sm:text-sm font-semibold text-white font-[var(--font-display)] flex-1 sm:flex-none whitespace-nowrap"
               >
                 Get a Free Quote
                 <span aria-hidden>→</span>
               </Link>
               <Link
                 href="/work"
-                className="btn-ghost inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold font-display"
+                className="btn-ghost inline-flex items-center justify-center gap-1 sm:gap-2 px-4 sm:px-7 py-3 sm:py-3.5 rounded-xl text-[13px] sm:text-sm font-semibold font-[var(--font-display)] flex-1 sm:flex-none whitespace-nowrap"
               >
                 See Our Work
               </Link>

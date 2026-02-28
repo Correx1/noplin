@@ -22,7 +22,7 @@ const projects = [
     name: 'Web App Development',
     tag: 'Web App Dev',
     href: '/work',
-    image: '/portfolio/webapp.png',
+    image: '/portfolio/work.mp4',
   },
 ];
 
@@ -66,12 +66,23 @@ export default function PortfolioTeaser() {
                 <div className="w-[56%] max-md:w-full">
                   <div className="w-full p-4">
                     <div className="relative w-full aspect-[16/10] overflow-hidden rounded-md shadow-md">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={p.image}
-                        alt={`${p.name} preview`}
-                        className="w-full h-full object-cover"
-                      />
+                      {p.image.endsWith('.mp4') || p.image.endsWith('.webm') ? (
+                        <video
+                          src={p.image}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      ) : (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img
+                          src={p.image}
+                          alt={`${p.name} preview`}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -118,7 +129,7 @@ export default function PortfolioTeaser() {
             href="/work"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-xl text-sm font-semibold font-[var(--font-display)] btn-ghost"
           >
-            See all projects →
+            More works <span aria-hidden>→</span>
           </Link>
         </motion.div>
       </div>

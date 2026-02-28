@@ -188,7 +188,7 @@ export default function WhatWeDoSection() {
         <div
           ref={containerRef}
           className="mobile-cards relative"
-          style={{ height: `${services.length * 100}vh` }}
+          style={{ height: `${100 + (services.length - 1) * 35}vh` }}
         >
           {services.map((svc, i) => (
             <StackedCard

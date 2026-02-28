@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -19,6 +20,17 @@ export interface CaseStudy {
 }
 
 export const allCaseStudies: CaseStudy[] = [
+    { 
+    slug: 'School-pilot', 
+    name: 'School Pilot', 
+    tag: 'Web App', 
+    client: 'Education, Nationwide', 
+    filter: 'Web Design',
+    description: 'Designed a premium, trustworthy digital presence for Apex Ventures to attract high-net-worth individuals and showcase their diverse portfolio.',
+    highlights: ['Interactive portfolio showcase', 'High-performance Next.js build', 'Secure client portal UI'],
+    images: ['/portfolio/schoolpilot.mp4'],
+    link: 'https://schoolpilot.ng'
+  },
   { 
     slug: 'techbridge-website', 
     name: 'TechBridge Website Redesign', 
@@ -48,7 +60,7 @@ export const allCaseStudies: CaseStudy[] = [
     filter: 'Web Design',
     description: 'Designed a premium, trustworthy digital presence for Apex Ventures to attract high-net-worth individuals and showcase their diverse portfolio.',
     highlights: ['Interactive portfolio showcase', 'High-performance Next.js build', 'Secure client portal UI'],
-    images: ['/portfolio/web3.png'],
+    images: ['/portfolio/work.mp4'],
     link: 'https://apexventures.com'
   },
   { 
@@ -170,16 +182,41 @@ function CaseStudyCarousel({ images, name }: { images: string[], name: string })
 
   useEffect(() => {
     if (!emblaApi) return;
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     onSelect();
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
   }, [emblaApi, onSelect]);
 
+  const renderMedia = (src: string, idx?: number) => {
+    const isVideo = src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.ogg');
+    
+    if (isVideo) {
+      return (
+        <video
+          src={src}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      );
+    }
+    
+    return (
+      <Image 
+        src={src} 
+        alt={idx !== undefined ? `${name} image ${idx + 1}` : name} 
+        fill 
+        className="object-cover" 
+      />
+    );
+  };
+
   if (images.length === 1) {
     return (
       <div className="relative w-full aspect-[1.25/1] sm:aspect-[3/2] overflow-hidden border border-[var(--border-default)] shadow-sm transition-shadow duration-300 group-hover:shadow-md">
-        <Image src={images[0]} alt={name} fill className="object-cover" />
+        {renderMedia(images[0])}
       </div>
     );
   }
@@ -189,13 +226,18 @@ function CaseStudyCarousel({ images, name }: { images: string[], name: string })
       <div className="overflow-hidden h-full cursor-grab active:cursor-grabbing" ref={emblaRef}>
         <div className="flex h-full">
           {images.map((src, idx) => (
-            <div key={idx} className="relative flex-[0_0_100%] h-full min-w-0">
-              <Image src={src} alt={`${name} image ${idx + 1}`} fill className="object-cover" />
+            <div key={idx} className="relative flex-[0_0_100%] h-full min-w-0 bg-[var(--bg-card)]">
+              {renderMedia(src, idx)}
             </div>
           ))}
         </div>
       </div>
       
+      {/* Dynamic Slide Counter Overlay */}
+      <div className="absolute top-4 right-4 z-10 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full text-white text-[12px] font-medium font-[var(--font-display)] shadow-sm">
+        {selectedIndex + 1} / {images.length}
+      </div>
+
       {/* Navigation Dots */}
       <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2 z-10">
         {images.map((_, idx) => (
