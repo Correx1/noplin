@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/refs */
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useRef } from 'react';
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -110,45 +109,22 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
 function StackedCard({
   svc,
   index,
-  total,
-  containerRef,
 }: {
   svc: typeof services[0];
   index: number;
-  total: number;
-  containerRef: React.RefObject<HTMLDivElement>;
 }) {
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
-  const sliceSize = 1 / total;
-  const scale = useTransform(
-    scrollYProgress,
-    [index * sliceSize, (index + 1) * sliceSize],
-    [1, index < total - 1 ? 0.93 : 1],
-  );
-  const y = useTransform(
-    scrollYProgress,
-    [index * sliceSize, (index + 1) * sliceSize],
-    ['0%', index < total - 1 ? '-5%' : '0%'],
-  );
-
   return (
-    <motion.div
-      style={{ scale, y, top: `${24 + index * 14}px`, zIndex: index + 1 }}
-      className="sticky overflow-hidden rounded-lg shadow-sm bg-[var(--bg-card)]"
+    <div
+      style={{ top: `${80 + index * 16}px`, zIndex: index + 1 }}
+      className="sticky overflow-hidden rounded-lg shadow-sm bg-[var(--bg-card)] mb-6 transition-all duration-300"
     >
       <CardContent svc={svc} />
-    </motion.div>
+    </div>
   );
 }
 
 // ── Section ───────────────────────────────────────────────────────────────────
 export default function WhatWeDoSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
     <section className="bg-[var(--bg-section)] py-24">
       <div className="max-w-7xl mx-auto px-4">
@@ -185,18 +161,12 @@ export default function WhatWeDoSection() {
           ))}
         </div>
 
-        <div
-          ref={containerRef}
-          className="mobile-cards relative"
-          style={{ height: `${100 + (services.length - 1) * 35}vh` }}
-        >
+        <div className="mobile-cards relative">
           {services.map((svc, i) => (
             <StackedCard
               key={svc.id}
               svc={svc}
               index={i}
-              total={services.length}
-              containerRef={containerRef as React.RefObject<HTMLDivElement>}
             />
           ))}
         </div>

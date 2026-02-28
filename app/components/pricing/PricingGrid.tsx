@@ -11,7 +11,7 @@ export default function PricingGrid() {
   const [activeService, setActiveService] = useState<Service>(pricingData[0].services[0]);
 
   return (
-    <section className="bg-[var(--bg-page)] max-w-7xl mx-auto px-6 pt-12 pb-24 border-t border-[var(--border-default)]">
+    <section className="bg-[var(--bg-page)] w-full max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-24 border-t border-[var(--border-default)]">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mt-8">
         
         {/* Left Sidebar Navigation */}
@@ -43,39 +43,41 @@ export default function PricingGrid() {
           </nav>
         </aside>
 
-        {/* Mobile dropdown navigation */}
-        <div className="w-full block md:hidden mb-10 sticky top-[84px] z-40">
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] relative overflow-hidden backdrop-blur-xl">
-            {/* Subtle top glare */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white to-transparent opacity-80" />
-            
-            <h4 className="font-[var(--font-display)] font-bold text-[12px] text-slate-500 uppercase tracking-widest mb-3 pl-1">
-              Select a service
-            </h4>
-            <div className="relative">
-              <select 
-                className="appearance-none w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-xl px-4 py-3.5 font-[var(--font-display)] font-semibold text-[15px] focus:outline-none focus:ring-2 focus:ring-[#1A56DB]/20 focus:border-[#1A56DB] transition-all shadow-sm cursor-pointer"
-                value={activeService.name}
-                onChange={(e) => {
-                  const selectedSvc = pricingData.flatMap(d => d.services).find(s => s.name === e.target.value);
-                  if (selectedSvc) setActiveService(selectedSvc);
-                }}
+        {/* Mobile dropdown navigation (Full width sticky under navbar) */}
+        <div className="w-full block md:hidden mb-8 sticky top-[72px] z-40 bg-[var(--bg-page)]/95 backdrop-blur-md border-b border-[var(--border-default)] shadow-sm px-4 sm:px-6 py-4">
+          <div className="relative w-full">
+            <select 
+              className="appearance-none w-full bg-[var(--bg-card)] border border-[var(--border-default)] text-[var(--text-primary)] rounded-md pl-4 pr-10 py-2.5 font-[var(--font-body)] text-[14px] leading-tight focus:outline-none focus:ring-2 focus:ring-[#1A56DB] focus:ring-offset-1 focus:ring-offset-[var(--bg-page)] transition-all cursor-pointer shadow-sm hover:bg-[var(--bg-section)]"
+              value={activeService.name}
+              onChange={(e) => {
+                const selectedSvc = pricingData.flatMap(d => d.services).find(s => s.name === e.target.value);
+                if (selectedSvc) setActiveService(selectedSvc);
+              }}
+            >
+              {pricingData.map((dept) => (
+                <optgroup key={dept.dept} label={dept.dept} className="font-[var(--font-display)] font-bold text-[var(--text-muted)] text-[12px] uppercase">
+                  {dept.services.map((svc) => (
+                    <option key={svc.name} value={svc.name} className="font-[var(--font-body)] text-[var(--text-primary)] font-normal normal-case text-[14px]">
+                      {svc.name}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-[var(--text-secondary)] opacity-70">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
               >
-                {pricingData.map((dept) => (
-                  <optgroup key={dept.dept} label={dept.dept} className="font-[var(--font-display)] font-bold text-slate-400">
-                    {dept.services.map((svc) => (
-                      <option key={svc.name} value={svc.name} className="font-[var(--font-body)] text-slate-900 font-medium">
-                        {svc.name}
-                      </option>
-                    ))}
-                  </optgroup>
-                ))}
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
-                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                </svg>
-              </div>
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
             </div>
           </div>
         </div>
@@ -103,7 +105,7 @@ export default function PricingGrid() {
               {activeService.tiers.map((t, i) => (
                 <div 
                   key={t.label} 
-                  className={`flex flex-col md:flex-row gap-8 md:gap-12 p-8 hover:bg-electric/[0.02] transition-colors ${
+                  className={`flex flex-col md:flex-row gap-6 md:gap-12 p-5 sm:p-6 md:p-8 hover:bg-[var(--bg-section)] transition-colors ${
                     i !== activeService.tiers.length - 1 ? 'border-b border-[var(--border-card)]' : ''
                   }`}
                 >
