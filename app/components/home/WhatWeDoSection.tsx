@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/refs */
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
+import { useRef } from 'react';
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -62,7 +63,10 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
       {/* Grid texture */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none z-0 bg-[linear-gradient(var(--grid-line-color)_1px,transparent_1px),linear-gradient(90deg,var(--grid-line-color)_1px,transparent_1px)] bg-[size:52px_52px]"
+        className="absolute inset-0 pointer-events-none z-0
+                   bg-[linear-gradient(var(--grid-line-color)_1px,transparent_1px),
+                       linear-gradient(90deg,var(--grid-line-color)_1px,transparent_1px)]
+                   bg-[size:52px_52px]"
       />
 
       <div className="relative z-10 flex service-inner">
@@ -109,22 +113,45 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
 function StackedCard({
   svc,
   index,
+  total,
+  containerRef,
 }: {
   svc: typeof services[0];
   index: number;
+  total: number;
+  containerRef: React.RefObject<HTMLDivElement>;
 }) {
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  });
+
+  const sliceSize = 1 / total;
+  const scale = useTransform(
+    scrollYProgress,
+    [index * sliceSize, (index + 1) * sliceSize],
+    [1, index < total - 1 ? 0.93 : 1],
+  );
+  const y = useTransform(
+    scrollYProgress,
+    [index * sliceSize, (index + 1) * sliceSize],
+    ['0%', index < total - 1 ? '-5%' : '0%'],
+  );
+
   return (
-    <div
-      style={{ top: `${80 + index * 16}px`, zIndex: index + 1 }}
-      className="sticky overflow-hidden rounded-lg shadow-sm bg-[var(--bg-card)] mb-6 transition-all duration-300"
+    <motion.div
+      style={{ scale, y, top: `${24 + index * 14}px`, zIndex: index + 1 }}
+      className="sticky overflow-hidden rounded-lg shadow-sm bg-[var(--bg-card)]"
     >
       <CardContent svc={svc} />
-    </div>
+    </motion.div>
   );
 }
 
 // ── Section ───────────────────────────────────────────────────────────────────
 export default function WhatWeDoSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
     <section className="bg-[var(--bg-section)] py-24">
       <div className="max-w-7xl mx-auto px-4">
@@ -161,12 +188,18 @@ export default function WhatWeDoSection() {
           ))}
         </div>
 
-        <div className="mobile-cards relative">
+        <div
+          ref={containerRef}
+          className="mobile-cards relative"
+          style={{ height: `${services.length * 80}vh` }}
+        >
           {services.map((svc, i) => (
             <StackedCard
               key={svc.id}
               svc={svc}
               index={i}
+              total={services.length}
+              containerRef={containerRef as React.RefObject<HTMLDivElement>}
             />
           ))}
         </div>
