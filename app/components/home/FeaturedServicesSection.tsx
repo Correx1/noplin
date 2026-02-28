@@ -151,20 +151,20 @@ export default function FeaturedServicesSection() {
             OUR SERVICES
           </span>
 
-          <h2 className="font-display font-extrabold text-white text-[clamp(2.4rem,4vw,3.2rem)] leading-[1.1] mt-4">
+          <h2 className="font-display font-extrabold text-white text-[clamp(2.2rem,4vw,3.0rem)] leading-[1.1] mt-4">
             Focused offerings.
             <br />
             Serious outcomes.
           </h2>
 
-          <p className="font-body text-[18px] text-white/70 mt-5 max-w-[360px]">
+          <p className="font-body text-[17px] text-white/70 mt-5 max-w-90">
             A tight set of services built for companies that care about execution,
             clarity, and return on spend.
           </p>
         </div>
 
         {/* RIGHT */}
-        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-24">
+        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20">
           {services.map((s, i) => (
             <ServiceItem key={s.name} s={s} i={i} />
           ))}
@@ -172,7 +172,7 @@ export default function FeaturedServicesSection() {
           <div className="md:col-span-2">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white text-[#0D0D2B] font-display font-semibold text-[14px] hover:bg-white/90 transition"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white text-navy font-display font-semibold text-[14px] hover:bg-white/90 transition"
             >
               View all services →
             </Link>

@@ -5,12 +5,12 @@ import { EASE } from './AboutShared';
 
 export default function AboutHero() {
   return (
-    <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-[var(--bg-page)] pt-[32px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
+    <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-(--bg-page) pt-[32px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
       
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-        <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+        <div className="absolute w-[150%] h-62.5 bg-linear-to-r from-[#0A101D] via-electric to-electric opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
+        <div className="absolute w-[150%] h-37.5 bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
       </div>
 
       {/* Minimal background curves */}
@@ -56,17 +56,17 @@ export default function AboutHero() {
           transition={{ duration: 0.65, ease: EASE }}
           className="flex max-w-2xl flex-col items-start gap-6"
         >
-          <span className="font-display text-[13px] font-semibold tracking-[0.05em] text-[#1A56DB]">
+          <span className="font-display text-[13px] font-semibold tracking-[0.05em] text-electric">
             We Are Different
           </span>
 
-          <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[var(--text-primary)]">
+          <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-(--text-primary)">
             We Are Not a
             <br />
             Typical Agency.
           </h1>
 
-          <p className="mt-2 font-body text-[18px] leading-[1.6] text-[var(--text-secondary)]">
+          <p className="mt-2 font-body text-[18px] leading-[1.6] text-(--text-secondary)">
             We are a results-obsessed team that builds brands that mean something,
             websites that convert, content that engages, and marketing that grows
             businesses — delivered fast, and with excellence.
@@ -80,16 +80,16 @@ export default function AboutHero() {
           transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
           className="relative w-full"
         >
-          <div className="absolute -inset-4 rounded-[30px] bg-linear-to-tr from-[#1A56DB]/20 to-[#06B6D4]/20 blur-2xl opacity-60" />
-          <div className="relative flex h-[400px] flex-col overflow-hidden rounded-[20px] border border-[var(--border-card)] bg-[var(--bg-card)] shadow-2xl">
+          <div className="absolute -inset-4 rounded-[30px] bg-linear-to-tr from-electric/20 to-electric/20 blur-2xl opacity-60" />
+          <div className="relative flex h-[400px] flex-col overflow-hidden rounded-[20px] border border-[var(--border-card)] bg-(--bg-card) shadow-2xl">
             <div className="flex items-center gap-3 border-b border-[var(--border-card)] px-5 py-4">
-              <svg className="h-4 w-4 text-[var(--text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-4 w-4 text-(--text-muted)" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <div className="h-5 w-32 rounded bg-[var(--text-muted)] opacity-20" />
             </div>
             <div className="border-b border-[var(--border-card)] px-5 py-3">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Why Choose Us</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-(--text-muted)">Why Choose Us</span>
             </div>
             <div className="relative flex-1 overflow-hidden p-5">
               <div className="pointer-events-none absolute top-0 left-0 right-0 z-10 h-6 bg-linear-to-b from-[var(--bg-card)] to-transparent" />
@@ -107,8 +107,8 @@ export default function AboutHero() {
                   { id: 'speed-2', val: 'Fast Turnarounds' },
                 ].map((item) => (
                   <div key={item.id} className="group flex items-center justify-between">
-                    <span className="font-mono text-[13px] text-[var(--text-primary)]">{item.id}</span>
-                    <span className="font-mono text-[13px] text-[var(--text-muted)] transition-colors group-hover:text-[#1A56DB]">{item.val}</span>
+                    <span className="font-mono text-[13px] text-(--text-primary)">{item.id}</span>
+                    <span className="font-mono text-[13px] text-(--text-muted) transition-colors group-hover:text-electric">{item.val}</span>
                   </div>
                 ))}
               </div>

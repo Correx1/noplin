@@ -37,7 +37,7 @@ export default function PricingGrid() {
   }, [mobileOpen]);
 
   return (
-    <section className="bg-[var(--bg-page)] w-full max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-24 border-t border-[var(--border-default)]">
+    <section className="bg-(--bg-page) w-full max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-24 border-t border-[var(--border-default)]">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mt-8">
 
         {/* Desktop Sidebar */}
@@ -45,7 +45,7 @@ export default function PricingGrid() {
           <nav className="flex flex-col gap-8">
             {pricingData.map((dept) => (
               <div key={dept.dept} className="flex flex-col gap-3">
-                <h4 className="font-display font-bold text-[13px] uppercase tracking-wider text-[var(--text-primary)]">
+                <h4 className="font-display font-bold text-[13px] uppercase tracking-wider text-(--text-primary)">
                   {dept.dept}
                 </h4>
                 <ul className="flex flex-col gap-0.5">
@@ -55,8 +55,8 @@ export default function PricingGrid() {
                         onClick={() => setActiveService(svc)}
                         className={`w-full text-left py-1.5 px-3 -ml-3 rounded-md text-[14px] transition-colors ${
                           activeService.name === svc.name
-                            ? 'bg-[var(--bg-card)] text-electric font-medium'
-                            : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+                            ? 'bg-(--bg-card) text-electric font-medium'
+                            : 'text-(--text-secondary) hover:text-(--text-primary) hover:bg-(--bg-card)'
                         }`}
                       >
                         {svc.name}
@@ -70,7 +70,7 @@ export default function PricingGrid() {
         </aside>
 
         {/* ================= MOBILE SERVICE PICKER ================= */}
-        <div className="w-full md:hidden sticky top-[72px] z-40 bg-[var(--bg-page)]/95 backdrop-blur border-b border-[var(--border-default)] px-4 sm:px-6 py-3 mb-8">
+        <div className="w-full md:hidden sticky top-[72px] z-40 bg-(--bg-page)/95 backdrop-blur border-b border-[var(--border-default)] px-4 sm:px-6 py-3 mb-8">
           <div className="relative overflow-visible" ref={dropdownRef}>
 
             {/* Trigger */}
@@ -78,11 +78,11 @@ export default function PricingGrid() {
               onClick={() => setMobileOpen((v) => !v)}
               className="w-full flex items-center justify-between rounded-xl border border-[var(--border-default)] bg-white px-4 py-3 shadow-sm"
             >
-              <span className="font-display font-semibold text-[14px] text-[var(--text-primary)] truncate">
+              <span className="font-display font-semibold text-[14px] text-(--text-primary) truncate">
                 {activeService.name}
               </span>
               <svg
-                className={`w-4 h-4 text-[var(--text-secondary)] transition-transform ${
+                className={`w-4 h-4 text-(--text-secondary) transition-transform ${
                   mobileOpen ? 'rotate-180' : ''
                 }`}
                 viewBox="0 0 24 24"
@@ -106,7 +106,7 @@ export default function PricingGrid() {
                 >
                   {pricingData.map((dept) => (
                     <div key={dept.dept} className="px-4 py-2">
-                      <p className="text-[11px] font-display font-bold uppercase tracking-wider text-[var(--text-muted)] mb-2">
+                      <p className="text-[11px] font-display font-bold uppercase tracking-wider text-(--text-muted) mb-2">
                         {dept.dept}
                       </p>
 
@@ -124,7 +124,7 @@ export default function PricingGrid() {
                               className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-[14px] transition-colors ${
                                 active
                                   ? 'bg-electric/5 text-electric font-semibold'
-                                  : 'hover:bg-[var(--bg-section)] text-[var(--text-primary)]'
+                                  : 'hover:bg-(--bg-section) text-(--text-primary)'
                               }`}
                             >
                               {/* Dot indicator */}
@@ -159,20 +159,20 @@ export default function PricingGrid() {
             className="flex flex-col gap-8"
           >
             <div>
-              <h2 className="font-display font-bold text-[36px] sm:text-[40px] text-[var(--text-primary)] tracking-tight">
+              <h2 className="font-display font-bold text-[36px] sm:text-[40px] text-(--text-primary) tracking-tight">
                 {activeService.name}
               </h2>
-              <p className="font-body text-[16px] text-[var(--text-secondary)] mt-2">
+              <p className="font-body text-[16px] text-(--text-secondary) mt-2">
                 Optimize your workflow and select the tier that meets your needs.
               </p>
             </div>
 
             {/* Pricing Cards */}
-            <div className="bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+            <div className="bg-(--bg-card) border border-[var(--border-card)] rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
               {activeService.tiers.map((t, i) => (
                 <div
                   key={t.label}
-                  className={`flex flex-col md:flex-row gap-6 md:gap-12 p-5 sm:p-6 md:p-8 hover:bg-[var(--bg-section)] transition-colors ${
+                  className={`flex flex-col md:flex-row gap-6 md:gap-12 p-5 sm:p-6 md:p-8 hover:bg-(--bg-section) transition-colors ${
                     i !== activeService.tiers.length - 1
                       ? 'border-b border-[var(--border-card)]'
                       : ''
@@ -182,7 +182,7 @@ export default function PricingGrid() {
                     <h3 className="font-display font-bold text-[20px]">
                       {t.label}
                     </h3>
-                    <p className="text-[15px] text-[var(--text-secondary)] mt-2">
+                    <p className="text-[15px] text-(--text-secondary) mt-2">
                       {t.bestFor}
                     </p>
 
@@ -202,7 +202,7 @@ export default function PricingGrid() {
                     <p className="font-display font-bold text-[28px]">
                       {t.price}
                     </p>
-                    <p className="text-[14px] text-[var(--text-secondary)] mt-1">
+                    <p className="text-[14px] text-(--text-secondary) mt-1">
                       Turnaround: {t.turnaround}
                     </p>
 

@@ -12,7 +12,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function PricingPageClient() {
   return (
-    <main className="bg-[var(--bg-page)] min-h-screen">
+    <main className="bg-(--bg-page) min-h-screen">
       <PricingHero />
       <PricingGrid />
       <PricingCallouts />
@@ -41,11 +41,11 @@ export default function PricingPageClient() {
             transition={{ duration: 0.6, ease: EASE }}
             className="flex flex-col gap-4"
           >
-            <h2 className="font-[var(--font-display)] font-bold text-[clamp(1.75rem,4vw,3rem)] text-white leading-[1.1] tracking-tight">
+            <h2 className="font-semibold font-bold text-[clamp(1.75rem,4vw,3rem)] text-white leading-[1.1] tracking-tight">
               Not sure which package is <br className="hidden sm:block" />
-              <span className="text-[#1A56DB]">right for you?</span>
+              <span className="text-electric">right for you?</span>
             </h2>
-            <p className="font-[var(--font-body)] text-[18px] text-[#94A3B8] max-w-[520px] mx-auto leading-[1.7]">
+            <p className="font-(--font-body) text-[18px] text-[#94A3B8] max-w-[520px] mx-auto leading-[1.7]">
               Book a free 15-minute discovery call and we will help you map out the perfect digital plan for your business.
             </p>
           </motion.div>
@@ -59,7 +59,7 @@ export default function PricingPageClient() {
           >
             <Link
               href="/contact"
-              className="btn-electric inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-[15px] font-semibold text-[#0D0D2B] font-[var(--font-display)] hover:-translate-y-0.5 hover:shadow-lg transition-all"
+              className="btn-electric inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-[15px] font-semibold text-navy font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all"
             >
               Book a Free Call
             </Link>

@@ -85,19 +85,19 @@ export default function AboutTeam() {
               transition={{ duration: 0.65, ease: EASE, delay: 0.12 }}
               className="flex flex-col gap-7 pb-6"
             >
-              <h2 className="font-[var(--font-display)] text-5xl font-bold leading-[1.1] text-[var(--text-primary)] sm:text-6xl">
+              <h2 className="font-semibold text-5xl font-bold leading-[1.1] text-(--text-primary) sm:text-6xl">
                 Meet the<br />
                 <span className="text-cyan">Visionary</span>
               </h2>
 
               <div>
-                <p className="font-[var(--font-display)] text-2xl font-bold text-[var(--text-primary)]">{ceo.name}</p>
-                <p className="mt-1 font-[var(--font-display)] text-[11px] font-semibold uppercase tracking-widest text-cyan">
+                <p className="font-semibold text-2xl font-bold text-(--text-primary)">{ceo.name}</p>
+                <p className="mt-1 font-semibold text-[11px] font-semibold uppercase tracking-widest text-cyan">
                   {ceo.role}
                 </p>
               </div>
 
-              <p className="font-[var(--font-body)] text-[16px] leading-[1.6] text-[var(--text-secondary)] max-w-md">
+              <p className="font-(--font-body) text-[16px] leading-[1.6] text-(--text-secondary) max-w-md">
                 {ceo.bio}
               </p>
 
@@ -132,14 +132,14 @@ export default function AboutTeam() {
           className="mb-14 flex flex-col items-center text-center gap-4"
         >
           <div>
-            <p className="mb-3 font-[var(--font-display)] text-[11px] font-semibold uppercase tracking-widest text-cyan">
+            <p className="mb-3 font-semibold text-[11px] font-semibold uppercase tracking-widest text-cyan">
               Our Experts
             </p>
-            <h2 className="font-[var(--font-display)] text-4xl font-bold text-[var(--text-primary)] sm:text-5xl">
+            <h2 className="font-semibold text-4xl font-bold text-(--text-primary) sm:text-5xl">
               The People Behind<br className="hidden sm:block" /> the Results
             </h2>
           </div>
-          <p className="max-w-md font-[var(--font-body)] text-[15px] text-[var(--text-secondary)]">
+          <p className="max-w-md font-(--font-body) text-[15px] text-(--text-secondary)">
             A cross-functional team built to deliver end-to-end excellence.
           </p>
         </motion.div>
@@ -168,15 +168,15 @@ export default function AboutTeam() {
 
               {/* Info */}
               <div className="absolute bottom-0 left-0 w-full px-4 py-4 rounded-b-2xl">
-                <p className="font-[var(--font-display)] font-semibold text-white text-[15px] leading-tight">{member.name}</p>
-                <p className="mt-1 font-[var(--font-display)] text-[10px] uppercase tracking-widest text-[#94A3B8]">
+                <p className="font-semibold font-semibold text-white text-[15px] leading-tight">{member.name}</p>
+                <p className="mt-1 font-semibold text-[10px] uppercase tracking-widest text-[#94A3B8]">
                   {member.role}
                 </p>
               </div>
 
               {/* Hover arrow badge */}
               <div className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-cyan opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2">
-                <ArrowUpRight size={13} className="text-[#0D0D2B]" />
+                <ArrowUpRight size={13} className="text-navy" />
               </div>
 
               {/* Top cyan line reveal */}

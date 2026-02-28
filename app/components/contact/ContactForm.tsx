@@ -110,7 +110,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="max-w-[1400px] mx-auto px-6 xl:px-12 py-16 lg:py-24">
+    <section className="max-w-[1400px] mx-auto px-6 xl:px-12 py-16 lg:py-20">
       <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
 
         {/* LEFT — Bold Border Form */}
@@ -126,8 +126,8 @@ export default function ContactForm() {
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A56DB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <h2 className="font-[var(--font-display)] font-semibold text-2xl text-[var(--text-primary)] mb-2">Inquiry Received</h2>
-                <p className="font-[var(--font-body)] text-base text-[var(--text-secondary)] max-w-[300px] mx-auto">
+                <h2 className="font-semibold font-semibold text-2xl text-(--text-primary) mb-2">Inquiry Received</h2>
+                <p className="font-(--font-body) text-[15px] text-(--text-secondary) max-w-[300px] mx-auto">
                   We will review your brief and follow up via email within two hours during business operations.
                 </p>
               </div>
@@ -144,7 +144,7 @@ export default function ContactForm() {
                 
                 {/* Personal Details */}
                 <div className="flex flex-col gap-8">
-                  <h3 className="font-[var(--font-display)] text-xl text-[var(--text-primary)] pb-4 font-medium">Personal Details</h3>
+                  <h3 className="font-semibold text-xl text-(--text-primary) pb-4 font-medium">Personal Details</h3>
                   <div className="grid sm:grid-cols-2 gap-8">
                     <FormField
                       control={form.control}
@@ -205,7 +205,7 @@ export default function ContactForm() {
 
                 {/* Project Details */}
                 <div className="flex flex-col gap-8 mt-4">
-                  <h3 className="font-[var(--font-display)] text-xl text-[var(--text-primary)] pb-4 font-medium">Project Details</h3>
+                  <h3 className="font-semibold text-xl text-(--text-primary) pb-4 font-medium">Project Details</h3>
                   <div className="grid sm:grid-cols-2 gap-8">
                     <FormField
                       control={form.control}
@@ -274,14 +274,14 @@ export default function ContactForm() {
                   <button 
                     type="submit" 
                     disabled={status === 'sending'}
-                    className={`w-full sm:w-auto px-10 py-5 rounded-none font-medium flex items-center justify-center gap-3 transition-colors duration-200 bg-[var(--text-primary)] text-[var(--bg-page)] font-[var(--font-display)] text-[15px] tracking-wide ${
+                    className={`w-full sm:w-auto px-10 py-5 rounded-none font-medium flex items-center justify-center gap-3 transition-colors duration-200 bg-[var(--text-primary)] text-[var(--bg-page)] font-semibold text-[15px] tracking-wide ${
                       status === 'sending' ? 'opacity-60 cursor-not-allowed' : 'hover:opacity-90'
                     }`}
                   >
                     {status === 'sending' ? 'Submitting...' : 'Submit Inquiry'}
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </button>
-                  <p className="font-[var(--font-body)] text-sm text-[var(--text-muted)]">
+                  <p className="font-(--font-body) text-sm text-(--text-muted)">
                     Your data is secure. No spam, ever.
                   </p>
                 </div>
@@ -300,13 +300,13 @@ export default function ContactForm() {
           {/* Contact details */}
           <div className="flex flex-col gap-8">
             <div>
-              <p className="font-[var(--font-display)] font-semibold text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-2">Direct Email</p>
-              <a href="mailto:hello@noplin.com" className="hover:text-electric transition-colors font-[var(--font-body)] text-lg text-[var(--text-primary)]">hello@noplin.com</a>
+              <p className="font-semibold font-semibold text-[11px] tracking-widest uppercase text-(--text-secondary) mb-2">Direct Email</p>
+              <a href="mailto:hello@noplin.com" className="hover:text-electric transition-colors font-(--font-body) text-lg text-(--text-primary)">hello@noplin.com</a>
             </div>
             
             <div>
-              <p className="font-[var(--font-display)] font-semibold text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-2">Operating Hours</p>
-              <p className="font-[var(--font-body)] text-base text-[var(--text-primary)] leading-relaxed">
+              <p className="font-semibold font-semibold text-[11px] tracking-widest uppercase text-(--text-secondary) mb-2">Operating Hours</p>
+              <p className="font-(--font-body) text-[15px] text-(--text-primary) leading-relaxed">
                 Monday — Friday<br/>
                 9:00 AM — 6:00 PM (WAT)
               </p>
@@ -317,14 +317,14 @@ export default function ContactForm() {
 
           {/* Trust signals */}
           <div>
-            <p className="font-[var(--font-display)] font-semibold text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-4">Project Structure</p>
+            <p className="font-semibold font-semibold text-[11px] tracking-widest uppercase text-(--text-secondary) mb-4">Project Structure</p>
             <ul className="flex flex-col gap-4">
               {trustSignals.map((t, index) => (
                 <li key={t} className="flex gap-4 items-start">
-                  <span className="font-[var(--font-display)] font-semibold text-[11px] text-[var(--text-secondary)] mt-1">
+                  <span className="font-semibold font-semibold text-[11px] text-(--text-secondary) mt-1">
                     (0{index + 1})
                   </span>
-                  <span className="font-[var(--font-body)] text-[15px] text-[var(--text-secondary)]">{t}</span>
+                  <span className="font-(--font-body) text-[15px] text-(--text-secondary)">{t}</span>
                 </li>
               ))}
             </ul>
@@ -332,7 +332,7 @@ export default function ContactForm() {
 
           {/* Socials */}
           <div>
-            <p className="font-[var(--font-display)] font-semibold text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-4">Network</p>
+            <p className="font-semibold font-semibold text-[11px] tracking-widest uppercase text-(--text-secondary) mb-4">Network</p>
             <div className="flex flex-col gap-3">
               {socials.map((s) => (
                 <Link 
@@ -342,8 +342,8 @@ export default function ContactForm() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 transition-colors group"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-[var(--text-muted)] group-hover:text-electric transition-colors"><path d={s.icon}/></svg>
-                  <span className="font-[var(--font-body)] text-[15px] text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">{s.label}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-(--text-muted) group-hover:text-electric transition-colors"><path d={s.icon}/></svg>
+                  <span className="font-(--font-body) text-[15px] text-(--text-secondary) group-hover:text-(--text-primary) transition-colors">{s.label}</span>
                 </Link>
               ))}
             </div>

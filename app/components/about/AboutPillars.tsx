@@ -38,7 +38,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function AboutPillars() {
   return (
-    <section className="relative overflow-hidden bg-[#020617] py-24 sm:py-28 [clip-path:polygon(0_2%,100%_0,100%_98%,0_100%)]">
+    <section className="relative overflow-hidden bg-[#020617] py-20 sm:py-28 [clip-path:polygon(0_2%,100%_0,100%_98%,0_100%)]">
       
       {/* Background Art */}
       <div className="pointer-events-none absolute inset-0">

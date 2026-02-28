@@ -66,7 +66,7 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
         className="absolute inset-0 pointer-events-none z-0
                    bg-[linear-gradient(var(--grid-line-color)_1px,transparent_1px),
                        linear-gradient(90deg,var(--grid-line-color)_1px,transparent_1px)]
-                   bg-[size:52px_52px]"
+                   bg-size-[52px_52px]"
       />
 
       <div className="relative z-10 flex service-inner">
@@ -75,11 +75,11 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
             {svc.eyebrow}
           </span>
 
-          <h3 className="font-bold text-[var(--text-primary)] leading-tight text-[clamp(1.5rem,2.6vw,2.2rem)]">
+          <h3 className="font-bold text-(--text-primary) leading-tight text-[clamp(1.2rem,2.6vw,2.0rem)]">
             {svc.headline}
           </h3>
 
-          <p className="text-base text-[var(--text-secondary)] leading-relaxed">
+          <p className="text-[15px] text-(--text-secondary) leading-relaxed">
             {svc.body}
           </p>
 
@@ -87,7 +87,7 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
             {svc.tags.map(tag => (
               <span
                 key={tag}
-                className="text-[11px] text-[var(--text-secondary)] bg-[var(--bg-section-alt)] border border-[var(--border-default)] rounded px-3 py-1"
+                className="text-[11px] text-(--text-secondary) bg-[var(--bg-section-alt)] border border-[var(--border-default)] rounded px-3 py-1"
               >
                 {tag}
               </span>
@@ -141,7 +141,7 @@ function StackedCard({
   return (
     <motion.div
       style={{ scale, y, top: `${24 + index * 14}px`, zIndex: index + 1 }}
-      className="sticky overflow-hidden rounded-lg shadow-sm bg-[var(--bg-card)]"
+      className="sticky overflow-hidden rounded-lg shadow-sm bg-(--bg-card)"
     >
       <CardContent svc={svc} />
     </motion.div>
@@ -153,7 +153,7 @@ export default function WhatWeDoSection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="bg-[var(--bg-section)] py-24">
+    <section className="bg-(--bg-section) py-20">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -165,10 +165,10 @@ export default function WhatWeDoSection() {
           <span className="font-semibold text-[11px] tracking-[0.14em] uppercase text-cyan-500">
             What We Do
           </span>
-          <h2 className="font-bold text-[var(--text-primary)] leading-tight max-w-2xl text-[clamp(1.75rem,4vw,2.75rem)]">
+          <h2 className="font-bold text-(--text-primary) leading-tight max-w-2xl text-[clamp(1.5rem,4vw,2.75rem)]">
             Everything Your Business Needs to Grow Online
           </h2>
-          <p className="text-lg text-[var(--text-secondary)] max-w-md">
+          <p className="text-lg text-(--text-secondary) max-w-md">
             Four departments. One agency. Zero compromises.
           </p>
         </motion.div>
@@ -181,7 +181,7 @@ export default function WhatWeDoSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.7, ease: EASE }}
-              className="relative overflow-hidden rounded-lg shadow-sm bg-[var(--bg-card)]"
+              className="relative overflow-hidden rounded-lg shadow-sm bg-(--bg-card)"
             >
               <CardContent svc={svc} />
             </motion.div>

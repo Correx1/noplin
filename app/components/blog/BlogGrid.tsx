@@ -15,15 +15,15 @@ export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
   const sidebarPosts = posts.slice(5, 15); // The other available blogs (max 10)
 
   return (
-    <section className="bg-[var(--bg-page)] relative w-full pt-16 pb-24">
+    <section className="bg-(--bg-page) relative w-full pt-16 pb-24">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         
         {/* ── LEFT COLUMN: MAIN LIST (8 COLS) ──────────────── */}
         <div className="lg:col-span-8 flex flex-col gap-8">
           {posts.length === 0 ? (
-            <div className="py-16 px-6 text-center border border-dashed border-[var(--border-default)] rounded-2xl bg-[var(--bg-card)] shadow-sm">
-              <h3 className="text-xl font-display font-semibold text-[var(--text-primary)] mb-3">No posts available right now</h3>
-              <p className="text-[var(--text-secondary)] font-body">Check back later for new updates and insights.</p>
+            <div className="py-16 px-6 text-center border border-dashed border-[var(--border-default)] rounded-2xl bg-(--bg-card) shadow-sm">
+              <h3 className="text-xl font-display font-semibold text-(--text-primary) mb-3">No posts available right now</h3>
+              <p className="text-(--text-secondary) font-body">Check back later for new updates and insights.</p>
             </div>
           ) : visiblePosts.map((p, i) => (
             <motion.div 
@@ -31,7 +31,7 @@ export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
               initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.5, ease: EASE, delay: i * 0.05 }}
-              className="group flex flex-col-reverse sm:flex-row items-stretch rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-sm transition-all duration-300 hover:shadow-md hover:border-[var(--border-accent)] overflow-hidden"
+              className="group flex flex-col-reverse sm:flex-row items-stretch rounded-2xl border border-[var(--border-card)] bg-(--bg-card) shadow-sm transition-all duration-300 hover:shadow-md hover:border-[var(--border-accent)] overflow-hidden"
             >
               
               {/* Content (Left side text) */}
@@ -41,34 +41,34 @@ export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
                     <span 
                       key={cat}
                       style={{ color: categoryColors[cat] ?? 'var(--color-cyan)' }}
-                      className="px-3 py-1 bg-[var(--bg-page)] rounded-sm border border-[var(--border-default)] font-[var(--font-display)] text-[11px] font-semibold tracking-widest uppercase"
+                      className="px-3 py-1 bg-(--bg-page) rounded-sm border border-[var(--border-default)] font-semibold text-[11px] font-semibold tracking-widest uppercase"
                     >
                       {cat}
                     </span>
                   ))}
                 </div>
                 
-                <h3 className="font-[var(--font-display)] font-bold text-[clamp(1.15rem,2vw,1.35rem)] text-[var(--text-primary)] leading-[1.3]">
+                <h3 className="font-semibold font-bold text-[clamp(1.15rem,2vw,1.35rem)] text-(--text-primary) leading-[1.3]">
                   <Link href={p.href} className="hover:text-electric transition-colors duration-200">
                     {p.title}
                   </Link>
                 </h3>
                 
-                <p className="line-clamp-2 font-[var(--font-body)] text-[14px] text-[var(--text-secondary)] leading-[1.6]">
+                <p className="line-clamp-2 font-(--font-body) text-[14px] text-(--text-secondary) leading-[1.6]">
                   {p.excerpt || 'Read this article to learn more.'}
                 </p>
                 
-                <div className="flex flex-wrap items-center gap-3 mt-1 font-[var(--font-body)] text-[12px] text-[var(--text-primary)]">
+                <div className="flex flex-wrap items-center gap-3 mt-1 font-(--font-body) text-[12px] text-(--text-primary)">
                   <span className="font-semibold">{p.author?.name || 'Noplin Team'}</span>
                   <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
-                  <span className="text-[var(--text-secondary)]">
+                  <span className="text-(--text-secondary)">
                     {p.date ? new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Unknown Date'}
                   </span>
                   <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
-                  <span className="text-[var(--text-secondary)]">{p.readTime || '5 min read'}</span>
+                  <span className="text-(--text-secondary)">{p.readTime || '5 min read'}</span>
                 </div>
 
-                <Link href={p.href} className="mt-3 font-[var(--font-display)] font-semibold text-[13px] text-[var(--accent)] hover:text-cyan flex items-center gap-2 group/btn self-start transition-colors duration-200">
+                <Link href={p.href} className="mt-3 font-semibold font-semibold text-[13px] text-[var(--accent)] hover:text-cyan flex items-center gap-2 group/btn self-start transition-colors duration-200">
                   Read More
                   <span className="transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
                 </Link>
@@ -94,7 +94,7 @@ export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
             <div className="flex justify-center mt-6">
               <button 
                 onClick={() => setVisibleCount(v => v + 3)}
-                className="px-8 py-3 rounded-xl border border-[var(--border-default)] hover:border-electric hover:text-electric text-[var(--text-primary)] font-[var(--font-display)] font-semibold transition-all duration-200 text-sm bg-[var(--bg-card)] shadow-sm flex items-center gap-2 group"
+                className="px-8 py-3 rounded-xl border border-[var(--border-default)] hover:border-electric hover:text-electric text-(--text-primary) font-semibold font-semibold transition-all duration-200 text-sm bg-(--bg-card) shadow-sm flex items-center gap-2 group"
               >
                 Load More Articles
                 <svg className="w-4 h-4 transition-transform group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -107,10 +107,10 @@ export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
 
         {/* ── RIGHT COLUMN: SIDEBAR LIST (4 COLS) ────────────── */}
         <div className="lg:col-span-4">
-          <div className="sticky top-[100px] flex flex-col p-8 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-sm">
+          <div className="sticky top-[100px] flex flex-col p-8 rounded-2xl border border-[var(--border-card)] bg-(--bg-card) shadow-sm">
             <div className="border-b border-[var(--border-card)] pb-5 mb-6 flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-electric" />
-              <h3 className="font-[var(--font-display)] font-bold text-[18px] text-[var(--text-primary)]">
+              <h3 className="font-semibold font-bold text-[18px] text-(--text-primary)">
                 Other Available Articles
               </h3>
             </div>
@@ -120,19 +120,19 @@ export default function BlogGrid({ posts = [] }: { posts?: any[] }) {
                 <Link key={post.id} href={post.href} className="group flex flex-col gap-2">
                   <div className="flex flex-wrap gap-1">
                     {post.categories?.slice(0, 2).map((cat: string) => (
-                      <span key={cat} className="font-[var(--font-display)] font-semibold text-[10px] tracking-widest uppercase" style={{ color: categoryColors[cat] ?? 'var(--color-cyan)' }}>
+                      <span key={cat} className="font-semibold font-semibold text-[10px] tracking-widest uppercase" style={{ color: categoryColors[cat] ?? 'var(--color-cyan)' }}>
                         {cat}
                       </span>
                     ))}
                   </div>
-                  <h4 className="font-[var(--font-display)] font-semibold text-[15px] text-[var(--text-primary)] leading-[1.4] transition-colors duration-200 group-hover:text-electric">
+                  <h4 className="font-semibold font-semibold text-[15px] text-(--text-primary) leading-[1.4] transition-colors duration-200 group-hover:text-electric">
                     {post.title}
                   </h4>
                 </Link>
               ))}
 
               {sidebarPosts.length === 0 && (
-                <p className="text-sm text-[var(--text-secondary)] font-body">No other articles available.</p>
+                <p className="text-sm text-(--text-secondary) font-body">No other articles available.</p>
               )}
             </div>
           </div>

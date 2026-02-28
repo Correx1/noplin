@@ -101,15 +101,15 @@ export default function PricingFeatures() {
           {/* Left Text */}
           <div className="flex-1 max-w-[500px] w-full">
             {/* Optional tab look above the heading if desired, skip for cleaner look */}
-            <h2 className="font-[var(--font-display)] font-bold text-[36px] sm:text-[48px] text-white tracking-tight leading-[1.1]">
+            <h2 className="font-semibold font-bold text-[36px] sm:text-[48px] text-white tracking-tight leading-[1.1]">
               Custom solutions for enterprise scale
             </h2>
-            <p className="font-[var(--font-body)] text-[16px] text-[#94A3B8] mt-6 leading-relaxed">
+            <p className="font-(--font-body) text-[16px] text-[#94A3B8] mt-6 leading-relaxed">
               Create tailored packages to help you expand into new markets, optimize performance, automate workflows, and scale your brand presence.
             </p>
             <Link 
               href="/contact" 
-              className="mt-8 inline-flex bg-electric text-white px-6 py-3 rounded-full font-[var(--font-display)] font-bold items-center gap-2 hover:bg-electric/90 transition-colors shadow-lg shadow-electric/20"
+              className="mt-8 inline-flex bg-electric text-white px-6 py-3 rounded-full font-semibold font-bold items-center gap-2 hover:bg-electric/90 transition-colors shadow-lg shadow-electric/20"
             >
               Contact sales <span className="font-normal text-[18px] leading-none mb-0.5">›</span>
             </Link>
@@ -124,10 +124,10 @@ export default function PricingFeatures() {
               transition={{ duration: 0.6 }}
               className="bg-white rounded-2xl p-8 sm:p-10 shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative overflow-hidden"
             >
-              <h3 className="font-[var(--font-display)] font-bold text-[22px] text-gray-900">
+              <h3 className="font-semibold font-bold text-[22px] text-gray-900">
                 Build your custom package
               </h3>
-              <p className="font-[var(--font-body)] text-[15px] text-gray-600 mt-2">
+              <p className="font-(--font-body) text-[15px] text-gray-600 mt-2">
                 Work with our experts to design a solution that meets your exact needs:
               </p>
 
@@ -136,31 +136,31 @@ export default function PricingFeatures() {
                   <span className="w-6 h-6 rounded flex items-center justify-center bg-blue-100 text-blue-600">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
                   </span>
-                  <span className="text-[14px] text-gray-800 font-medium font-[var(--font-body)] truncate">Design Systems</span>
+                  <span className="text-[14px] text-gray-800 font-medium font-(--font-body) truncate">Design Systems</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="w-6 h-6 rounded flex items-center justify-center bg-green-100 text-green-600">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
                   </span>
-                  <span className="text-[14px] text-gray-800 font-medium font-[var(--font-body)] truncate">Web Platforms</span>
+                  <span className="text-[14px] text-gray-800 font-medium font-(--font-body) truncate">Web Platforms</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="w-6 h-6 rounded flex items-center justify-center bg-yellow-100 text-yellow-600">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                   </span>
-                  <span className="text-[14px] text-gray-800 font-medium font-[var(--font-body)] truncate">Marketing & SEO</span>
+                  <span className="text-[14px] text-gray-800 font-medium font-(--font-body) truncate">Marketing & SEO</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="w-6 h-6 rounded flex items-center justify-center bg-purple-100 text-purple-600">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
                   </span>
-                  <span className="text-[14px] text-gray-800 font-medium font-[var(--font-body)] truncate">Custom APIs</span>
+                  <span className="text-[14px] text-gray-800 font-medium font-(--font-body) truncate">Custom APIs</span>
                 </div>
               </div>
 
               <div className="h-px bg-gray-100 w-full my-8"></div>
 
-              <h4 className="font-[var(--font-display)] font-bold text-[14.5px] text-gray-900 mb-4">
+              <h4 className="font-semibold font-bold text-[14.5px] text-gray-900 mb-4">
                 Get the support you need
               </h4>
               
@@ -169,19 +169,19 @@ export default function PricingFeatures() {
                   <div className="w-[18px] h-[18px] rounded-full bg-electric/10 text-electric flex items-center justify-center shrink-0 mt-px">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
-                  <span className="text-[14px] text-electric font-medium font-[var(--font-body)] leading-tight">Dedicated account management</span>
+                  <span className="text-[14px] text-electric font-medium font-(--font-body) leading-tight">Dedicated account management</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-[18px] h-[18px] rounded-full bg-electric/10 text-electric flex items-center justify-center shrink-0 mt-px">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
-                  <span className="text-[14px] text-electric font-medium font-[var(--font-body)] leading-tight">Priority technical support</span>
+                  <span className="text-[14px] text-electric font-medium font-(--font-body) leading-tight">Priority technical support</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-[18px] h-[18px] rounded-full bg-electric/10 text-electric flex items-center justify-center shrink-0 mt-px">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
-                  <span className="text-[14px] text-electric font-medium font-[var(--font-body)] leading-tight">Post-launch maintenance protocols</span>
+                  <span className="text-[14px] text-electric font-medium font-(--font-body) leading-tight">Post-launch maintenance protocols</span>
                 </li>
               </ul>
             </motion.div>
@@ -208,10 +208,10 @@ export default function PricingFeatures() {
 
               {/* Title & Description */}
               <div className="border-l-2 border-[#1E293B] pl-4">
-                <h3 className="font-[var(--font-display)] font-bold text-[18px] text-white">
+                <h3 className="font-semibold font-bold text-[18px] text-white">
                   {feature.title}
                 </h3>
-                <p className="font-[var(--font-body)] text-[15px] text-[#94A3B8] mt-2 leading-[1.6]">
+                <p className="font-(--font-body) text-[15px] text-[#94A3B8] mt-2 leading-[1.6]">
                   {feature.description}
                 </p>
               </div>

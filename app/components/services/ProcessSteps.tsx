@@ -15,13 +15,13 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function ProcessSteps({ steps }: Props) {
   return (
-    <section className="bg-[#0D0D2B] py-24 px-6">
+    <section className="bg-[#0D0D2B] py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <p className="text-electric text-xs uppercase tracking-widest mb-4 text-center md:text-left font-[var(--font-display)] font-semibold">
+        <p className="text-electric text-xs uppercase tracking-widest mb-4 text-center md:text-left font-semibold font-semibold">
           HOW IT WORKS
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center md:text-left font-[var(--font-display)] tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center md:text-left font-semibold tracking-tight">
           Simple Process. Fast Results.
         </h2>
 
@@ -52,20 +52,20 @@ export default function ProcessSteps({ steps }: Props) {
                 transition={{ duration: 0.6, ease: EASE }}
               >
                 {/* Ghost step number */}
-                <span className="absolute -top-4 left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 text-5xl font-bold text-white/5 select-none pointer-events-none font-[var(--font-display)]">
+                <span className="absolute -top-4 left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 text-5xl font-bold text-white/5 select-none pointer-events-none font-semibold">
                   {s.step}
                 </span>
 
                 {/* Icon circle (step number) */}
                 <div className="relative z-10 w-12 h-12 rounded-full bg-electric/20 border border-electric/30 flex items-center justify-center mb-4">
-                  <span className="text-cyan font-bold font-[var(--font-display)]">{s.step}</span>
+                  <span className="text-cyan font-bold font-semibold">{s.step}</span>
                 </div>
 
                 {/* Step title */}
-                <h3 className="text-white text-lg font-semibold mb-2 font-[var(--font-display)] tracking-tight">{s.title}</h3>
+                <h3 className="text-white text-lg font-semibold mb-2 font-semibold tracking-tight">{s.title}</h3>
 
                 {/* Step description */}
-                <p className="text-white/60 text-[15px] leading-relaxed font-[var(--font-body)]">{s.description}</p>
+                <p className="text-white/60 text-[15px] leading-relaxed font-(--font-body)">{s.description}</p>
               </motion.div>
             ))}
           </motion.div>

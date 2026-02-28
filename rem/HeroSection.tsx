@@ -70,7 +70,7 @@ export default function HeroSection() {
 
             {/* Badge */}
             <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium border border-cyan-400/40 bg-cyan-400/[0.08] text-cyan-400 font-[var(--font-body)] tracking-[0.02em]">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium border border-cyan-400/40 bg-cyan-400/[0.08] text-cyan-400 font-(--font-body) tracking-[0.02em]">
                 Results-First Digital Agency 
               </span>
             </motion.div>
@@ -91,7 +91,7 @@ export default function HeroSection() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.7, ease: EASE, delay: 0.5 }}
-                  className="absolute bottom-[-4px] left-0 right-0 h-[3px] bg-gradient-to-r from-[#1A56DB] to-[#06B6D4] rounded-full origin-left block"
+                  className="absolute bottom-[-4px] left-0 right-0 h-[3px] bg-gradient-to-r from-electric to-electric rounded-full origin-left block"
                 />
               </span>
             </motion.h1>
@@ -102,11 +102,11 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={0.2}
-              className="text-lg lg:text-xl leading-relaxed max-w-[580px] text-[var(--text-secondary)] font-[var(--font-body)]"
+              className="text-lg lg:text-xl leading-relaxed max-w-145 text-(--text-secondary) font-(--font-body)"
             >
               We are a results-obsessed digital agency delivering premium design,
               development, content and marketing —{' '}
-              <span className="text-[var(--text-primary)] font-medium">fast.</span>
+              <span className="text-(--text-primary) font-medium">fast.</span>
             </motion.p>
 
             {/* Supporting text */}
@@ -115,7 +115,7 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={0.28}
-              className="text-sm text-[var(--text-muted)] font-[var(--font-body)]"
+              className="text-sm text-(--text-muted) font-(--font-body)"
             >
               Trusted by startups, SMEs, and growing businesses across Africa and beyond.
             </motion.p>
@@ -130,14 +130,14 @@ export default function HeroSection() {
             >
               <Link
                 href="/contact"
-                className="btn-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white font-[var(--font-display)]"
+                className="btn-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white font-semibold"
               >
                 Get a Free Quote
                 <span aria-hidden>→</span>
               </Link>
               <Link
                 href="/work"
-                className="btn-ghost inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold font-[var(--font-display)]"
+                className="btn-ghost inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold font-semibold"
               >
                 See Our Work
               </Link>
@@ -154,7 +154,7 @@ export default function HeroSection() {
               {trustBadges.map((badge) => (
                 <span
                   key={badge}
-                  className="flex items-center gap-2 text-xs text-[var(--text-secondary)] font-[var(--font-body)]"
+                  className="flex items-center gap-2 text-xs text-(--text-secondary) font-(--font-body)"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 inline-block shrink-0" />
                   {badge}

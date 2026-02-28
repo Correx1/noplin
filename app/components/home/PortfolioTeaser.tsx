@@ -28,7 +28,7 @@ const projects = [
 
 export default function PortfolioTeaser() {
   return (
-    <section className="bg-[var(--bg-section)] py-24">
+    <section className="bg-(--bg-section) py-20">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
@@ -39,13 +39,13 @@ export default function PortfolioTeaser() {
           transition={{ duration: 0.6, ease: EASE }}
           className="flex flex-col items-center text-center gap-4 mb-20"
         >
-          <span className="font-[var(--font-display)] font-semibold text-[11px] tracking-[0.14em] uppercase text-cyan-500">
+          <span className="font-semibold  text-[11px] tracking-[0.14em] uppercase text-cyan-500">
             Our Work
           </span>
-          <h2 className="font-[var(--font-display)] font-bold text-[clamp(1.75rem,4vw,2.75rem)] text-[var(--text-primary)] max-w-2xl">
+          <h2 className="font-semibold  text-[clamp(2.2rem,4vw,3.0rem)] leading-[1.1] text-(--text-primary) max-w-2xl">
             Work Built to Perform
           </h2>
-          <p className="font-[var(--font-body)] text-[var(--text-secondary)] max-w-md">
+          <p className="font-(--font-body) text-[17px] text-(--text-secondary) max-w-md">
             A selection of projects combining strategy, design, and execution.
           </p>
         </motion.div>
@@ -59,9 +59,9 @@ export default function PortfolioTeaser() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.7, ease: EASE }}
-              className="relative overflow-hidden rounded-lg bg-[var(--bg-card)] shadow-sm"
+              className="relative overflow-hidden rounded-lg bg-(--bg-card) shadow-sm"
             >
-              <div className={`relative z-10 flex min-h-[420px] flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} max-md:flex-col`}>
+              <div className={`relative z-10 flex min-h-105 flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} max-md:flex-col`}>
                 {/* Image — always first on mobile */}
                 <div className="w-[56%] max-md:w-full">
                   <div className="w-full p-4">
@@ -89,22 +89,22 @@ export default function PortfolioTeaser() {
 
                 {/* Content */}
                 <div className="w-[44%] max-md:w-full flex flex-col justify-center gap-5 px-12 py-14 max-md:px-6 max-md:pt-2 max-md:pb-10">
-                  <span className="font-[var(--font-display)] font-semibold text-[11px] tracking-[0.14em] uppercase text-cyan-500">
+                  <span className="font-semibold text-[11px] tracking-[0.14em] uppercase text-cyan-500">
                     {p.tag}
                   </span>
 
-                  <h3 className="font-[var(--font-display)] font-bold text-[clamp(1.5rem,2.6vw,2.2rem)] text-[var(--text-primary)]">
+                  <h3 className="font-semibold  text-[clamp(1.2rem,2.6vw,1.8rem)] text-(--text-primary)">
                     {p.name}
                   </h3>
 
-                  <p className="font-[var(--font-body)] text-base text-[var(--text-secondary)] leading-relaxed">
+                  <p className="font-(--font-body) text-[15px] text-(--text-secondary) leading-relaxed">
                     A featured project demonstrating our ability to combine clean design,
                     solid engineering, and measurable business outcomes.
                   </p>
 
                   <Link
                     href={p.href}
-                    className="group inline-flex items-center gap-2 w-fit font-[var(--font-display)] font-semibold text-sm text-cyan-500"
+                    className="group inline-flex items-center gap-2 w-fit  font-semibold text-sm text-cyan-500"
                   >
                     View project
                     <span className="inline-block transition-transform duration-200 group-hover:translate-x-1.5">
@@ -127,7 +127,7 @@ export default function PortfolioTeaser() {
         >
           <Link
             href="/work"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-xl text-sm font-semibold font-[var(--font-display)] btn-ghost"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-xl text-sm  font-semibold btn-ghost"
           >
             More works <span aria-hidden>→</span>
           </Link>

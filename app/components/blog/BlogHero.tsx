@@ -4,13 +4,13 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function BlogHero() {
   return (
-      <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-[var(--bg-page)] pt-[20px] md:pt-[100px] pb-[80px] sm:pb-[120px]">
+      <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-(--bg-page) pt-[20px] md:pt-[100px] pb-[80px] sm:pb-[120px]">
 
       
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-electric to-cyan opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-        <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+        <div className="absolute w-[150%] h-62.5 bg-linear-to-r from-[#0A101D] via-electric to-cyan opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
+        <div className="absolute w-[150%] h-37.5 bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
       </div>
 
       {/* Minimal background curves */}
@@ -59,11 +59,11 @@ export default function BlogHero() {
             Noplin Insights
           </span>
 
-          <h1 className="font-display text-[clamp(2.5rem,5vw,5.5rem)] font-extrabold leading-[1] tracking-[-0.03em] text-[var(--text-primary)] uppercase">
+          <h1 className="font-display text-[clamp(2.5rem,5vw,5.5rem)] font-extrabold leading-[1] tracking-[-0.03em] text-(--text-primary) uppercase">
             Insights &<br />Strategy.
           </h1>
 
-          <p className="mt-2 font-body text-[18px] leading-[1.6] text-[var(--text-secondary)]">
+          <p className="mt-2 font-body text-[18px] leading-[1.6] text-(--text-secondary)">
             Digital marketing guides, technical design tips, and uncompromising business growth strategies directly from the Noplin team.
           </p>
         </motion.div>
@@ -76,17 +76,17 @@ export default function BlogHero() {
            className="hidden lg:flex"
         >
           <div
-            className="group relative flex h-56 w-56 cursor-pointer items-center justify-center rounded-full border border-[var(--border-card)] bg-transparent shadow-sm transition-all duration-500 hover:border-electric hover:bg-[var(--bg-card)] hover:shadow-lg hover:shadow-electric/10"
+            className="group relative flex h-56 w-56 cursor-pointer items-center justify-center rounded-full border border-[var(--border-card)] bg-transparent shadow-sm transition-all duration-500 hover:border-electric hover:bg-(--bg-card) hover:shadow-lg hover:shadow-electric/10"
             onClick={() => {
               window.scrollTo({ top: window.innerHeight * 0.7, behavior: 'smooth' });
             }}
           >
              <div className="flex flex-col items-center gap-3 text-center">
-                <span className="font-display text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--text-primary)]">
+                <span className="font-display text-[11px] font-bold uppercase tracking-[0.15em] text-(--text-primary)">
                   Read Latest<br />Insights
                 </span>
                 <svg 
-                  className="h-6 w-6 text-[var(--text-muted)] transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-electric" 
+                  className="h-6 w-6 text-(--text-muted) transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-electric" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"

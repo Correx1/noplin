@@ -32,6 +32,8 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-body:    "DM Sans", sans-serif;
 
+  --text-lg: 17px !important; /* 18px */
+
   /* Border Radius */
   --radius-2xl:  16px;
   --radius-card: 20px;
