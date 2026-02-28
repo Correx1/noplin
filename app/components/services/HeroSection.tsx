@@ -24,12 +24,12 @@ export default function HeroSection({
   deptColor,
 }: HeroProps) {
   return (
-    <section className="relative flex min-h-[50vh] flex-col justify-center overflow-hidden bg-[var(--bg-page)] pt-[32px] sm:pt-[120px] pb-[80px] sm:pb-[100px]">
+    <section className="relative flex min-h-[50vh] flex-col justify-center overflow-hidden bg-(--bg-page) pt-[32px] sm:pt-[120px] pb-[80px] sm:pb-[100px]">
       
       {/* Colorful background swoop */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center z-0">
-        <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-electric to-cyan opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-        <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+        <div className="absolute w-[150%] h-62.5 bg-linear-to-r from-[#0A101D] via-electric to-cyan opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
+        <div className="absolute w-[150%] h-37.5 bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
       </div>
 
       {/* Minimal background curves */}
@@ -91,7 +91,7 @@ export default function HeroSection({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.08, ease: EASE }}
-          className="text-[clamp(2rem,5vw,3.5rem)] font-[var(--font-display)] font-bold text-[var(--text-primary)] max-w-[800px] leading-tight tracking-tight"
+          className="text-[clamp(2rem,5vw,3.5rem)] font-semibold font-bold text-(--text-primary) max-w-[800px] leading-tight tracking-tight"
         >
           {serviceName}
         </motion.h1>
@@ -101,7 +101,7 @@ export default function HeroSection({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.15, ease: EASE }}
-          className="text-lg font-[var(--font-body)] text-[var(--text-secondary)] max-w-[560px] leading-relaxed"
+          className="text-lg font-(--font-body) text-(--text-secondary) max-w-[560px] leading-relaxed"
         >
           {tagline}
         </motion.p>
@@ -111,10 +111,10 @@ export default function HeroSection({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.22 }}
-          className="text-xs font-[var(--font-body)] text-[var(--text-secondary)]"
+          className="text-xs font-(--font-body) text-(--text-secondary)"
         >
           Lead Specialist:{' '}
-          <span className="text-[var(--text-primary)] font-semibold">{leadSpecialist}</span>
+          <span className="text-(--text-primary) font-semibold">{leadSpecialist}</span>
         </motion.p>
 
         <motion.div
@@ -124,7 +124,7 @@ export default function HeroSection({
         >
           <Link
             href="/contact"
-            className="btn-electric inline-flex items-center gap-2 px-8 py-4 mt-2 rounded-xl text-[15px] font-semibold text-[var(--bg-page)] bg-[var(--text-primary)] hover:bg-electric hover:text-white transition-colors duration-300 font-[var(--font-display)] tracking-wide"
+            className="btn-electric inline-flex items-center gap-2 px-8 py-4 mt-2 rounded-xl text-[15px] font-semibold text-[var(--bg-page)] bg-[var(--text-primary)] hover:bg-electric hover:text-white transition-colors duration-300 font-semibold tracking-wide"
           >
             Get a Quote for This Service →
           </Link>

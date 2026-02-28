@@ -43,7 +43,7 @@ function Stars() {
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-[var(--bg-section-alt)] dark py-24">
+    <section className="bg-[var(--bg-section-alt)] dark py-20">
       <div className="max-w-7xl mx-auto px-6">
 
         <motion.div
@@ -53,11 +53,11 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.55, ease: EASE }}
           className="flex flex-col items-center text-center gap-3 mb-14"
         >
-          <span className="font-[var(--font-display)] font-semibold text-[11px] tracking-[0.14em] uppercase text-cyan-500">
+          <span className="font-semibold font-semibold text-[11px] tracking-[0.14em] uppercase text-cyan-500">
             Testimonials
           </span>
 
-          <h2 className="font-[var(--font-display)] font-bold text-[clamp(1.75rem,4vw,2.625rem)] text-[var(--text-primary)]">
+          <h2 className="font-semibold font-bold text-[clamp(1.75rem,4vw,2.625rem)] text-(--text-primary)">
             What Our Clients Say
           </h2>
         </motion.div>
@@ -70,19 +70,19 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: EASE, delay: i * 0.12 }}
-              className="flex flex-col gap-5 p-7 bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl shadow-[var(--shadow-card-theme)]"
+              className="flex flex-col gap-5 p-7 bg-(--bg-card) border border-[var(--border-card)] rounded-2xl shadow-[var(--shadow-card-theme)]"
             >
               <Stars />
 
-              <p className="flex-1 font-[var(--font-body)] text-[15px] leading-[1.7] italic text-[var(--text-primary)] opacity-[0.88]">
+              <p className="flex-1 font-(--font-body) text-[15px] leading-[1.7] italic text-(--text-primary) opacity-[0.88]">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
               <div>
-                <p className="font-[var(--font-display)] font-semibold text-[15px] text-[var(--text-primary)]">
+                <p className="font-semibold font-semibold text-[15px] text-(--text-primary)">
                   {t.name}
                 </p>
-                <p className="font-[var(--font-body)] text-[13px] text-[var(--text-secondary)]">
+                <p className="font-(--font-body) text-[13px] text-(--text-secondary)">
                   {t.role}
                 </p>
               </div>

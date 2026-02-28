@@ -19,7 +19,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function PricingTiers({ tiers }: PricingProps) {
   return (
-    <section className="bg-[var(--bg-page)] pt-4 pb-12" >
+    <section className="bg-(--bg-page) pt-4 pb-12" >
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
@@ -30,15 +30,15 @@ export default function PricingTiers({ tiers }: PricingProps) {
           transition={{ duration: 0.6, ease: EASE }}
           className="flex flex-col items-center text-center gap-4 mb-20"
         >
-          <span className="font-[var(--font-display)] font-semibold text-xs tracking-widest uppercase text-cyan">
+          <span className="font-semibold font-semibold text-xs tracking-widest uppercase text-cyan">
             Pricing
           </span>
 
-          <h2 className="font-[var(--font-display)] font-extrabold leading-[1.05] text-[clamp(2.25rem,4.8vw,3.25rem)] text-[var(--text-primary)] max-w-3xl">
+          <h2 className="font-semibold font-extrabold leading-[1.05] text-[clamp(2.25rem,4.8vw,3.25rem)] text-(--text-primary) max-w-3xl">
             Transparent, Flexible Pricing
           </h2>
 
-          <p className="font-[var(--font-body)] text-[var(--text-secondary)] max-w-md">
+          <p className="font-(--font-body) text-(--text-secondary) max-w-md">
             Clear tiers designed to match your stage — from first launch to full-scale execution.
           </p>
         </motion.div>
@@ -57,11 +57,11 @@ export default function PricingTiers({ tiers }: PricingProps) {
                 shadow-[var(--shadow-card-theme)]
                 ${tier.best
                   ? 'bg-amber-500/5 border-amber-400/60'
-                  : 'bg-[var(--bg-card)] border-[var(--border-card)]'}
+                  : 'bg-(--bg-card) border-[var(--border-card)]'}
               `}
             >
               {tier.best && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-[#0D0D2B] px-5 py-1.5 rounded-full text-[11px] font-extrabold tracking-widest font-[var(--font-display)]">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-navy px-5 py-1.5 rounded-full text-[11px] font-extrabold tracking-widest font-semibold">
                   BEST VALUE
                 </span>
               )}
@@ -69,19 +69,19 @@ export default function PricingTiers({ tiers }: PricingProps) {
               {/* Tier Name + Description */}
               <div className="flex flex-col gap-3">
                 <h3
-                  className={`font-[var(--font-display)] font-extrabold text-[26px] ${
-                    tier.best ? 'text-amber-500' : 'text-[var(--text-primary)]'
+                  className={`font-semibold font-extrabold text-[26px] ${
+                    tier.best ? 'text-amber-500' : 'text-(--text-primary)'
                   }`}
                 >
                   {tier.name}
                 </h3>
-                <p className="font-[var(--font-body)] text-[15px] leading-relaxed text-[var(--text-secondary)]">
+                <p className="font-(--font-body) text-[15px] leading-relaxed text-(--text-secondary)">
                   {tier.bestFor}
                 </p>
               </div>
 
               {/* Includes */}
-              <ul className="flex flex-col gap-3 text-[15px] leading-relaxed text-[var(--text-secondary)] font-[var(--font-body)]">
+              <ul className="flex flex-col gap-3 text-[15px] leading-relaxed text-(--text-secondary) font-(--font-body)">
                 {tier.includes.map((point) => (
                   <li key={point} className="flex gap-3 items-start">
                     <svg className="mt-1 h-4 w-4 text-electric shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,10 +94,10 @@ export default function PricingTiers({ tiers }: PricingProps) {
 
               {/* Price */}
               <div className="mt-auto pt-2">
-                <p className="text-xs tracking-wide uppercase text-[var(--text-secondary)] font-[var(--font-body)] mb-2">
+                <p className="text-xs tracking-wide uppercase text-(--text-secondary) font-(--font-body) mb-2">
                   Starting from
                 </p>
-                <p className="font-[var(--font-display)] font-extrabold text-[32px] text-[var(--text-primary)]">
+                <p className="font-semibold font-extrabold text-[32px] text-(--text-primary)">
                   {tier.price}
                 </p>
               </div>
@@ -105,7 +105,7 @@ export default function PricingTiers({ tiers }: PricingProps) {
               {/* CTA */}
               <Link
                 href="/contact"
-                className={`mt-3 py-3 rounded-xl text-sm font-semibold text-center font-[var(--font-display)] transition-colors ${
+                className={`mt-3 py-3 rounded-xl text-sm font-semibold text-center font-semibold transition-colors ${
                   tier.best ? 'bg-amber-500 text-black hover:bg-amber-400' : 'bg-electric/10 text-electric hover:bg-electric hover:text-white'
                 }`}
               >
@@ -125,7 +125,7 @@ export default function PricingTiers({ tiers }: PricingProps) {
         >
           <Link
             href="/pricing"
-            className="btn-ghost inline-flex items-center gap-2 px-9 py-3.5 rounded-xl text-sm font-semibold font-[var(--font-display)]"
+            className="btn-ghost inline-flex items-center gap-2 px-9 py-3.5 rounded-xl text-sm font-semibold font-semibold"
           >
             See Full Pricing →
           </Link>

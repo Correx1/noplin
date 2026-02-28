@@ -82,7 +82,7 @@
 //       />
 
 //       {/* Row */}
-//       <div className="relative z-10 flex min-h-[420px] service-inner ">
+//       <div className="relative z-10 flex min-h-105 service-inner ">
 
 //         {/* Text pane */}
 //         <div className="service-text flex-none w-[44%] flex flex-col justify-center gap-5 px-12 py-14 relative z-10">
@@ -94,14 +94,14 @@
 //           </span>
 
 //           <h3
-//             className="font-bold text-[var(--text-primary)] leading-tight"
+//             className="font-bold text-(--text-primary) leading-tight"
 //             style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem, 2.6vw, 2.2rem)' }}
 //           >
 //             {svc.headline}
 //           </h3>
 
 //           <p
-//             className="text-base text-[var(--text-secondary)] leading-relaxed"
+//             className="text-[15px] text-(--text-secondary) leading-relaxed"
 //             style={{ fontFamily: 'var(--font-body)' }}
 //           >
 //             {svc.body}
@@ -111,7 +111,7 @@
 //             {svc.tags.map(tag => (
 //               <span
 //                 key={tag}
-//                 className="text-[11px] text-[var(--text-secondary)] bg-[var(--bg-section-alt)] border border-[var(--border-default)] rounded px-3 py-1"
+//                 className="text-[11px] text-(--text-secondary) bg-[var(--bg-section-alt)] border border-[var(--border-default)] rounded px-3 py-1"
 //                 style={{ fontFamily: 'var(--font-body)' }}
 //               >
 //                 {tag}
@@ -170,7 +170,7 @@
 //   return (
 //     <motion.div
 //       style={{ scale, y, top: `${24 + index * 14}px`, zIndex: index + 1 }}
-//       className="sticky overflow-hidden rounded-lg shadow-sm bg-[var(--bg-card)]"
+//       className="sticky overflow-hidden rounded-lg shadow-sm bg-(--bg-card)"
 //     >
 //       <CardContent svc={svc} />
 //     </motion.div>
@@ -182,7 +182,7 @@
 //   const containerRef = useRef<HTMLDivElement>(null);
 
 //   return (
-//     <section className="bg-[var(--bg-section)] py-24">
+//     <section className="bg-(--bg-section) py-20">
 //       {/* Wider container — px-4 on desktop gives more card width */}
 //       <div className="max-w-7xl mx-auto px-4">
 
@@ -201,13 +201,13 @@
 //             What We Do
 //           </span>
 //           <h2
-//             className="font-bold text-[var(--text-primary)] leading-tight max-w-2xl"
+//             className="font-bold text-(--text-primary) leading-tight max-w-2xl"
 //             style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}
 //           >
 //             Everything Your Business Needs to Grow Online
 //           </h2>
 //           <p
-//             className="text-lg text-[var(--text-secondary)] max-w-md"
+//             className="text-lg text-(--text-secondary) max-w-md"
 //             style={{ fontFamily: 'var(--font-body)' }}
 //           >
 //             Four departments. One agency. Zero compromises.
@@ -223,7 +223,7 @@
 //               whileInView={{ opacity: 1, y: 0 }}
 //               viewport={{ once: true, margin: '-80px' }}
 //               transition={{ duration: 0.7, ease: EASE }}
-//               className="relative overflow-hidden rounded-lg shadow-sm bg-[var(--bg-card)]"
+//               className="relative overflow-hidden rounded-lg shadow-sm bg-(--bg-card)"
 //             >
 //               <CardContent svc={svc} />
 //             </motion.div>

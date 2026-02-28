@@ -120,7 +120,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="lg:col-span-4">
           <div className="sticky top-[100px] flex flex-col p-6 rounded-xl border border-gray-200 bg-gray-50 shadow-sm">
             <div className="border-b border-gray-200 pb-4 mb-6 flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-[#1A56DB]" />
+              <div className="w-2 h-2 rounded-full bg-electric" />
               <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '18px', color: '#09090b' }}>
                 Related Articles
               </h3>
@@ -136,7 +136,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       </span>
                     ))}
                   </div>
-                  <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '15px', color: '#09090b', lineHeight: 1.4 }} className="transition-colors duration-200 group-hover:text-[#1A56DB]">
+                  <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '15px', color: '#09090b', lineHeight: 1.4 }} className="transition-colors duration-200 group-hover:text-electric">
                     {related.title}
                   </h4>
                   <div className="flex items-center gap-2 mt-1" style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: '#71717a' }}>

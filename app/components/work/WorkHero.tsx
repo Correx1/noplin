@@ -6,11 +6,11 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function WorkHero() {
   return (
-    <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-[var(--bg-page)] pt-[32px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
+    <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-(--bg-page) pt-[32px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        <div className="absolute w-[150%] h-[250px] bg-linear-to-r from-[#0A101D] via-[#1A56DB] to-[#06B6D4] opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-        <div className="absolute w-[150%] h-[150px] bg-linear-to-r from-[#1A56DB] to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+        <div className="absolute w-[150%] h-62.5 bg-linear-to-r from-[#0A101D] via-electric to-electric opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
+        <div className="absolute w-[150%] h-37.5 bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
       </div>
 
       {/* Minimal background curves */}
@@ -58,13 +58,13 @@ export default function WorkHero() {
             Portfolio
           </span>
 
-          <h1 className="font-display text-[clamp(2.4rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[var(--text-primary)]">
+          <h1 className="font-display text-[clamp(2.4rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-(--text-primary)">
             Our Work Speaks
             <br />
             for Itself.
           </h1>
 
-          <p className="mt-2 font-body text-[17px] leading-[1.6] text-[var(--text-secondary)]">
+          <p className="mt-2 font-body text-[17px] leading-[1.6] text-(--text-secondary)">
             We build brands that mean something, websites that convert, and
             campaigns that scale. Explore a selection of our recent projects.
           </p>

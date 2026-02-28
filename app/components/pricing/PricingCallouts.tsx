@@ -22,12 +22,12 @@ export default function PricingCallouts() {
   ];
 
   return (
-    <section className="bg-[var(--bg-page)] pb-24">
+    <section className="bg-(--bg-page) pb-24">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6 lg:gap-8">
         {callouts.map((c) => (
           <div 
             key={c.title} 
-            className="group relative flex flex-col gap-5 p-8 sm:p-10 transition-all hover:-translate-y-2 duration-500 bg-[var(--bg-card)] overflow-hidden rounded-[24px]" 
+            className="group relative flex flex-col gap-5 p-8 sm:p-10 transition-all hover:-translate-y-2 duration-500 bg-(--bg-card) overflow-hidden rounded-[24px]" 
             style={{ 
               border: `1px solid var(--border-card)`,
               boxShadow: '0 20px 40px -20px rgba(0,0,0,0.15)'
@@ -54,17 +54,17 @@ export default function PricingCallouts() {
               <c.Icon size={24} color={c.glow} strokeWidth={2} style={{ filter: `drop-shadow(0 0 8px ${c.glow})` }} />
             </div>
             
-            <h3 className="relative font-[var(--font-display)] font-bold text-[24px] text-[var(--text-primary)]">
+            <h3 className="relative font-semibold font-bold text-[24px] text-(--text-primary)">
               {c.title}
             </h3>
             
-            <p className="relative font-[var(--font-body)] text-[16px] text-[var(--text-secondary)] leading-[1.7] max-w-sm flex-1">
+            <p className="relative font-(--font-body) text-[16px] text-(--text-secondary) leading-[1.7] max-w-sm flex-1">
               {c.body}
             </p>
             
             <Link 
               href="/contact" 
-              className="relative inline-flex items-center gap-2 font-[var(--font-display)] font-bold text-[14.5px] uppercase tracking-wider mt-4 transition-all group-hover:gap-3"
+              className="relative inline-flex items-center gap-2 font-semibold font-bold text-[14.5px] uppercase tracking-wider mt-4 transition-all group-hover:gap-3"
               style={{ color: c.glow }}
             >
               {c.cta} <span className="text-[18px] leading-none mb-[2px] opacity-80">→</span>

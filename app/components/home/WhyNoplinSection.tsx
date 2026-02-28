@@ -23,7 +23,7 @@ const items: Item[] = [
 
 export default function WhyNoplinSection() {
   return (
-    <section className="bg-[var(--bg-page)] py-24 relative overflow-hidden">
+    <section className="bg-(--bg-page) py-20 relative overflow-hidden">
 
       {/* Ambient glows */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_55%_40%_at_5%_50%,rgba(26,86,219,0.05)_0%,transparent_70%)]" />
@@ -38,13 +38,13 @@ export default function WhyNoplinSection() {
             transition={{ duration: 0.55, ease: EASE }}
             className="flex flex-col items-center text-center gap-3 mb-14"
           >
-            <span className="font-[var(--font-display)] font-semibold text-[11px] tracking-widest uppercase text-cyan-500">
+            <span className="font-semibold font-semibold text-[11px] tracking-widest uppercase text-cyan-500">
               Why Us
             </span>
-            <h2 className="font-[var(--font-display)] font-bold text-[clamp(1.75rem,4vw,2.625rem)] text-[var(--text-primary)]">
+            <h2 className="font-semibold font-bold text-[clamp(1.75rem,4vw,2.625rem)] text-(--text-primary)">
               Why Businesses Choose<br />Noplin Digital
             </h2>
-            <p className="font-[var(--font-body)] text-[var(--text-secondary)] max-w-md">
+            <p className="font-(--font-body) text-(--text-secondary) max-w-md">
               Eight principles that define how we work — and why clients come back.
             </p>
           </motion.div>
@@ -72,14 +72,14 @@ export default function WhyNoplinSection() {
                 {/* Text */}
                 <div className="flex flex-col gap-1.5">
                   <div className="flex items-center gap-3">
-                    <h3 className="font-display font-semibold text-[17px] text-[var(--text-primary)] m-0 leading-tight">
+                    <h3 className="font-display font-semibold text-[17px] text-(--text-primary) m-0 leading-tight">
                       {item.title}
                     </h3>
                     <span className="font-mono text-[10px] text-white/[0.18] tracking-[0.05em] select-none">
                       {item.num}
                     </span>
                   </div>
-                  <p className="font-body text-[15px] text-[var(--text-secondary)] leading-[1.65] m-0 opacity-75">
+                  <p className="font-body text-[15px] text-(--text-secondary) leading-[1.65] m-0 opacity-75">
                     {item.body}
                   </p>
                 </div>

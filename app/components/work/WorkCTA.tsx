@@ -28,16 +28,16 @@ export default function WorkCTA() {
           transition={{ duration: 0.6, ease: EASE }}
           className="flex flex-col gap-4"
         >
-          <h2 className="font-[var(--font-display)] font-bold text-[clamp(2rem,5vw,3.25rem)] text-white leading-[1.1]">
+          <h2 className="font-semibold font-bold text-[clamp(2rem,5vw,3.25rem)] text-white leading-[1.1]">
             Like what you see?{' '}
-            <span className="text-[#1A56DB]">Let&apos;s talk.</span>
+            <span className="text-electric">Let&apos;s talk.</span>
           </h2>
-          <p className="font-[var(--font-body)] text-[18px] text-[#94A3B8] max-w-[520px] mx-auto leading-[1.7]">
+          <p className="font-(--font-body) text-[18px] text-[#94A3B8] max-w-[520px] mx-auto leading-[1.7]">
             Ready to build something extraordinary? Our team is standing by to bring your vision to life.
           </p>
           <a
             href="mailto:hello@noplin.com"
-            className="font-[var(--font-display)] font-semibold text-[15px] text-[#06B6D4] hover:underline"
+            className="font-semibold font-semibold text-[15px] text-electric hover:underline"
           >
             hello@noplin.com
           </a>
@@ -52,7 +52,7 @@ export default function WorkCTA() {
         >
           <Link
             href="/contact"
-            className="btn-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white font-[var(--font-display)]"
+            className="btn-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white font-semibold"
           >
             Start a Project
           </Link>

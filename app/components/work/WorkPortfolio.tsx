@@ -226,7 +226,7 @@ function CaseStudyCarousel({ images, name }: { images: string[], name: string })
       <div className="overflow-hidden h-full cursor-grab active:cursor-grabbing" ref={emblaRef}>
         <div className="flex h-full">
           {images.map((src, idx) => (
-            <div key={idx} className="relative flex-[0_0_100%] h-full min-w-0 bg-[var(--bg-card)]">
+            <div key={idx} className="relative flex-[0_0_100%] h-full min-w-0 bg-(--bg-card)">
               {renderMedia(src, idx)}
             </div>
           ))}
@@ -234,7 +234,7 @@ function CaseStudyCarousel({ images, name }: { images: string[], name: string })
       </div>
       
       {/* Dynamic Slide Counter Overlay */}
-      <div className="absolute top-4 right-4 z-10 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full text-white text-[12px] font-medium font-[var(--font-display)] shadow-sm">
+      <div className="absolute top-4 right-4 z-10 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full text-white text-[12px] font-medium font-semibold shadow-sm">
         {selectedIndex + 1} / {images.length}
       </div>
 
@@ -245,7 +245,7 @@ function CaseStudyCarousel({ images, name }: { images: string[], name: string })
             key={idx}
             onClick={() => emblaApi?.scrollTo(idx)}
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 shadow-md ${
-              idx === selectedIndex ? 'bg-[#1A56DB] w-8' : 'bg-white/70 hover:bg-white/100'
+              idx === selectedIndex ? 'bg-electric w-8' : 'bg-white/70 hover:bg-white/100'
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
@@ -267,8 +267,8 @@ export default function WorkPortfolio() {
           <div className="flex items-center gap-2 overflow-x-auto py-4 scrollbar-hide">
             {filters.map((f) => (
               <button key={f} onClick={() => setActive(f)}
-                className={`flex-shrink-0 px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 font-[var(--font-display)] ${
-                  active === f ? 'bg-[#1A56DB] text-white' : 'bg-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                className={`flex-shrink-0 px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 font-semibold ${
+                  active === f ? 'bg-electric text-white' : 'bg-transparent text-(--text-secondary) hover:text-(--text-primary)'
                 }`}>
                 {f}
               </button>
@@ -278,7 +278,7 @@ export default function WorkPortfolio() {
       </div>
 
       {/* ── CASE STUDY LIST ────────────────────── */}
-      <section className="max-w-7xl mx-auto px-6 py-16 lg:py-24 flex flex-col gap-16 lg:gap-32">
+      <section className="max-w-7xl mx-auto px-6 py-16 lg:py-20 flex flex-col gap-16 lg:gap-32">
         {visible.map((cs, i) => {
           const isReversed = i % 2 !== 0; // Alternating layout
           return (
@@ -299,16 +299,16 @@ export default function WorkPortfolio() {
               <div className="w-full lg:w-2/5 flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
                   <span
-                    className="self-start text-[12px] px-3 py-1 rounded-full font-[var(--font-display)] font-semibold"
+                    className="self-start text-[12px] px-3 py-1 rounded-full font-semibold font-semibold"
                     style={{ background: `${tagColors[cs.tag] ?? '#1A56DB'}18`, color: tagColors[cs.tag] ?? '#1A56DB' }}
                   >
                     {cs.tag}
                   </span>
-                  <h3 className="font-[var(--font-display)] font-bold text-[clamp(1.75rem,3vw,2.25rem)] text-[var(--text-primary)] leading-[1.1]">{cs.name}</h3>
-                  <p className="font-[var(--font-body)] text-[15px] text-[var(--text-secondary)]">Client: {cs.client}</p>
+                  <h3 className="font-semibold font-bold text-[clamp(1.75rem,3vw,2.25rem)] text-(--text-primary) leading-[1.1]">{cs.name}</h3>
+                  <p className="font-(--font-body) text-[15px] text-(--text-secondary)">Client: {cs.client}</p>
                 </div>
 
-                <p className="font-[var(--font-body)] text-[16px] text-[var(--text-secondary)] leading-[1.6]">
+                <p className="font-(--font-body) text-[16px] text-(--text-secondary) leading-[1.6]">
                   {cs.description}
                 </p>
 
@@ -320,13 +320,13 @@ export default function WorkPortfolio() {
                           <circle cx="12" cy="12" r="8" />
                         </svg>
                       </div>
-                      <span className="font-[var(--font-body)] text-[15px] text-[var(--text-secondary)]">{highlight}</span>
+                      <span className="font-(--font-body) text-[15px] text-(--text-secondary)">{highlight}</span>
                     </li>
                   ))}
                 </ul>
 
                 {cs.link && (
-                  <a href={cs.link} target="_blank" rel="noopener noreferrer" className="mt-6 text-[#1A56DB] hover:text-[#06B6D4] transition-colors inline-flex items-center gap-2 self-start font-semibold text-[15.5px] group font-[var(--font-display)]">
+                  <a href={cs.link} target="_blank" rel="noopener noreferrer" className="mt-6 text-electric hover:text-electric transition-colors inline-flex items-center gap-2 self-start font-semibold text-[15.5px] group font-semibold">
                     View Project
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </a>
@@ -337,8 +337,8 @@ export default function WorkPortfolio() {
         })}
 
         {visible.length === 0 && (
-          <div className="py-24 text-center">
-            <p className="font-[var(--font-body)] text-[16px] text-[var(--text-secondary)]">No case studies found for this category.</p>
+          <div className="py-20 text-center">
+            <p className="font-(--font-body) text-[16px] text-(--text-secondary)">No case studies found for this category.</p>
           </div>
         )}
       </section>

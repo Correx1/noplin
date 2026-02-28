@@ -85,8 +85,8 @@ export default function Navbar() {
   return (
     <>
       <header
-        className="sticky top-0 z-[100] w-full transition-all duration-300 py-3 bg-[var(--bg-page)] border-b border-[var(--border-default)] shadow-xs"
-        style={{ height: '72px' }}
+        className="sticky top-0 z-100 w-full transition-all duration-300 py-3 bg-(--bg-page) border-b border-(--border-default) shadow-xs"
+        style={{ height: '76px' }}
       >
         <div className="relative w-full h-full">
           <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
@@ -101,10 +101,10 @@ export default function Navbar() {
               <div className="relative" onMouseEnter={openMega} onMouseLeave={closeMega}>
                 <Link
                   href="/services"
-                  className={`flex items-center gap-1.5 px-4 py-2 text-[14px] font-medium rounded-lg transition-colors duration-200 font-sans ${
+                  className={`flex items-center gap-1.5 px-4 py-2 text-[15px] font-medium rounded-lg transition-colors duration-200  ${
                     pathname?.startsWith('/services') || megaOpen
-                      ? 'text-[var(--text-primary)] bg-[var(--bg-card)]'
-                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+                      ? 'text-(--text-primary) bg-(--bg-card)'
+                      : 'text-(--text-secondary) hover:text-(--text-primary) hover:bg-(--bg-card)'
                   }`}
                 >
                   Services
@@ -129,12 +129,12 @@ export default function Navbar() {
                       transition={{ duration: 0.18, ease: 'easeOut' }}
                       onMouseEnter={openMega}
                       onMouseLeave={closeMega}
-                      className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[840px] bg-[var(--bg-page)] border border-[var(--border-default)] rounded-2xl shadow-xl p-8"
+                      className="absolute top-[calc(100%+8px) left-1/2 -translate-x-1/2 w-210 bg-(--bg-page) border border-(--border-default) rounded-2xl shadow-xl p-8"
                     >
                       <div className="grid grid-cols-4 gap-8">
                         {megaMenu.map((col) => (
                           <div key={col.heading}>
-                            <p className="mb-3 text-xs uppercase tracking-widest text-[#1A56DB] font-semibold">
+                            <p className="mb-3 text-xs uppercase tracking-widest text-electric font-semibold">
                               {col.heading}
                             </p>
                             <ul className="space-y-1.5">
@@ -143,14 +143,14 @@ export default function Navbar() {
                                   <Link
                                     href={svc.href}
                                     onClick={() => setMegaOpen(false)}
-                                    className={`flex items-center gap-2 px-3 py-2 -ml-3 rounded-lg text-[13.5px] font-medium transition-colors duration-150 group ${
+                                    className={`flex items-center gap-2 px-3 py-2 -ml-3 rounded-lg text-[15px] font-medium transition-colors duration-150 group ${
                                       pathname === svc.href
-                                        ? 'text-[#1A56DB] bg-[var(--bg-card)]'
-                                        : 'text-[var(--text-secondary)] hover:text-[#1A56DB] hover:bg-[var(--bg-card)]'
+                                        ? 'text-electric bg-(--bg-card)'
+                                        : 'text-(--text-secondary) hover:text-electric hover:bg-(--bg-card)'
                                     }`}
                                   >
                                     <span className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${
-                                      pathname === svc.href ? 'bg-[#06B6D4]' : 'bg-transparent group-hover:bg-[#06B6D4]'
+                                      pathname === svc.href ? 'bg-cyan' : 'bg-transparent group-hover:bg-cyan'
                                     }`} />
                                     {svc.label}
                                   </Link>
@@ -162,12 +162,12 @@ export default function Navbar() {
                       </div>
 
                       {/* Bottom CTA */}
-                      <div className="mt-6 pt-5 border-t border-[var(--border-default)] flex items-center justify-between">
-                        <p className="text-xs text-[var(--text-secondary)]">
+                      <div className="mt-6 pt-5 border-t border-(--border-default) flex items-center justify-between">
+                        <p className="text-xs text-(--text-secondary)">
                           Not sure what you need?{' '}
                           <Link
                             href="/contact"
-                            className="text-[#1A56DB] hover:text-[#06B6D4] hover:underline transition-colors"
+                            className="text-electric hover:text-cyan hover:underline transition-colors"
                             onClick={() => setMegaOpen(false)}
                           >
                             Lets talk →
@@ -175,7 +175,7 @@ export default function Navbar() {
                         </p>
                         <Link
                           href="/services"
-                          className="text-xs font-semibold text-[#1A56DB] hover:text-[#06B6D4] transition-colors"
+                          className="text-xs font-semibold text-electric hover:text-cyan transition-colors"
                           onClick={() => setMegaOpen(false)}
                         >
                           View all services →
@@ -192,10 +192,10 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-4 py-2 text-[14px] font-medium transition-colors duration-200 rounded-lg font-sans ${
+                    className={`px-4 py-2 text-[15px] font-medium transition-colors duration-200 rounded-lg  ${
                       isActive
-                        ? 'text-[var(--text-primary)] bg-[var(--bg-card)]'
-                        : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+                        ? 'text-(--text-primary) bg-(--bg-card)'
+                        : 'text-(--text-secondary) hover:text-(--text-primary) hover:bg-(--bg-card)'
                     }`}
                   >
                     {link.label}
@@ -208,7 +208,7 @@ export default function Navbar() {
             <div className="flex items-center gap-3">
               <Link
                 href="/contact"
-                className="hidden lg:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white rounded-lg transition-all duration-200 bg-[#1A56DB] hover:bg-[#06B6D4] shadow-md"
+                className="hidden lg:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white rounded-lg transition-all duration-200 bg-electric hover:bg-cyan shadow-md"
               >
                 Get a Free Quote
               </Link>
@@ -246,16 +246,16 @@ export default function Navbar() {
                 animate={{ height: 'calc(100dvh - 72px)', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
-                className="absolute top-[72px] left-0 w-full z-[90] flex flex-col bg-[var(--bg-page)] overflow-hidden border-b border-[var(--border-default)]"
+                className="absolute top-15 left-0 w-full z-90 flex flex-col bg-(--bg-page) overflow-hidden border-b border-(--border-default)"
               >
                 <div className="flex-1 overflow-y-auto px-6 pt-6 pb-28 flex flex-col gap-1">
                   {/* Services Accordion with Link + Toggle */}
-                  <div className="border-b border-[var(--border-default)]">
+                  <div className="border-b border-(--border-default)">
                     <div className="flex w-full items-center justify-between">
                       <Link
                         href="/services"
                         onClick={() => setMobileOpen(false)}
-                        className="flex-1 py-3 text-[18px] font-medium text-[var(--text-primary)] font-display"
+                        className="flex-1 py-3 text-[18px] font-medium text-(--text-primary) font-display"
                       >
                         Services
                       </Link>
@@ -292,9 +292,9 @@ export default function Navbar() {
                               <Link
                                 href={svc.href}
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-3 py-2.5 pl-6 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors border-b border-[var(--border-card)] last:border-0"
+                                className="flex items-center gap-3 py-2.5 pl-6 text-sm text-(--text-secondary) hover:text-(--text-primary) transition-colors border-b border-(--border-card) last:border-0"
                               >
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] shrink-0" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-cyan shrink-0" />
                                 {svc.label}
                               </Link>
                             </li>
@@ -312,8 +312,8 @@ export default function Navbar() {
                         key={link.href}
                         href={link.href}
                         onClick={() => setMobileOpen(false)}
-                        className={`py-3 text-[18px] font-medium transition-colors border-b border-[var(--border-default)] font-display ${
-                          isActive ? 'text-[#1A56DB]' : 'text-[var(--text-primary)] hover:text-[#1A56DB]'
+                        className={`py-3 text-[18px] font-medium transition-colors border-b border-(--border-default) font-display ${
+                          isActive ? 'text-electric' : 'text-(--text-primary) hover:text-electric'
                         }`}
                       >
                         {link.label}
@@ -323,11 +323,11 @@ export default function Navbar() {
                 </div>
 
                 {/* Mobile CTA */}
-                <div className="absolute bottom-0 left-0 right-0 px-6 py-5 bg-[var(--bg-page)] border-t border-[var(--border-default)]">
+                <div className="absolute bottom-0 left-0 right-0 px-6 py-5 bg-(--bg-page) border-t border-(--border-default)">
                   <Link
                     href="/contact"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-center w-full py-3.5 text-[15px] font-medium text-white rounded-xl transition-all bg-[#1A56DB] hover:bg-[#06B6D4] shadow-md font-[var(--font-display)]"
+                    className="flex items-center justify-center w-full py-3.5 text-[15px] text-white rounded-xl transition-all bg-electric hover:bg-cyan shadow-md font-(--font-display)"
                   >
                     Get a Free Quote
                   </Link>

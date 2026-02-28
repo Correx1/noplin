@@ -15,8 +15,8 @@ const track = [...clients, ...clients];
 
 export default function SocialProofStrip() {
   return (
-    <section className="overflow-hidden bg-[var(--bg-section)] border-y border-[var(--border-default)] py-7">
-      <p className="text-center mb-5 font-[var(--font-body)] text-[11px] tracking-widest uppercase text-[var(--text-muted)]">
+    <section className="overflow-hidden bg-(--bg-section) border-y border-[var(--border-default)] py-7">
+      <p className="text-center mb-5 font-(--font-body) text-[11px] tracking-widest uppercase text-(--text-muted)">
         Trusted By 
       </p>
 

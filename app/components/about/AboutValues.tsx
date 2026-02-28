@@ -29,9 +29,9 @@ export default function AboutValues() {
         >
           <div className="flex items-center gap-3">
             <span className="h-px w-12 bg-cyan" />
-            <p className="font-[var(--font-display)] text-[11px] font-semibold uppercase tracking-widest text-cyan">Our Culture</p>
+            <p className="font-semibold text-[11px] font-semibold uppercase tracking-widest text-cyan">Our Culture</p>
           </div>
-          <h2 className="font-[var(--font-display)] text-5xl sm:text-6xl font-bold text-[var(--text-primary)] leading-[1.08] max-w-lg">
+          <h2 className="font-semibold text-5xl sm:text-6xl font-bold text-(--text-primary) leading-[1.08] max-w-lg">
             Values We<br />
             <span className="text-cyan">Live By</span>
           </h2>
@@ -50,14 +50,14 @@ export default function AboutValues() {
             >
               {/* Number */}
               <div className="col-span-2 sm:col-span-1">
-                <span className="font-[var(--font-display)] text-xs font-semibold text-[var(--text-muted)] group-hover:text-cyan transition-colors duration-300">
+                <span className="font-semibold text-xs font-semibold text-(--text-muted) group-hover:text-cyan transition-colors duration-300">
                   {v.number}
                 </span>
               </div>
 
               {/* Title */}
               <div className="col-span-10 sm:col-span-4">
-                <h3 className="font-[var(--font-display)] text-2xl sm:text-3xl font-bold text-[var(--text-primary)] group-hover:text-cyan transition-colors duration-300 leading-tight">
+                <h3 className="font-semibold text-2xl sm:text-3xl font-bold text-(--text-primary) group-hover:text-cyan transition-colors duration-300 leading-tight">
                   {v.title}
                 </h3>
               </div>
@@ -69,7 +69,7 @@ export default function AboutValues() {
 
               {/* Body */}
               <div className="col-span-12 sm:col-span-6 pl-8 sm:pl-0">
-                <p className="font-[var(--font-body)] text-[16px] text-[var(--text-secondary)] leading-relaxed max-w-md group-hover:text-[var(--text-primary)] transition-colors duration-300">
+                <p className="font-(--font-body) text-[16px] text-(--text-secondary) leading-relaxed max-w-md group-hover:text-(--text-primary) transition-colors duration-300">
                   {v.body}
                 </p>
               </div>

@@ -74,7 +74,7 @@ export default function AboutPageClient() {
     <main>
 
       {/* Refined Stripe-esque Hero */}
-      <section className="relative overflow-hidden bg-[var(--bg-page)] flex items-center" style={{ paddingTop: '160px', paddingBottom: '120px', minHeight: '60vh' }}>
+      <section className="relative overflow-hidden bg-(--bg-page) flex items-center" style={{ paddingTop: '160px', paddingBottom: '120px', minHeight: '60vh' }}>
         
         {/* Subtle background lines matching Stripe aesthetic */}
         <div aria-hidden className="pointer-events-none absolute inset-0 opacity-40">
@@ -104,20 +104,20 @@ export default function AboutPageClient() {
           <motion.div initial={{ opacity: 0, x: 32 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: EASE, delay: 0.2 }} className="relative w-full">
             
             {/* Glowing shadow blob behind card */}
-            <div className="absolute -inset-4 bg-gradient-to-tr from-[#1A56DB]/20 to-[#06B6D4]/20 rounded-[30px] blur-2xl opacity-60" />
+            <div className="absolute -inset-4 bg-gradient-to-tr from-electric/20 to-electric/20 rounded-[30px] blur-2xl opacity-60" />
 
-            <div className="relative bg-[var(--bg-card)] border border-[var(--border-card)] rounded-[20px] shadow-2xl overflow-hidden flex flex-col h-[400px]">
+            <div className="relative bg-(--bg-card) border border-[var(--border-card)] rounded-[20px] shadow-2xl overflow-hidden flex flex-col h-[400px]">
               
               {/* Card Header (Simulated Search/Filter bar) */}
               <div className="px-5 py-4 border-b border-[var(--border-card)] flex items-center gap-3">
-                <svg className="text-[var(--text-muted)] w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="text-(--text-muted) w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
                 <div className="h-5 w-32 rounded bg-[var(--text-muted)] opacity-20" />
               </div>
 
               <div className="px-5 py-3 border-b border-[var(--border-card)]">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--text-muted)]">Why Choose Us</span>
+                <span className="text-[10px] uppercase font-bold tracking-wider text-(--text-muted)">Why Choose Us</span>
               </div>
 
               {/* Scrolling List Container */}
@@ -143,8 +143,8 @@ export default function AboutPageClient() {
                     { id: 'code-2', val: 'Modern Stack (Next.js)' },
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center justify-between group">
-                      <span className="font-mono text-[13px] text-[var(--text-primary)]">{item.id}</span>
-                      <span className="font-mono text-[13px] text-[var(--text-muted)] transition-colors group-hover:text-[#1A56DB]">{item.val}</span>
+                      <span className="font-mono text-[13px] text-(--text-primary)">{item.id}</span>
+                      <span className="font-mono text-[13px] text-(--text-muted) transition-colors group-hover:text-electric">{item.val}</span>
                     </div>
                   ))}
                 </div>

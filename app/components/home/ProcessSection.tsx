@@ -56,11 +56,11 @@ export default function ProcessSection() {
   const inView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section className="bg-[#0D0D2B] py-24 px-6">
+    <section className="bg-[#0D0D2B] py-20 px-6">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <p className="text-cyan-400 text-xs uppercase tracking-widest mb-4">HOW IT WORKS</p>
-        <h2 className="text-4xl font-bold text-white mb-16 font-[var(--font-display)]">
+        <h2 className="text-3xl font-bold text-white mb-16 font-semibold">
           Simple Process. Fast Results.
         </h2>
 
@@ -97,22 +97,22 @@ export default function ProcessSection() {
                 className="relative text-center lg:text-left"
               >
                 {/* Ghost number */}
-                <span className="absolute -top-4 left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 text-5xl font-bold text-white/[0.06] select-none pointer-events-none font-[var(--font-display)]">
+                <span className="absolute -top-4 left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 text-5xl font-bold text-white/[0.06] select-none pointer-events-none font-semibold">
                   {step.num}
                 </span>
 
                 {/* Icon circle */}
-                <div className="relative z-10 mx-auto lg:mx-0 w-12 h-12 rounded-full bg-[#1A56DB]/15 border border-[#1A56DB]/30 flex items-center justify-center mb-4">
+                <div className="relative z-10 mx-auto lg:mx-0 w-12 h-12 rounded-full bg-electric/15 border border-electric/30 flex items-center justify-center mb-4">
                   <step.icon size={20} className="text-blue-400" />
                 </div>
 
                 {/* Label */}
-                <h3 className="text-white text-lg font-semibold mb-2 font-[var(--font-display)]">
+                <h3 className="text-white text-lg font-semibold mb-2 font-semibold">
                   {step.label}
                 </h3>
 
                 {/* Body */}
-                <p className="text-white/55 text-sm leading-relaxed font-[var(--font-body)]">
+                <p className="text-white/55 text-sm leading-relaxed font-(--font-body)">
                   {step.body}
                 </p>
               </motion.div>
