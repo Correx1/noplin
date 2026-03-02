@@ -5,6 +5,7 @@ import PricingTiers, { PricingTier } from './PricingTiers';
 import ProcessSteps from './ProcessSteps';
 import ComplementaryServices from './ComplementaryServices';
 import FAQ from './FAQ';
+import FinalCTASection from '../home/FinalCTASection';
 
 export interface ServicePageTemplateProps {
   serviceName: string;
@@ -74,6 +75,7 @@ export default function ServicePageTemplate(props: ServicePageTemplateProps) {
 
       {/* FAQ */}
       <FAQ faqs={faqs} />
+      <FinalCTASection/>
     </main>
   );
 }

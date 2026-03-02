@@ -49,7 +49,7 @@ const tiers = [
 
 export default function PricingTeaser() {
   return (
-    <section className="bg-(--bg-page) py-28">
+    <section className="bg-(--bg-page) py-20">
       <div className="max-w-7xl mx-auto px-6">
 
      
@@ -62,10 +62,10 @@ export default function PricingTeaser() {
                   transition={{ duration: 0.6, ease: EASE }}
                   className="flex flex-col items-center text-center gap-4 mb-20"
                 >
-                  <span className="font-semibold  text-[11px] tracking-[0.14em] uppercase text-cyan-500">
+                  <span className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-400">
                         Pricing
                   </span>
-                  <h2 className="font-semibold  text-[clamp(2.2rem,4vw,3.0rem)] leading-[1.1] text-(--text-primary) max-w-2xl">
+                  <h2 className="font-display font-bold text-[clamp(2rem,4vw,2.75rem)] leading-tight text-(--text-primary) max-w-2xl">
                       Transparent, Flexible Pricing
                   </h2>
                   <p className="font-(--font-body) text-[17px] text-(--text-secondary) max-w-md">
@@ -83,14 +83,14 @@ export default function PricingTeaser() {
       viewport={{ once: true }}
       transition={{ duration: 0.55, ease: EASE, delay: i * 0.12 }}
       className={`
-        relative flex flex-col rounded-3xl p-8
+        relative flex flex-col rounded-lg p-8
         border backdrop-blur
         transition-all duration-300
         hover:-translate-y-1
         ${
           tier.highlight
             ? 'bg-amber-500/5 border-amber-400/60 shadow-lg shadow-amber-500/10'
-            : 'bg-(--bg-card) border-[var(--border-card)] shadow-sm'
+            : 'bg-(--bg-card) border-(--border-card) shadow-sm'
         }
       `}
     >
@@ -153,7 +153,7 @@ export default function PricingTeaser() {
         >
           <Link
             href="/pricing"
-            className="btn-ghost inline-flex items-center gap-2 px-9 py-3.5 rounded-xl text-sm font-semibold font-semibold"
+            className="btn-ghost inline-flex items-center gap-2 px-9 py-3.5 rounded-xl text-sm font-semibold"
           >
             See Full Pricing →
           </Link>

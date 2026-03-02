@@ -5,7 +5,7 @@ import { EASE } from './AboutShared';
 
 export default function AboutHero() {
   return (
-    <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-(--bg-page) pt-[32px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
+    <section className="hero-section relative flex min-h-[60vh] items-center overflow-hidden bg-(--bg-page)">
       
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
@@ -56,7 +56,7 @@ export default function AboutHero() {
           transition={{ duration: 0.65, ease: EASE }}
           className="flex max-w-2xl flex-col items-start gap-6"
         >
-          <span className="font-display text-[13px] font-semibold tracking-[0.05em] text-electric">
+          <span className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-400">
             We Are Different
           </span>
 

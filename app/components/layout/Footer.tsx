@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Linkedin, Twitter, MapPin } from 'lucide-react';
 
 const designDevLinks = [
@@ -38,9 +39,8 @@ export default function Footer() {
 
           {/* Col 1 — Brand */}
           <div className="flex flex-col gap-5">
-            <Link href="/" className="inline-flex items-center gap-0.5">
-              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '20px', color: '#fff' }}>Noplin</span>
-              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '20px', color: '#1A56DB' }}>Digital</span>
+            <Link href="/" className="inline-flex items-center">
+              <Image src="/images/logo.png" alt="Logo" width={150} height={100} />
             </Link>
 
             <p className="text-sm leading-relaxed max-w-55" style={{ color: '#94A3B8', fontFamily: 'var(--font-body)' }}>

@@ -59,8 +59,8 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
   return (
     <div className="relative flex flex-col gap-6 p-6 sm:p-8">
       {/* Icon */}
-      <div className="w-12 h-12 rounded-xl bg-blue-600/10 flex items-center justify-center">
-        <Icon className="w-6 h-6 text-blue-600" />
+      <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center">
+        <Icon className="w-6 h-6 text-electric" />
       </div>
 
       <span className="text-blue-600 text-[11px] font-semibold tracking-[0.14em] uppercase">
@@ -143,7 +143,7 @@ export default function WhatWeDoSection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="bg-(--bg-section) py-24">
+    <section className="bg-(--bg-section) py-20">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -152,10 +152,10 @@ export default function WhatWeDoSection() {
           transition={{ duration: 0.6, ease: EASE }}
           className="flex flex-col items-center text-center gap-4 mb-20"
         >
-          <span className="text-blue-600 text-[11px] font-semibold tracking-[0.14em] uppercase">
+          <span className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-400">
             What We Do
           </span>
-          <h2 className="font-bold text-(--text-primary) max-w-2xl text-[clamp(1.6rem,4vw,2.75rem)]">
+          <h2 className="font-display font-bold text-(--text-primary) max-w-2xl text-[clamp(1.6rem,4vw,2.75rem)]">
             Everything Your Business Needs to Grow Online
           </h2>
           <p className="text-lg text-(--text-secondary) max-w-md">

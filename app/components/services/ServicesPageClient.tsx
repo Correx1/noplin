@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import FinalCTASection from '../home/FinalCTASection';
+import { ArrowRight } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -46,111 +47,104 @@ const departments = [
   },
 ];
 
-function ServiceCard({ s }: { s: any }) {
+// ── Single service card ───────────────────────────────────────────────────────
+function ServiceCard({ s, i }: { s: any; i: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.5, ease: EASE }}
-      className="group flex flex-col gap-4 p-8 border border-[var(--border-card)] rounded-2xl shadow-[var(--shadow-card-theme)] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-(--bg-card) cursor-pointer"
+      transition={{ duration: 0.5, ease: EASE, delay: i * 0.05 }}
+      className="group flex flex-col h-full bg-(--bg-card) border border-(--border-card) rounded-lg overflow-hidden hover:shadow-lg "
     >
-      <h3 className="text-xl font-bold text-(--text-primary) font-semibold leading-tight tracking-tight">{s.name}</h3>
-      <p className="text-[15px] sm:text-[15px] text-(--text-secondary) font-(--font-body) leading-relaxed flex-1">{s.desc}</p>
-      
-      <div className="flex items-center gap-3 text-[13px] text-(--text-secondary) font-(--font-body) font-medium mt-2">
-        <span className="px-3 py-1 bg-(--bg-page) rounded-full border border-[var(--border-default)]">{s.price}</span>
-        <span className="w-1.5 h-1.5 rounded-full bg-[var(--text-muted)] shrink-0" />
-        <span>{s.turnaround}</span>
+      <div className="p-7 flex flex-col flex-1 gap-4">
+        {/* Header: Title */}
+        <h3 className="font-display font-bold text-(--text-primary) text-[18px] leading-snug">
+          {s.name}
+        </h3>
+
+        {/* Description — visible on all breakpoints */}
+        <p className="font-body text-[15px] text-(--text-secondary) leading-relaxed flex-1">
+          {s.desc}
+        </p>
+
+        {/* Specs: Price & Turnaround (uniform colors) */}
+        <div className="flex items-center gap-3 pt-3 border-t border-(--border-default) mt-2">
+          <span className="font-display font-semibold text-[13px] text-(--text-primary)">
+            {s.price}
+          </span>
+          <span className="w-1 h-1 rounded-full bg-(--text-muted) opacity-50" />
+          <span className="font-body text-[13px] text-(--text-secondary)">
+            {s.turnaround}
+          </span>
+        </div>
       </div>
 
-      <Link href={s.href} className="text-electric font-semibold tracking-wider font-semibold mt-4 hover:text-cyan text-sm sm:text-[15px] transition-colors duration-200 flex items-center gap-2">
-        Learn More 
-        <svg 
-          fill="none" 
-          viewBox="0 0 24 24" 
-          stroke="currentColor" 
-          strokeWidth={2}
-          className="w-4 h-4 transition-transform group-hover:translate-x-1"
+      {/* Action Footer */}
+      <div className="bg-(--bg-section) px-7 py-4 border-t border-(--border-default) mt-auto">
+        <Link
+          href={s.href}
+          className="inline-flex items-center gap-2 font-display font-semibold text-[13px] text-cyan-500 hover:text-cyan-400 transition-colors duration-200"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-        </svg>
-      </Link>
+          Explore service <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+        </Link>
+      </div>
     </motion.div>
   );
 }
 
+// ── Page ─────────────────────────────────────────────────────────────────────
 export default function ServicesPageClient() {
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
   return (
     <main>
       {/* ── HERO ──────────────────────────────── */}
-      <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-(--bg-page) pt-[32px] sm:pt-[160px] pb-[80px] sm:pb-[120px]">
-        {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
+      <section className="hero-section relative flex min-h-[60vh] items-center overflow-hidden bg-(--bg-page)">
+        {/* Background swoop */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-          <div className="absolute w-[150%] h-62.5 bg-linear-to-r from-[#0A101D] via-electric to-cyan opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-          <div className="absolute w-[150%] h-37.5 bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+          <div className="absolute w-[150%] h-62.5 bg-linear-to-r from-[#0A101D] via-electric to-cyan opacity-15 blur-[60px] -rotate-12 translate-y-10" />
+          <div className="absolute w-[150%] h-37.5 bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-12 translate-y-36 translate-x-[5%]" />
         </div>
 
-        {/* Minimal background curves (From AboutHero for uniformity) */}
+        {/* Minimal background curves */}
         <div aria-hidden className="absolute inset-0 pointer-events-none">
-          <svg
-            className="absolute inset-0 w-full h-full opacity-10"
-            viewBox="0 0 1000 600"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,400 Q500,100 1000,400"
-              fill="none"
-              stroke="#1A56DB"
-              strokeWidth="2"
-            />
-            <path
-              d="M0,500 Q500,200 1000,500"
-              fill="none"
-              stroke="#06B6D4"
-              strokeWidth="1.5"
-            />
+          <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 600" preserveAspectRatio="none">
+            <path d="M0,400 Q500,100 1000,400" fill="none" stroke="#1A56DB" strokeWidth="2" />
+            <path d="M0,500 Q500,200 1000,500" fill="none" stroke="#06B6D4" strokeWidth="1.5" />
           </svg>
         </div>
 
-        {/* Optional grid lines for subtle structure */}
+        {/* Grid lines */}
         <div aria-hidden className="absolute inset-0 pointer-events-none opacity-20">
           <div className="mx-auto grid h-full max-w-7xl grid-cols-4 px-6">
-            <div className="h-full border-l border-[var(--grid-line-color)]" />
-            <div className="h-full border-l border-[var(--grid-line-color)]" />
-            <div className="h-full border-l border-[var(--grid-line-color)]" />
-            <div className="h-full border-l border-r border-[var(--grid-line-color)]" />
+            <div className="h-full border-l border-(--grid-line-color)" />
+            <div className="h-full border-l border-(--grid-line-color)" />
+            <div className="h-full border-l border-(--grid-line-color)" />
+            <div className="h-full border-l border-r border-(--grid-line-color)" />
           </div>
         </div>
 
         {/* Content */}
         <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 px-6 lg:grid-cols-[1fr_auto] lg:gap-24">
-          
-          {/* Left copy */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: EASE }}
             className="flex max-w-2xl flex-col items-start gap-4"
           >
-            <span className="font-semibold text-[13px] font-semibold tracking-widest text-electric uppercase">
+            <span className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-500">
               Our Services
             </span>
-
-            <h1 className="font-semibold text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-tight text-(--text-primary)">
-              We Provide
-              <br/>
-              Smart Solutions.
+            <h1 className="font-display font-bold text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] tracking-tight text-(--text-primary)">
+              We Provide<br />Smart Solutions.
             </h1>
-
-            <p className="mt-4 font-(--font-body) text-[18px] leading-[1.6] text-(--text-secondary)">
+            <p className="mt-2 font-body text-[17px] leading-[1.6] text-(--text-secondary)">
               Strategists dedicated to creating stunning, functional digital experiences that align with your unique business goals. 15 specialized services across 4 departments.
             </p>
           </motion.div>
 
-          {/* Right - Circular CTA (Matches the reference image) */}
+          {/* Circular scroll CTA */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -158,50 +152,66 @@ export default function ServicesPageClient() {
             className="hidden lg:flex"
           >
             <div
-              className="group relative flex h-56 w-56 cursor-pointer items-center justify-center rounded-full border border-[var(--border-card)] bg-transparent shadow-sm transition-all duration-500 hover:border-electric hover:bg-(--bg-card) hover:shadow-lg hover:shadow-electric/10"
+              className="group relative flex h-56 w-56 cursor-pointer items-center justify-center rounded-full border border-(--border-card) bg-transparent shadow-sm transition-all duration-500 hover:border-cyan-500 hover:bg-(--bg-card) hover:shadow-lg hover:shadow-cyan-500/10"
               onClick={() => {
                 const firstDept = document.getElementById(departments[0].id);
-                if (firstDept) {
-                  firstDept.scrollIntoView({ behavior: 'smooth' });
-                }
+                if (firstDept) firstDept.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               <div className="flex flex-col items-center gap-3 text-center">
                 <span className="font-display text-[11px] font-bold uppercase tracking-[0.15em] text-(--text-primary)">
                   View All<br />Solutions
                 </span>
-                <svg 
-                  className="h-6 w-6 text-(--text-muted) transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-electric" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 19L19 5M19 5H8M19 5V16" />
-                </svg>
+                <ArrowRight size={22} className="text-(--text-muted) transition-all duration-300 group-hover:-rotate-45 group-hover:text-cyan-500 mt-1" />
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ── SERVICE SECTIONS ────────────────────── */}
-      <div className="py-20 bg-(--bg-page) relative z-10 w-full overflow-hidden">
-        {departments.map((dept, idx) => (
-          <section key={dept.id} id={dept.id} ref={(el) => { sectionRefs.current[dept.id] = el; }} className={idx !== departments.length - 1 ? "mb-28" : "mb-16"}>
-            <div className="max-w-7xl mx-auto px-6">
-              <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: EASE }} className="mb-12 flex flex-col gap-3">
-                <span className="text-sm font-semibold font-semibold uppercase tracking-widest text-electric">{dept.label}</span>
-                <h2 className="text-3xl sm:text-4xl font-semibold font-bold text-(--text-primary) tracking-tight">{dept.headline}</h2>
-                <p className="text-(--text-secondary) font-(--font-body) text-[15px] sm:text-lg leading-relaxed max-w-2xl">{dept.sub}</p>
+      {/* ── SERVICE SECTIONS ─────────────────────── */}
+      <div className="py-24 bg-(--bg-page) relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col gap-28">
+          {departments.map((dept) => (
+            <section
+              key={dept.id}
+              id={dept.id}
+              ref={(el) => { sectionRefs.current[dept.id] = el; }}
+            >
+              {/* Department header */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: EASE }}
+                className="mb-10 flex flex-col gap-2"
+              >
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="w-8 h-[2px] bg-cyan-500" />
+                  <span className="font-display text-[11px] font-semibold tracking-[0.16em] uppercase text-cyan-500">
+                    {dept.label}
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-(--text-primary) text-[clamp(1.75rem,3.5vw,2.5rem)] leading-tight">
+                  {dept.headline}
+                </h2>
+                <p className="font-body text-(--text-secondary) text-[15px] sm:text-[16px] leading-relaxed max-w-xl">
+                  {dept.sub}
+                </p>
               </motion.div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {dept.services.map((s) => <ServiceCard key={s.name} s={s} />)}
+
+              {/* Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {dept.services.map((s, i) => (
+                  <ServiceCard key={s.name} s={s} i={i} />
+                ))}
               </div>
-            </div>
-          </section>
-        ))}
+            </section>
+          ))}
+        </div>
       </div>
-         <FinalCTASection/>
+
+      <FinalCTASection />
     </main>
   );
 }

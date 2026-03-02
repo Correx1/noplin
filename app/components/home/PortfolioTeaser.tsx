@@ -39,10 +39,10 @@ export default function PortfolioTeaser() {
           transition={{ duration: 0.6, ease: EASE }}
           className="flex flex-col items-center text-center gap-4 mb-20"
         >
-          <span className="font-semibold  text-[11px] tracking-[0.14em] uppercase text-cyan-500">
+          <span className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-400">
             Our Work
           </span>
-          <h2 className="font-semibold  text-[clamp(2.2rem,4vw,3.0rem)] leading-[1.1] text-(--text-primary) max-w-2xl">
+          <h2 className="font-display font-bold text-[clamp(2rem,4vw,2.75rem)] leading-tight text-(--text-primary) max-w-2xl">
             Work Built to Perform
           </h2>
           <p className="font-(--font-body) text-[17px] text-(--text-secondary) max-w-md">
@@ -59,7 +59,7 @@ export default function PortfolioTeaser() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.7, ease: EASE }}
-              className="relative overflow-hidden rounded-lg bg-(--bg-card) shadow-sm"
+              className="relative overflow-hidden rounded-lg bg-(--bg-card) border border-(--border-card) shadow-sm"
             >
               <div className={`relative z-10 flex min-h-105 flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} max-md:flex-col`}>
                 {/* Image — always first on mobile */}
@@ -89,11 +89,11 @@ export default function PortfolioTeaser() {
 
                 {/* Content */}
                 <div className="w-[44%] max-md:w-full flex flex-col justify-center gap-5 px-12 py-14 max-md:px-6 max-md:pt-2 max-md:pb-10">
-                  <span className="font-semibold text-[11px] tracking-[0.14em] uppercase text-cyan-500">
+                  <span className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-400">
                     {p.tag}
                   </span>
 
-                  <h3 className="font-semibold  text-[clamp(1.2rem,2.6vw,1.8rem)] text-(--text-primary)">
+                  <h3 className="font-display font-bold text-[clamp(1.15rem,2.6vw,1.75rem)] text-(--text-primary)">
                     {p.name}
                   </h3>
 
@@ -104,7 +104,7 @@ export default function PortfolioTeaser() {
 
                   <Link
                     href={p.href}
-                    className="group inline-flex items-center gap-2 w-fit  font-semibold text-sm text-cyan-500"
+                    className="group inline-flex items-center gap-2 w-fit font-semibold text-sm text-cyan-400"
                   >
                     View project
                     <span className="inline-block transition-transform duration-200 group-hover:translate-x-1.5">

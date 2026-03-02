@@ -6,7 +6,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function ContactHero() {
   return (
-    <section className="relative pt-[32px] sm:pt-24 pb-12 sm:pb-16 lg:pt-28 lg:pb-24 overflow-hidden border-b border-(--grid-line-color) bg-(--bg-page) z-0">
+    <section className="hero-section relative overflow-hidden border-b border-(--grid-line-color) bg-(--bg-page) z-0">
       {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
         <div className="absolute w-[150%] h-62.5 bg-linear-to-r from-[#0A101D] via-electric to-electric opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
@@ -29,7 +29,7 @@ export default function ContactHero() {
           className="flex items-center gap-3 mb-6"
         >
           <div className="w-2 h-2 rounded-full bg-electric"></div>
-          <span className="font-semibold font-semibold text-xs tracking-widest uppercase text-(--text-secondary)">
+          <span className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-400">
             Start your project
           </span>
         </motion.div>
@@ -38,7 +38,7 @@ export default function ContactHero() {
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.6, ease: EASE, delay: 0.05 }} 
-          className="text-4xl md:text-6xl lg:text-7xl max-w-4xl font-semibold font-semibold text-(--text-primary) leading-[1.05] tracking-tight"
+          className="text-4xl md:text-6xl lg:text-7xl max-w-4xl font-display font-bold text-(--text-primary) leading-[1.05] tracking-tight"
         >
           Lets build something <span className="text-electric">extraordinary</span> together.
         </motion.h1>

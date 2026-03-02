@@ -161,14 +161,6 @@ export const allCaseStudies: CaseStudy[] = [
 
 export const filters = ['All', 'Web Design', 'Brand Identity', 'Social Media', 'Apps'];
 
-export const tagColors: Record<string, string> = {
-  'Web Design': '#1A56DB',
-  'Brand Identity': '#06B6D4',
-  'Social Media': '#F59E0B',
-  'Apps': '#8B5CF6',
-
-};
-
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 function CaseStudyCarousel({ images, name }: { images: string[], name: string }) {
@@ -215,14 +207,14 @@ function CaseStudyCarousel({ images, name }: { images: string[], name: string })
 
   if (images.length === 1) {
     return (
-      <div className="relative w-full aspect-[1.25/1] sm:aspect-[3/2] overflow-hidden border border-[var(--border-default)] shadow-sm transition-shadow duration-300 group-hover:shadow-md">
+      <div className="relative w-full aspect-[1.3/1] sm:aspect-[3/2] overflow-hidden lg:rounded-xl border-b lg:border border-[var(--border-default)] shadow-sm transition-shadow duration-300 group-hover:shadow-md">
         {renderMedia(images[0])}
       </div>
     );
   }
 
   return (
-    <div className="relative w-full aspect-[1.25/1] sm:aspect-[3/2] overflow-hidden border border-[var(--border-default)] shadow-sm transition-shadow duration-300 group-hover:shadow-md group">
+    <div className="relative w-full aspect-[1.3/1] sm:aspect-[3/2] overflow-hidden lg:rounded-xl border-b lg:border border-[var(--border-default)] shadow-sm transition-shadow duration-300 group-hover:shadow-md group">
       <div className="overflow-hidden h-full cursor-grab active:cursor-grabbing" ref={emblaRef}>
         <div className="flex h-full">
           {images.map((src, idx) => (
@@ -264,11 +256,11 @@ export default function WorkPortfolio() {
       {/* ── FILTER TABS ────────────────────────── */}
       <div className="sticky top-[72px] z-40 bg-[var(--bg-navbar)] backdrop-blur-md border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center gap-2 overflow-x-auto py-4 scrollbar-hide">
+          <div className="flex items-center gap-2 overflow-x-auto py-3 scrollbar-hide">
             {filters.map((f) => (
               <button key={f} onClick={() => setActive(f)}
-                className={`flex-shrink-0 px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 font-semibold ${
-                  active === f ? 'bg-electric text-white' : 'bg-transparent text-(--text-secondary) hover:text-(--text-primary)'
+                className={`flex-shrink-0 px-4 py-1.5 rounded-md text-[13px] font-semibold transition-all duration-150 ${
+                  active === f ? 'bg-cyan-500 text-[#0A0A1F]' : 'bg-transparent text-(--text-secondary) hover:text-(--text-primary)'
                 }`}>
                 {f}
               </button>
@@ -278,55 +270,56 @@ export default function WorkPortfolio() {
       </div>
 
       {/* ── CASE STUDY LIST ────────────────────── */}
-      <section className="max-w-7xl mx-auto px-6 py-16 lg:py-20 flex flex-col gap-16 lg:gap-32">
+      <section className="max-w-7xl mx-auto px-6 py-12 lg:py-16 flex flex-col gap-8 lg:gap-12">
         {visible.map((cs, i) => {
           const isReversed = i % 2 !== 0; // Alternating layout
           return (
             <motion.div
               key={cs.slug}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: EASE }}
-              className={`flex flex-col lg:flex-row items-center gap-10 lg:gap-16 group ${isReversed ? 'lg:flex-row-reverse' : ''}`}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, ease: EASE }}
+              className={`flex flex-col lg:flex-row items-center gap-0 lg:gap-10 group overflow-hidden rounded-xl bg-(--bg-card) border border-(--border-card) lg:p-10 ${
+                isReversed ? 'lg:flex-row-reverse' : ''
+              }`}
             >
               {/* Image Carousel Side */}
-              <div className="w-full lg:w-3/5">
+              <div className="w-full lg:w-[55%]">
                 <CaseStudyCarousel images={cs.images} name={cs.name} />
               </div>
 
               {/* Content Side */}
-              <div className="w-full lg:w-2/5 flex flex-col gap-6">
-                <div className="flex flex-col gap-3">
+              <div className="w-full lg:w-[45%] flex flex-col gap-5 p-7 lg:p-0">
+                <div className="flex flex-col gap-2">
                   <span
-                    className="self-start text-[12px] px-3 py-1 rounded-full font-semibold font-semibold"
-                    style={{ background: `${tagColors[cs.tag] ?? '#1A56DB'}18`, color: tagColors[cs.tag] ?? '#1A56DB' }}
+                    className="self-start text-[11px] px-2.5 py-0.5 rounded-full font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 tracking-wide uppercase"
                   >
                     {cs.tag}
                   </span>
-                  <h3 className="font-semibold font-bold text-[clamp(1.75rem,3vw,2.25rem)] text-(--text-primary) leading-[1.1]">{cs.name}</h3>
-                  <p className="font-(--font-body) text-[15px] text-(--text-secondary)">Client: {cs.client}</p>
+                  <h3 className="font-display font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-(--text-primary) leading-[1.2] mt-1">{cs.name}</h3>
+                  <p className="font-body text-[14px] text-(--text-muted)">Client: {cs.client}</p>
                 </div>
 
-                <p className="font-(--font-body) text-[16px] text-(--text-secondary) leading-[1.6]">
+                <p className="font-body text-[14.5px] text-(--text-secondary) leading-relaxed">
                   {cs.description}
                 </p>
 
-                <ul className="flex flex-col gap-3 mt-2">
+                <ul className="flex flex-col gap-2.5 mt-1">
                   {cs.highlights.map((highlight, hIdx) => (
-                    <li key={hIdx} className="flex items-start gap-3">
-                      <div className="mt-2 flex-shrink-0" style={{ color: tagColors[cs.tag] ?? '#1A56DB' }}>
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                    <li key={hIdx} className="flex items-start gap-2.5">
+                      <div className="mt-1.5 flex-shrink-0 text-cyan-400">
+                        <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
                           <circle cx="12" cy="12" r="8" />
                         </svg>
                       </div>
-                      <span className="font-(--font-body) text-[15px] text-(--text-secondary)">{highlight}</span>
+                      <span className="font-body text-[14px] text-(--text-secondary)">{highlight}</span>
                     </li>
                   ))}
                 </ul>
 
                 {cs.link && (
-                  <a href={cs.link} target="_blank" rel="noopener noreferrer" className="mt-6 text-electric hover:text-electric transition-colors inline-flex items-center gap-2 self-start font-semibold text-[15.5px] group font-semibold">
+                  <a href={cs.link} target="_blank" rel="noopener noreferrer" className="mt-4 text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center gap-1.5 self-start font-semibold text-[14px] group">
                     View Project
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </a>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -65,8 +66,24 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    
+    // Auto-close submenus when the main mobile menu closes
+    if (!mobileOpen) {
+      setServicesExpanded(false);
+    }
+
+    // Auto-close the mobile menu if the window is resized to desktop width (lg: 1024px)
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && mobileOpen) {
+        setMobileOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
     return () => {
       document.body.style.overflow = '';
+      window.removeEventListener('resize', handleResize);
     };
   }, [mobileOpen]);
 
@@ -178,12 +195,22 @@ export default function Navbar() {
           </Link>
 
           <button
-            className="lg:hidden w-10 h-10 flex flex-col  justify-center gap-1.5"
+            className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 relative z-50"
             onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Toggle mobile menu"
           >
-            <motion.span className="h-[2px] w-5 bg-white" />
-            <motion.span className="h-[2px] w-5 bg-white" />
-            <motion.span className="h-[2px] w-5 bg-white" />
+            <motion.span
+              animate={mobileOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+              className="h-[2px] w-6 bg-white block origin-center"
+            />
+            <motion.span
+              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+              className="h-[2px] w-6 bg-white block"
+            />
+            <motion.span
+              animate={mobileOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+              className="h-[2px] w-6 bg-white block origin-center"
+            />
           </button>
         </div>
       </div>
@@ -195,9 +222,9 @@ export default function Navbar() {
             initial={{ height: 0 }}
             animate={{ height: 'calc(100vh - 76px)' }}
             exit={{ height: 0 }}
-            className="bg-[#0D0D2B] border-t border-white/10 overflow-hidden"
+            className="bg-[#0D0D2B] border-t border-white/10 overflow-hidden flex flex-col"
           >
-            <div className="px-6 pt-6 pb-24 space-y-4">
+            <div className="px-6 pt-6 pb-6 space-y-4 overflow-y-auto flex-1">
 
               {/* Services Accordion */}
                {/* Services Accordion with Link + Toggle */}
@@ -267,17 +294,20 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
+
+            {/* Bottom-pinned CTA */}
+            <div className="p-6 border-t border-white/10 bg-[#0D0D2B] shrink-0 mt-auto">
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="block w-full text-center px-5 py-3.5 text-[16px] font-semibold text-navy bg-cyan-500 hover:bg-cyan-400 rounded-lg transition"
+              >
+                Get a Free Quote
+              </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
   );
 }
-
-
-
-
-
-
-
-  

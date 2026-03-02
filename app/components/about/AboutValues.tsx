@@ -28,12 +28,12 @@ export default function AboutValues() {
           className="mb-20 flex flex-col gap-3"
         >
           <div className="flex items-center gap-3">
-            <span className="h-px w-12 bg-cyan" />
-            <p className="font-semibold text-[11px] font-semibold uppercase tracking-widest text-cyan">Our Culture</p>
+            <span className="h-px w-12 bg-cyan-400" />
+            <p className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-400">Our Culture</p>
           </div>
-          <h2 className="font-semibold text-5xl sm:text-6xl font-bold text-(--text-primary) leading-[1.08] max-w-lg">
+          <h2 className="font-display font-bold text-[clamp(2rem,5vw,3.25rem)] text-(--text-primary) leading-tight max-w-lg">
             Values We<br />
-            <span className="text-cyan">Live By</span>
+            <span className="text-cyan-400">Live By</span>
           </h2>
         </motion.div>
 
@@ -50,14 +50,14 @@ export default function AboutValues() {
             >
               {/* Number */}
               <div className="col-span-2 sm:col-span-1">
-                <span className="font-semibold text-xs font-semibold text-(--text-muted) group-hover:text-cyan transition-colors duration-300">
+                <span className="text-xs text-(--text-muted) group-hover:text-cyan-400 transition-colors duration-300">
                   {v.number}
                 </span>
               </div>
 
               {/* Title */}
               <div className="col-span-10 sm:col-span-4">
-                <h3 className="font-semibold text-2xl sm:text-3xl font-bold text-(--text-primary) group-hover:text-cyan transition-colors duration-300 leading-tight">
+                <h3 className="font-display font-bold text-2xl sm:text-3xl text-(--text-primary) group-hover:text-cyan-400 transition-colors duration-300 leading-tight">
                   {v.title}
                 </h3>
               </div>

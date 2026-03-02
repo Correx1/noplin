@@ -38,10 +38,10 @@ export default function WhyNoplinSection() {
             transition={{ duration: 0.55, ease: EASE }}
             className="flex flex-col items-center text-center gap-3 mb-14"
           >
-            <span className="font-semibold font-semibold text-[11px] tracking-widest uppercase text-cyan-500">
+            <span className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-400">
               Why Us
             </span>
-            <h2 className="font-semibold font-bold text-[clamp(1.75rem,4vw,2.625rem)] text-(--text-primary)">
+            <h2 className="font-display font-bold text-[clamp(1.75rem,4vw,2.625rem)] text-(--text-primary)">
               Why Businesses Choose<br />Noplin Digital
             </h2>
             <p className="font-(--font-body) text-(--text-secondary) max-w-md">
@@ -66,7 +66,7 @@ export default function WhyNoplinSection() {
               >
                 {/* Icon */}
                 <div className="w-10 h-10 flex items-center justify-center shrink-0 mt-0.5">
-                  <item.Icon size={26} color="#1A56DB" strokeWidth={1.6} />
+                  <item.Icon size={26} color="var(--electric)" strokeWidth={1.6} />
                 </div>
 
                 {/* Text */}

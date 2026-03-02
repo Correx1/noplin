@@ -7,6 +7,7 @@ import PricingCallouts from './PricingCallouts';
 import PricingFeatures from './PricingFeatures';
 import PricingFAQ from './PricingFAQ';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -19,50 +20,39 @@ export default function PricingPageClient() {
       <PricingFeatures />
       <PricingFAQ />
 
-      {/* Bottom CTA — Matching FinalCTASection style natively */}
-      <section className="relative overflow-hidden force-dark" style={{ padding: '112px 0' }}>
-        {/* Background mesh — always dark for impact */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 70% at 50% 50%, rgba(26,86,219,0.28) 0%, transparent 65%)' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 40% 40% at 80% 20%, rgba(6,182,212,0.12) 0%, transparent 60%)' }} />
-          <div style={{ position: 'absolute', inset: 0, background: '#0A0A1F', zIndex: -1 }} />
-          <div style={{
-            position: 'absolute', inset: 0,
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
-            backgroundSize: '72px 72px',
-          }} />
+      {/* Bottom CTA */}
+      <section className="relative overflow-hidden force-dark py-16 sm:py-20">
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 bg-[#07071A]" />
+          <div className="absolute inset-0 block sm:hidden" style={{ background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(26,86,219,0.18) 0%, transparent 70%)' }} />
+          <div className="absolute inset-0 hidden sm:block" style={{ background: 'radial-gradient(ellipse 70% 80% at 30% 50%, rgba(26,86,219,0.18) 0%, transparent 70%)' }} />
         </div>
 
-        <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center text-center gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: EASE }}
-            className="flex flex-col gap-4"
-          >
-            <h2 className="font-semibold font-bold text-[clamp(1.75rem,4vw,3rem)] text-white leading-[1.1] tracking-tight">
-              Not sure which package is <br className="hidden sm:block" />
-              <span className="text-electric">right for you?</span>
-            </h2>
-            <p className="font-(--font-body) text-[18px] text-[#94A3B8] max-w-[520px] mx-auto leading-[1.7]">
-              Book a free 15-minute discovery call and we will help you map out the perfect digital plan for your business.
-            </p>
-          </motion.div>
-
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: EASE, delay: 0.15 }}
-            className="items-center justify-center pt-2"
+            transition={{ duration: 0.55, ease: EASE }}
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 sm:gap-12"
           >
-            <Link
-              href="/contact"
-              className="btn-electric inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-[15px] font-semibold text-navy font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all"
-            >
-              Book a Free Call
-            </Link>
+            <div className="flex flex-col items-center text-center sm:items-start sm:text-left gap-2 flex-1">
+              <span className="font-display text-[10px] font-semibold tracking-[0.16em] uppercase text-cyan-400">
+                Get started
+              </span>
+              <h2 className="font-display font-bold text-white text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.15]">
+                Not sure which package is right for you?
+              </h2>
+            </div>
+
+            <div className="shrink-0 flex justify-center sm:block">
+              <Link
+                href="/contact"
+                className="btn-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-display font-semibold text-[14px] text-white whitespace-nowrap"
+              >
+                Book a Free Call <ArrowRight size={15} />
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

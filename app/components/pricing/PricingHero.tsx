@@ -7,7 +7,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function PricingHero() {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-[85vh] overflow-hidden bg-(--bg-page) pt-[32px] sm:pt-[120px] pb-[80px] sm:pb-[120px]">
+    <section className="hero-section relative flex flex-col items-center justify-center min-h-[85vh] overflow-hidden bg-(--bg-page)">
       
       {/* --- BACKGROUND GRAPHICS --- */}
       {/* Deep navy and electric blue theme */}
@@ -41,10 +41,10 @@ export default function PricingHero() {
           transition={{ duration: 0.7, ease: EASE }}
           className="mb-16 w-full max-w-3xl"
         >
-          <span className="font-semibold text-[15px] font-bold tracking-[0.1em] text-electric uppercase mb-6 block">
+          <span className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-400 mb-4 block">
             Pricing Plans
           </span>
-          <h1 className="font-semibold text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.05] tracking-tight text-(--text-primary) m-0">
+          <h1 className="font-display font-bold text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-tight text-(--text-primary) m-0">
             Pricing built for<br />
             businesses of all sizes
           </h1>
@@ -64,7 +64,7 @@ export default function PricingHero() {
               {/* Left side text/button */}
               <div className="flex flex-col justify-between flex-1">
                 <div>
-                  <h2 className="font-semibold font-bold text-[32px] text-[#0F172A] mb-4 tracking-tight">
+                  <h2 className="font-display font-bold text-[32px] text-(--text-primary) mb-4 tracking-tight">
                     Standard
                   </h2>
                   <p className="font-(--font-body) text-[16px] text-slate-600 leading-relaxed mb-10 max-w-[300px]">
@@ -73,7 +73,7 @@ export default function PricingHero() {
                 </div>
                 <button 
                   onClick={() => window.scrollTo({ top: window.innerHeight * 0.8, behavior: 'smooth' })}
-                  className="bg-[#6366F1] hover:bg-[#4F46E5] text-white font-semibold font-bold text-[15px] px-8 py-3.5 rounded-none inline-flex items-center justify-center gap-2 transition-colors w-fit shadow-md shadow-indigo-500/20"
+                  className="btn-electric text-white font-semibold text-[15px] px-8 py-3.5 rounded-xl inline-flex items-center justify-center gap-2 w-fit"
                 >
                   Get started <span className="font-normal text-[18px] leading-none mb-0.5">›</span>
                 </button>
@@ -100,7 +100,7 @@ export default function PricingHero() {
           >
             {/* Left side text/button */}
             <div className="flex-1 p-8 sm:p-12 sm:pr-8 flex flex-col justify-center max-w-[340px]">
-              <h2 className="font-semibold font-bold text-[32px] text-white mb-4 tracking-tight">
+              <h2 className="font-display font-bold text-[32px] text-white mb-4 tracking-tight">
                 Custom
               </h2>
               <p className="font-(--font-body) text-[16px] text-[#94A3B8] leading-relaxed mb-10">
@@ -108,7 +108,7 @@ export default function PricingHero() {
               </p>
               <Link
                 href="/contact"
-                className="bg-electric hover:bg-[#0891B2] text-[#0F172A] font-semibold font-bold text-[15px] px-8 py-3.5 rounded-none inline-flex items-center justify-center gap-2 transition-colors w-fit shadow-md shadow-cyan-400/20"
+                className="btn-electric text-white font-semibold text-[15px] px-8 py-3.5 rounded-xl inline-flex items-center justify-center gap-2 w-fit"
               >
                 Contact sales <span className="font-normal text-[18px] leading-none mb-0.5">›</span>
               </Link>

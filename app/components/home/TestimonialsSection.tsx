@@ -53,11 +53,11 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.55, ease: EASE }}
           className="flex flex-col items-center text-center gap-3 mb-14"
         >
-          <span className="font-semibold font-semibold text-[11px] tracking-[0.14em] uppercase text-cyan-500">
+          <span className="font-display text-[11px] font-semibold tracking-[0.14em] uppercase text-cyan-400">
             Testimonials
           </span>
 
-          <h2 className="font-semibold font-bold text-[clamp(1.75rem,4vw,2.625rem)] text-(--text-primary)">
+          <h2 className="font-display font-bold text-[clamp(1.75rem,4vw,2.625rem)] text-(--text-primary)">
             What Our Clients Say
           </h2>
         </motion.div>
@@ -70,7 +70,7 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: EASE, delay: i * 0.12 }}
-              className="flex flex-col gap-5 p-7 bg-(--bg-card) border border-[var(--border-card)] rounded-2xl shadow-[var(--shadow-card-theme)]"
+              className="flex flex-col gap-5 p-7 bg-(--bg-card) border border-[var(--border-card)] rounded-lg shadow-[var(--shadow-card-theme)]"
             >
               <Stars />
 
@@ -79,7 +79,7 @@ export default function TestimonialsSection() {
               </p>
 
               <div>
-                <p className="font-semibold font-semibold text-[15px] text-(--text-primary)">
+                <p className="font-semibold text-[15px] text-(--text-primary)">
                   {t.name}
                 </p>
                 <p className="font-(--font-body) text-[13px] text-(--text-secondary)">
