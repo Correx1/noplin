@@ -174,7 +174,7 @@ export default function Navbar() {
           </Link>
 
           <button
-            className="lg:hidden w-10 h-10 flex flex-col justify-center gap-1.5"
+            className="lg:hidden w-10 h-10 flex flex-col  justify-center gap-1.5"
             onClick={() => setMobileOpen((v) => !v)}
           >
             <motion.span className="h-[2px] w-5 bg-white" />
