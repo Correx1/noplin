@@ -65,8 +65,8 @@ export default function WhyNoplinSection() {
                 }`}
               >
                 {/* Icon */}
-                <div className="w-10 h-10 flex items-center justify-center shrink-0 mt-0.5">
-                  <item.Icon size={26} color="var(--electric)" strokeWidth={1.6} />
+                <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/15 flex items-center justify-center shrink-0 mt-0.5">
+                  <item.Icon size={20} color="#22D3EE" strokeWidth={1.6} />
                 </div>
 
                 {/* Text */}

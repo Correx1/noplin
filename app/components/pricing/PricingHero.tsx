@@ -9,26 +9,22 @@ export default function PricingHero() {
   return (
     <section className="hero-section relative flex flex-col items-center justify-center min-h-[85vh] overflow-hidden bg-(--bg-page)">
       
-      {/* --- BACKGROUND GRAPHICS --- */}
-      {/* Deep navy and electric blue theme */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        {/* Electric blue and navy angled slash */}
-        <div 
-          className="absolute w-[150%] h-62.5 bg-linear-to-r from-[#0A101D] via-electric to-electric opacity-15 blur-[60px] -rotate-[12deg] translate-y-10"
-        />
-        <div 
-          className="absolute w-[150%] h-37.5 bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]"
-        />
-      </div>
-
-      {/* Subtle grid lines in background */}
-      <div aria-hidden className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]">
-        <div className="mx-auto grid h-full max-w-7xl grid-cols-4 px-6">
-          <div className="h-full border-l border-slate-900 dark:border-white" />
-          <div className="h-full border-l border-slate-900 dark:border-white" />
-          <div className="h-full border-l border-slate-900 dark:border-white" />
-          <div className="h-full border-l border-r border-slate-900 dark:border-white" />
-        </div>
+      {/* ── Background: soft glows + curves ── */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-32 -left-32 w-[700px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(26,86,219,0.13)_0%,transparent_68%)] dark:opacity-100 opacity-50" />
+        <div className="absolute -bottom-24 right-[-4%] w-[520px] h-[420px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.10)_0%,transparent_68%)] dark:opacity-100 opacity-40" />
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="none" fill="none">
+          <path d="M-100,480 Q400,80 1300,360" stroke="url(#parc1)" strokeWidth="1.2" opacity="0.18" />
+          <path d="M-100,560 Q500,220 1300,480" stroke="url(#parc2)" strokeWidth="0.8" opacity="0.12" />
+          <defs>
+            <linearGradient id="parc1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="transparent" /><stop offset="30%" stopColor="#1A56DB" /><stop offset="70%" stopColor="#06B6D4" /><stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+            <linearGradient id="parc2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="transparent" /><stop offset="40%" stopColor="#06B6D4" /><stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
 
       {/* --- CONTENT --- */}

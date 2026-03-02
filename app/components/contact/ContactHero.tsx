@@ -7,19 +7,23 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 export default function ContactHero() {
   return (
     <section className="hero-section relative overflow-hidden border-b border-(--grid-line-color) bg-(--bg-page) z-0">
-      {/* --- ADDED COLORFUL BACKGROUND SWOOP --- */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        <div className="absolute w-[150%] h-62.5 bg-linear-to-r from-[#0A101D] via-electric to-electric opacity-15 blur-[60px] -rotate-[12deg] translate-y-10" />
-        <div className="absolute w-[150%] h-37.5 bg-linear-to-r from-electric to-[#0A101D] opacity-[0.08] blur-[50px] -rotate-[12deg] translate-y-36 translate-x-[5%]" />
+      {/* ── Background: soft glows + curves ── */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-32 -left-32 w-[700px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(26,86,219,0.13)_0%,transparent_68%)] dark:opacity-100 opacity-50" />
+        <div className="absolute -bottom-24 right-[-4%] w-[520px] h-[420px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.10)_0%,transparent_68%)] dark:opacity-100 opacity-40" />
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="none" fill="none">
+          <path d="M-100,480 Q400,80 1300,360" stroke="url(#carc1)" strokeWidth="1.2" opacity="0.18" />
+          <path d="M-100,560 Q500,220 1300,480" stroke="url(#carc2)" strokeWidth="0.8" opacity="0.12" />
+          <defs>
+            <linearGradient id="carc1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="transparent" /><stop offset="30%" stopColor="#1A56DB" /><stop offset="70%" stopColor="#06B6D4" /><stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+            <linearGradient id="carc2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="transparent" /><stop offset="40%" stopColor="#06B6D4" /><stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
-
-      {/* Subtle geometric dot grid background, minimalist */}
-      <div aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-(--grid-line-color)" />
-      <div 
-        aria-hidden 
-        className="absolute inset-0 pointer-events-none" 
-        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, var(--grid-line-color) 1px, transparent 0)', backgroundSize: '40px 40px', opacity: 0.5 }} 
-      />
 
       <div className="relative max-w-[1400px] mx-auto px-6 xl:px-12 flex flex-col pt-10">
         <motion.div 

@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import './globals.css';
 import ThemeProvider from './components/providers/ThemeProvider';
 import LenisProvider from './components/providers/LenisProvider';
+import ScrollToTop from './components/providers/ScrollToTop';
 import ConditionalLayoutWrapper from './components/layout/ConditionalLayoutWrapper';
 import GoogleAnalytics from './components/analytics/GoogleAnalytics';
 import MetaPixel from './components/analytics/MetaPixel';
@@ -65,6 +66,7 @@ export default function RootLayout({
       <body className="font-body overflow-x-hidden antialiased" style={{ backgroundColor: 'var(--bg-page)', color: 'var(--text-primary)' }}>
         <ThemeProvider>
           <LenisProvider>
+            <ScrollToTop />
             <ConditionalLayoutWrapper>
               {children}
             </ConditionalLayoutWrapper>

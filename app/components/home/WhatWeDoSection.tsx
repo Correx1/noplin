@@ -18,36 +18,56 @@ const services = [
     id: 'design',
     eyebrow: 'Brand & Visual Identity',
     headline: 'Your brand, built to be unforgettable.',
-    body: 'From the first logo concept to a complete brand kit — colours, typography, pitch decks, and every visual touchpoint your business needs.',
+    body: 'From a seed idea to a complete brand system — we craft identity that earns recognition and builds trust from the very first look.',
     href: '/services/brand-identity',
-    tags: ['Brand Identity', 'Logo Design', 'Pitch Decks', 'Brand Kits'],
+    bullets: [
+      'Logo & full visual identity systems',
+      'Pitch deck design that wins rooms',
+      'Brand guidelines your whole team can follow',
+      'Business cards, stationery & collateral',
+    ],
     icon: Palette,
   },
   {
     id: 'dev',
     eyebrow: 'Web Design & Development',
     headline: 'Sites & apps that turn visitors into customers.',
-    body: 'Business websites, web apps, and e-commerce stores built for speed, SEO, and measurable conversion.',
+    body: 'Speed-optimised, conversion-focused digital products built to grow with your business — from simple landing pages to complex web apps.',
     href: '/services/web-design',
-    tags: ['Web Design', 'Web Apps', 'E-Commerce', 'MVP Dev'],
+    bullets: [
+      'High-converting business websites',
+      'Web apps & SaaS product interfaces',
+      'E-commerce stores engineered to sell',
+      'API integrations & MVPs',
+    ],
     icon: Code2,
   },
   {
     id: 'content',
     eyebrow: 'Content & Copywriting',
     headline: 'Words that pull readers in and push them to act.',
-    body: 'SEO content that ranks, email sequences that convert, and copy written to sell — not fill space.',
+    body: 'Strategic content crafted to rank on Google, win email clicks, and persuade website visitors to take the next step.',
     href: '/services/content-writing',
-    tags: ['SEO Content', 'Conversion Copy', 'Email Campaigns', 'Business Writing'],
+    bullets: [
+      'SEO articles that rank & drive traffic',
+      'Conversion-focused website copy',
+      'Email campaigns that nurture & sell',
+      'Corporate comms & thought leadership',
+    ],
     icon: PenTool,
   },
   {
     id: 'marketing',
     eyebrow: 'Digital Marketing & Growth',
     headline: 'Growth strategy that actually moves the needle.',
-    body: 'Social growth, paid ads, and strategy consulting focused on revenue — not vanity metrics.',
+    body: 'Data-driven marketing channels that build audiences, increase revenue, and compound over time — not just noise.',
     href: '/services/digital-marketing',
-    tags: ['Social Growth', 'Paid Ads', 'Strategy', 'Analytics'],
+    bullets: [
+      'Social media growth & management',
+      'Precision ad campaigns (Meta, Google)',
+      'Full-funnel growth strategy',
+      'Analytics, tracking & reporting',
+    ],
     icon: TrendingUp,
   },
 ];
@@ -57,10 +77,10 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
   const Icon = svc.icon;
 
   return (
-    <div className="relative flex flex-col gap-6 p-6 sm:p-8">
+    <div className="relative flex flex-col gap-5 p-6 sm:p-8">
       {/* Icon */}
-      <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center">
-        <Icon className="w-6 h-6 text-electric" />
+      <div className="w-11 h-11 rounded-lg bg-electric/10 flex items-center justify-center">
+        <Icon className="w-5 h-5 text-electric" />
       </div>
 
       <span className="text-blue-600 text-[11px] font-semibold tracking-[0.14em] uppercase">
@@ -75,20 +95,19 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
         {svc.body}
       </p>
 
-      <div className="flex flex-wrap gap-2 pt-1">
-        {svc.tags.map(tag => (
-          <span
-            key={tag}
-            className="text-[11px] text-(--text-secondary) border border-(--border-default) rounded-md px-3 py-1"
-          >
-            {tag}
-          </span>
+      {/* Bullets — specific sub-services */}
+      <ul className="flex flex-col gap-2.5">
+        {svc.bullets.map(bullet => (
+          <li key={bullet} className="flex items-start gap-2.5">
+            <span className="mt-[5px] shrink-0 w-1.5 h-1.5 rounded-full bg-cyan-400" />
+            <span className="text-[13.5px] text-(--text-secondary) leading-snug">{bullet}</span>
+          </li>
         ))}
-      </div>
+      </ul>
 
       <Link
         href={svc.href}
-        className="group inline-flex items-center gap-2 text-sm font-semibold text-blue-600 mt-2"
+        className="group inline-flex items-center gap-2 text-sm font-semibold text-blue-600 mt-1"
       >
         Explore this service
         <span className="transition-transform group-hover:translate-x-1.5">→</span>
