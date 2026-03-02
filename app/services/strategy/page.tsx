@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Digital Strategy Consulting™ | Noplin Digital',
+  title: 'Digital Strategy Consulting | Noplin Digital',
   description: 'End-to-end digital strategy for CEOs and founders who want real competitive advantage. Starting from ₦1,000,000.',
 };
 
 export default function StrategyConsultingPage() {
   return (
     <ServicePageTemplate
-      serviceName="Digital Strategy Consulting™"
+      serviceName="Digital Strategy Consulting"
       department="Marketing"
       leadSpecialist="CEO"
       about=""
@@ -58,9 +58,9 @@ export default function StrategyConsultingPage() {
         { step: '04', title: 'Implement & Review', description: 'We oversee implementation (internal or with our services) and review quarterly against agreed KPIs.' },
       ]}
       complementaryServices={[
-        { name: 'Precision Ad Campaigns™', url: '/services/paid-ads' },
-        { name: 'Custom Web App Development™', url: '/services/web-app-development' },
-        { name: 'Brand Identity™', url: '/services/brand-identity' },
+        { name: 'Precision Ad Campaigns', url: '/services/paid-ads' },
+        { name: 'Custom Web App Development', url: '/services/web-app-development' },
+        { name: 'Brand Identity', url: '/services/brand-identity' },
       ]}
       faqs={[
         { question: 'Is this consulting or implementation?', answer: 'Primarily consulting and strategy — we tell you exactly what to do and why. Implementation can be handled by your team or by Noplin Digital as a separate engagement.' },

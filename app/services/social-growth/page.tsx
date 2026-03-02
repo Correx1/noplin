@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Social Growth Engine™ | Noplin Digital',
+  title: 'Social Growth Engine | Noplin Digital',
   description: 'Full social media management that grows real audiences and drives genuine engagement. Starting from ₦80,000/month.',
 };
 
 export default function SocialMediaPage() {
   return (
     <ServicePageTemplate
-      serviceName="Social Growth Engine™"
+      serviceName="Social Growth Engine"
       department="Marketing"
       about=""
       leadSpecialist="Jessica"
@@ -58,9 +58,9 @@ export default function SocialMediaPage() {
         { step: '04', title: 'Engage & Report', description: 'Community management and monthly reports on growth and engagement metrics.' },
       ]}
       complementaryServices={[
-        { name: 'Precision Ad Campaigns™', url: '/services/paid-ads' },
-        { name: 'Video Script & Editing™', url: '/services/video-content' },
-        { name: 'Brand Identity™', url: '/services/brand-identity' },
+        { name: 'Precision Ad Campaigns', url: '/services/paid-ads' },
+        { name: 'Video Script & Editing', url: '/services/video-content' },
+        { name: 'Brand Identity', url: '/services/brand-identity' },
       ]}
       faqs={[
         { question: 'Which social platforms do you manage?', answer: 'Instagram, LinkedIn, TikTok, Twitter/X, Facebook, and YouTube. We recommend the best platforms for your audience during onboarding.' },

@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Video Script & Editing™ | Noplin Digital',
+  title: 'Video Script & Editing | Noplin Digital',
   description: 'Scripts and editing for YouTube, Instagram, TikTok, and corporate videos. Starting from ₦25,000/video.',
 };
 
 export default function VideoContentPage() {
   return (
     <ServicePageTemplate
-      serviceName="Video Script & Editing™"
+      serviceName="Video Script & Editing"
       department="Content"
       about=""
       leadSpecialist="Funke + Jessica"
@@ -58,9 +58,9 @@ export default function VideoContentPage() {
         { step: '04', title: 'Deliver', description: 'Final video, captions, and thumbnail delivered in all required formats.' },
       ]}
       complementaryServices={[
-        { name: 'Social Growth Engine™', url: '/services/social-media' },
-        { name: 'Precision Ad Campaigns™', url: '/services/paid-ads' },
-        { name: 'Corporate Comms Suite™', url: '/services/corporate-comms' },
+        { name: 'Social Growth Engine', url: '/services/social-media' },
+        { name: 'Precision Ad Campaigns', url: '/services/paid-ads' },
+        { name: 'Corporate Comms Suite', url: '/services/corporate-comms' },
       ]}
       faqs={[
         { question: 'Do I need to provide footage?', answer: 'For talking-head or on-location videos, yes — you record using our script and direction, and we edit. For motion graphic or screen-based videos, we handle production end-to-end.' },

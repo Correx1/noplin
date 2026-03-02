@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'API Development & Integration™ | Noplin Digital',
+  title: 'API Development & Integration | Noplin Digital',
   description: 'Connect your tools, automate your workflows, and scale your operations with custom API development. From ₦150,000.',
 };
 
 export default function ApiIntegrationPage() {
   return (
     <ServicePageTemplate
-      serviceName="API Development & Integration™"
+      serviceName="API Development & Integration"
       department="Web & Dev"
       about=""
       leadSpecialist="Gilbert"
@@ -58,9 +58,9 @@ export default function ApiIntegrationPage() {
         { step: '04', title: 'Handover', description: 'Full documentation, deployment, and team walkthrough.' },
       ]}
       complementaryServices={[
-        { name: 'Custom Web App Development™', url: '/services/web-app-development' },
-        { name: 'E-Commerce Development™', url: '/services/ecommerce-development' },
-        { name: 'MVP Development for Startups™', url: '/services/mvp-development' },
+        { name: 'Custom Web App Development', url: '/services/web-app-development' },
+        { name: 'E-Commerce Development', url: '/services/ecommerce-development' },
+        { name: 'MVP Development for Startups', url: '/services/mvp-development' },
       ]}
       faqs={[
         { question: 'What APIs do you integrate with?', answer: 'We integrate with any API — payment platforms, CRMs, ERPs, marketing tools, social platforms, analytics systems, and more. If it has an API, we can connect it.' },

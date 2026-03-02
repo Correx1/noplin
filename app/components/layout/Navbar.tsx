@@ -5,41 +5,42 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import ThemeToggle from '../ui/ThemeToggle';
 
 const megaMenu = [
   {
     heading: 'Design',
     services: [
-      { label: 'Brand Identity™', href: '/services/brand-identity' },
-      { label: 'Pitch Deck & Presentation™', href: '/services/pitch-deck' },
+      { label: 'Brand Identity', href: '/services/brand-identity' },
+      { label: 'Pitch Deck & Presentation', href: '/services/pitch-deck' },
     ],
   },
   {
     heading: 'Web & Dev',
     services: [
-      { label: 'Web Design™', href: '/services/web-design' },
-      { label: 'Web App Dev™', href: '/services/web-app-dev' },
-      { label: 'MVP Development™', href: '/services/mvp-development' },
-      { label: 'E-Commerce Dev™', href: '/services/ecommerce' },
-      { label: 'API Integration™', href: '/services/api-integration' },
+      { label: 'Web Design', href: '/services/web-design' },
+      { label: 'Web App Dev', href: '/services/web-app-dev' },
+      { label: 'MVP Development', href: '/services/mvp-development' },
+      { label: 'E-Commerce Dev', href: '/services/ecommerce' },
+      { label: 'API Integration', href: '/services/api-integration' },
     ],
   },
   {
     heading: 'Content',
     services: [
-      { label: 'Authority Content™', href: '/services/seo-content' },
-      { label: 'Conversion Copy™', href: '/services/conversion-copy' },
-      { label: 'Email Marketing™', href: '/services/email-marketing' },
-      { label: 'Video Content™', href: '/services/video-content' },
-      { label: 'Corporate Comms™', href: '/services/corporate-comms' },
+      { label: 'Authority Content', href: '/services/seo-content' },
+      { label: 'Conversion Copy', href: '/services/conversion-copy' },
+      { label: 'Email Marketing', href: '/services/email-marketing' },
+      { label: 'Video Content', href: '/services/video-content' },
+      { label: 'Corporate Comms', href: '/services/corporate-comms' },
     ],
   },
   {
     heading: 'Marketing',
     services: [
-      { label: 'Social Growth Engine™', href: '/services/social-growth' },
-      { label: 'Precision Ad Campaigns™', href: '/services/ad-campaigns' },
-      { label: 'Strategy Consulting™', href: '/services/strategy' },
+      { label: 'Social Growth Engine', href: '/services/social-growth' },
+      { label: 'Precision Ad Campaigns', href: '/services/ad-campaigns' },
+      { label: 'Strategy Consulting', href: '/services/strategy' },
     ],
   },
 ];
@@ -164,8 +165,11 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA + Hamburger */}
+        {/* CTA + Theme Toggle + Hamburger */}
         <div className="flex items-center gap-3">
+          {/* Theme toggle — always visible */}
+          <ThemeToggle />
+
           <Link
             href="/contact"
             className="hidden lg:inline-flex px-5 py-2.5 text-sm font-semibold text-[#0D0D2B] bg-cyan-500 hover:bg-cyan-400 rounded-lg transition"

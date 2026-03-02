@@ -29,12 +29,12 @@ import {
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const services = [
-  'A-Grade Brand Identity™', 'Pitch Deck & Presentation™',
-  'Conversion-First Web Design™', 'Custom Web App Development™', 'MVP Development for Startups™',
-  'E-Commerce Development™', 'API Development & Integration™',
-  'Authority Content™ (SEO)', 'Conversion Copy™', 'Revenue Email System™',
-  'Video Script & Editing™', 'Corporate Comms Suite™',
-  'Social Growth Engine™', 'Precision Ad Campaigns™', 'Digital Strategy Consulting™',
+  'A-Grade Brand Identity', 'Pitch Deck & Presentation',
+  'Conversion-First Web Design', 'Custom Web App Development', 'MVP Development for Startups',
+  'E-Commerce Development', 'API Development & Integration',
+  'Authority Content (SEO)', 'Conversion Copy', 'Revenue Email System',
+  'Video Script & Editing', 'Corporate Comms Suite',
+  'Social Growth Engine', 'Precision Ad Campaigns', 'Digital Strategy Consulting',
   'Not sure yet — help me decide',
 ];
 

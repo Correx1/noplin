@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'A-Grade Brand Identity™ | Noplin Digital',
+  title: 'A-Grade Brand Identity | Noplin Digital',
   description: 'Professional brand identity design — logos, brand kits, and visual systems built to make your business unforgettable. Starting from ₦80,000.',
 };
 
 export default function BrandIdentityPage() {
   return (
     <ServicePageTemplate
-      serviceName="A-Grade Brand Identity™"
+      serviceName="A-Grade Brand Identity"
       department="Design"
-      about="A-Grade Brand Identity™ is our premium brand design service — creating logos, visual systems, and complete brand kits that position your business as a leader in its market. We build identities that are memorable, scalable, and designed to command premium positioning."
+      about="A-Grade Brand Identity is our premium brand design service — creating logos, visual systems, and complete brand kits that position your business as a leader in its market. We build identities that are memorable, scalable, and designed to command premium positioning."
       leadSpecialist="Malachy"
       tagline="Logos, visual systems, and brand kits that make your business unforgettable and command premium positioning."
       startingPrice="From ₦80,000"
@@ -58,9 +58,9 @@ export default function BrandIdentityPage() {
         { step: '04', title: 'Delivery', description: 'All final files delivered in every format you will ever need.' },
       ]}
       complementaryServices={[
-        { name: 'Web Design™', url: '/services/web-design' },
-        { name: 'Pitch Deck & Presentation™', url: '/services/pitch-deck' },
-        { name: 'Social Growth Engine™', url: '/services/social-media' },
+        { name: 'Web Design', url: '/services/web-design' },
+        { name: 'Pitch Deck & Presentation', url: '/services/pitch-deck' },
+        { name: 'Social Growth Engine', url: '/services/social-media' },
       ]}
       faqs={[
         { question: 'How many logo concepts do I get?', answer: 'Depending on your tier, you receive 2–3 distinct concept directions to choose from, then unlimited refinements within the revision rounds included in your package.' },

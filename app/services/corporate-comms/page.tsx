@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Corporate Comms Suite™ | Noplin Digital',
+  title: 'Corporate Comms Suite | Noplin Digital',
   description: 'Business proposals, reports, internal newsletters, and official communications. Starting from ₦30,000.',
 };
 
 export default function CorporateCommsPage() {
   return (
     <ServicePageTemplate
-      serviceName="Corporate Comms Suite™"
+      serviceName="Corporate Comms Suite"
       department="Content"
       leadSpecialist="Funke"
       about=""
@@ -58,9 +58,9 @@ export default function CorporateCommsPage() {
         { step: '04', title: 'Deliver', description: 'Final document in PDF + editable Word/Google Docs format.' },
       ]}
       complementaryServices={[
-        { name: 'Pitch Deck & Presentation™', url: '/services/pitch-deck' },
-        { name: 'Brand Identity™', url: '/services/brand-identity' },
-        { name: 'Digital Strategy Consulting™', url: '/services/strategy-consulting' },
+        { name: 'Pitch Deck & Presentation', url: '/services/pitch-deck' },
+        { name: 'Brand Identity', url: '/services/brand-identity' },
+        { name: 'Digital Strategy Consulting', url: '/services/strategy-consulting' },
       ]}
       faqs={[
         { question: 'What types of documents can you write?', answer: 'Business proposals, investor reports, annual reports, board meeting documents, RFPs, staff newsletters, official correspondence, policy documents, and more.' },

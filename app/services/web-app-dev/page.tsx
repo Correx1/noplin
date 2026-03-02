@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Custom Web App Development™ | Noplin Digital',
+  title: 'Custom Web App Development | Noplin Digital',
   description: 'Scalable web applications built on Laravel. From core apps to enterprise platforms. Starting from ₦500,000.',
 };
 
 export default function WebAppDevelopmentPage() {
   return (
     <ServicePageTemplate
-      serviceName="Custom Web App Development™"
+      serviceName="Custom Web App Development"
       department="Web & Dev"
       leadSpecialist="Gilbert"
       about="We build custom web applications using Laravel — from core business apps to complex enterprise platforms. Engineered for performance, built for growth."
@@ -58,9 +58,9 @@ export default function WebAppDevelopmentPage() {
         { step: '04', title: 'Testing & Launch', description: 'Full QA, bug fixes, deployment, and handover with documentation.' },
       ]}
       complementaryServices={[
-        { name: 'MVP Development™', url: '/services/mvp-development' },
-        { name: 'API Development & Integration™', url: '/services/api-integration' },
-        { name: 'Digital Strategy Consulting™', url: '/services/strategy-consulting' },
+        { name: 'MVP Development', url: '/services/mvp-development' },
+        { name: 'API Development & Integration', url: '/services/api-integration' },
+        { name: 'Digital Strategy Consulting', url: '/services/strategy-consulting' },
       ]}
       faqs={[
         { question: 'What tech stack do you use?', answer: 'Our primary stack is Laravel (PHP) for the backend, with React or Vue for the frontend. We can also work with other stacks on a case-by-case basis.' },

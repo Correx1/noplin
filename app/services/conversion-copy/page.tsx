@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Conversion Copy™ | Noplin Digital',
+  title: 'Conversion Copy | Noplin Digital',
   description: 'Website copy, landing pages, and ad copy that drives action. Written to convert. From ₦50,000.',
 };
 
 export default function ConversionCopyPage() {
   return (
     <ServicePageTemplate
-      serviceName="Conversion Copy™"
+      serviceName="Conversion Copy"
       department="Content"
       leadSpecialist="Funke"
       about=""
@@ -58,9 +58,9 @@ export default function ConversionCopyPage() {
         { step: '04', title: 'Final Delivery', description: 'Clean final document ready to go straight into your website or campaign.' },
       ]}
       complementaryServices={[
-        { name: 'Conversion-First Web Design™', url: '/services/web-design' },
-        { name: 'Revenue Email System™', url: '/services/email-marketing' },
-        { name: 'Precision Ad Campaigns™', url: '/services/paid-ads' },
+        { name: 'Conversion-First Web Design', url: '/services/web-design' },
+        { name: 'Revenue Email System', url: '/services/email-marketing' },
+        { name: 'Precision Ad Campaigns', url: '/services/paid-ads' },
       ]}
       faqs={[
         { question: 'Do I need to brief you on my business?', answer: 'Yes — we use a detailed copy brief to understand your audience, product, and goals before writing a single word. The brief takes about 20 minutes to fill in.' },

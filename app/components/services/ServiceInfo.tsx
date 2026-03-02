@@ -1,5 +1,8 @@
 'use client';
+
 import { motion } from 'framer-motion';
+import { FaMousePointer } from 'react-icons/fa';
+import {SendHorizontal} from 'lucide-react'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -9,47 +12,80 @@ interface ServiceInfoProps {
   whoItsFor: string;
 }
 
-export default function ServiceInfo({ about, whatItIncludes, whoItsFor }: ServiceInfoProps) {
+export default function ServiceInfo({
+  about,
+  whatItIncludes,
+  whoItsFor,
+}: ServiceInfoProps) {
   return (
-    <section className="py-20 bg-(--bg-page) border-t border-[var(--border-default)]">
+    <section className="py-24 bg-(--bg-page) border-t border-[var(--border-default)">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid lg:grid-cols-2 gap-20">
+
         {/* LEFT COLUMN */}
         <div className="flex flex-col gap-16">
+          {/* About */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: EASE }}
           >
-            <h2 className="text-4xl font-bold font-semibold text-(--text-primary) mb-6 tracking-tight">About this Service</h2>
-            <p className="text-lg text-(--text-secondary) font-(--font-body) leading-relaxed">{about}</p>
+            <span className="block mb-3 text-[11px] tracking-[0.14em] uppercase text-cyan-500 font-semibold">
+              Overview
+            </span>
+
+            <h2 className="text-[clamp(1.8rem,3.2vw,2.4rem) font-semibold tracking-tight text-(--text-primary) mb-5">
+              About this Service
+            </h2>
+
+            <p className="text-[17px] leading-relaxed text-(--text-secondary) font-(--font-body)">
+              {about}
+            </p>
           </motion.div>
 
+          {/* Who It's For */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
           >
-            <h3 className="text-2xl font-semibold font-semibold text-(--text-primary) mb-4 tracking-tight">Who It&apos;s For</h3>
-            <p className="text-lg text-(--text-secondary) font-(--font-body) leading-relaxed">{whoItsFor}</p>
+            <span className="block mb-3 text-[11px] tracking-[0.14em] uppercase text-cyan-500 font-semibold">
+              Fit
+            </span>
+
+            <h3 className="text-[clamp(1.4rem,2.6vw,1.8rem) font-semibold tracking-tight text-(--text-primary) mb-4">
+              Who It’s For
+            </h3>
+
+            <p className="text-[17px] leading-relaxed text-(--text-secondary) font-(--font-body)">
+              {whoItsFor}
+            </p>
           </motion.div>
         </div>
 
         {/* RIGHT COLUMN */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
+          className="relative rounded-xl border border-(--border-card) bg-(--bg-card) p-6 shadow-sm"
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-semibold text-(--text-primary) mb-8 tracking-tight">What It Includes</h2>
-          <ul className="flex flex-col gap-4 text-lg text-(--text-secondary) font-(--font-body)">
+          <span className="block mb-3 text-[11px] tracking-[0.14em] uppercase text-cyan-500 font-semibold">
+            Deliverables
+          </span>
+
+          <h2 className="text-[clamp(1.8rem,3vw,2.3rem) font-semibold tracking-tight text-(--text-primary) mb-8">
+            What It Includes
+          </h2>
+
+          <ul className="flex flex-col gap-5 text-[15px] text-(--text-secondary) font-(--font-body)">
             {whatItIncludes.map((item) => (
-              <li key={item} className="flex gap-4 items-start">
-                <svg className="mt-[5px] h-4 w-4 text-electric shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                </svg>
+              <li key={item} className="flex items-start gap-4">
+                <span className="mt-1 text-cyan-500 shrink-0">
+                  <SendHorizontal size={14} />
+                </span>
                 <span className="leading-relaxed">{item}</span>
               </li>
             ))}

@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Revenue Email System™ | Noplin Digital',
+  title: 'Revenue Email System | Noplin Digital',
   description: 'Automated email sequences and campaigns that sell while you sleep. Starting from ₦60,000/month.',
 };
 
 export default function EmailMarketingPage() {
   return (
     <ServicePageTemplate
-      serviceName="Revenue Email System™"
+      serviceName="Revenue Email System"
       department="Content"
       leadSpecialist="Funke"
       about=""
@@ -58,9 +58,9 @@ export default function EmailMarketingPage() {
         { step: '04', title: 'Monitor & Optimize', description: 'Monthly reviews, A/B tests, and continuous improvement based on data.' },
       ]}
       complementaryServices={[
-        { name: 'Conversion Copy™', url: '/services/conversion-copy' },
-        { name: 'Social Growth Engine™', url: '/services/social-media' },
-        { name: 'Precision Ad Campaigns™', url: '/services/paid-ads' },
+        { name: 'Conversion Copy', url: '/services/conversion-copy' },
+        { name: 'Social Growth Engine', url: '/services/social-media' },
+        { name: 'Precision Ad Campaigns', url: '/services/paid-ads' },
       ]}
       faqs={[
         { question: 'What email platforms do you work with?', answer: 'We work with Mailchimp, MailerLite, Klaviyo, ConvertKit, ActiveCampaign, and most other major platforms. We can recommend the right one for your business.' },

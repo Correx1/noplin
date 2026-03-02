@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Authority Content™ (SEO) | Noplin Digital',
+  title: 'Authority Content (SEO) | Noplin Digital',
   description: 'SEO blog content that ranks on Google and converts readers into leads. Starting from ₦60,000/month.',
 };
 
 export default function SeoContentPage() {
   return (
     <ServicePageTemplate
-      serviceName="Authority Content™ (SEO)"
+      serviceName="Authority Content (SEO)"
       department="Content"
       leadSpecialist="Funke"
       about=""
@@ -58,9 +58,9 @@ export default function SeoContentPage() {
         { step: '04', title: 'Publish & Report', description: 'We publish (or hand over to you) and report on ranking progress monthly.' },
       ]}
       complementaryServices={[
-        { name: 'Conversion-First Web Design™', url: '/services/web-design' },
-        { name: 'Conversion Copy™', url: '/services/conversion-copy' },
-        { name: 'Precision Ad Campaigns™', url: '/services/paid-ads' },
+        { name: 'Conversion-First Web Design', url: '/services/web-design' },
+        { name: 'Conversion Copy', url: '/services/conversion-copy' },
+        { name: 'Precision Ad Campaigns', url: '/services/paid-ads' },
       ]}
       faqs={[
         { question: 'Do you use AI to write?', answer: 'No. All content is written by expert human writers. We use AI for research and optimization only — never for the final copy.' },

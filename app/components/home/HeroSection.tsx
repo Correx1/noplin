@@ -58,17 +58,40 @@ export default function HeroSection() {
         </div>
 
         {/* Perfect Linear Overlays */}
-        {/* Horizontal linear mapping from solid navy to transparent */}
-        <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/90 to-transparent" />
-        
-        {/* Subtle vertical linear for depth */}
-        <div className="absolute inset-0 bg-linear-to-t from-navy via-transparent to-navy/70" />
+        <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/85 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-navy via-transparent to-navy/60" />
 
-        {/* --- COLORFUL BACKGROUND SWOOP (Blended for Dark Theme) --- */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center mix-blend-screen opacity-90">
-          <div className="absolute w-[150%] h-62.5 bg-linear-to-r from-transparent via-electric to-electric opacity-30 blur-[60px] -rotate-12 translate-y-10" />
-          <div className="absolute w-[150%] h-37.5 bg-linear-to-r from-electric to-transparent opacity-20 blur-[50px] -rotate-12 translate-y-36 translate-x-[5%]" />
-        </div>
+        {/* === Exact same art as DarkModeBackground === */}
+        <svg
+          viewBox="0 0 1200 800"
+          className="absolute left-1/2 top-0 h-full w-[1200px] -translate-x-1/2 opacity-10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="heroCurveGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#22D3EE" />
+              <stop offset="100%" stopColor="#3B82F6" />
+            </linearGradient>
+            <filter id="heroGlow">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <path d="M80 40 C 520 220, 700 580, 1120 760" stroke="url(#heroCurveGrad)" strokeWidth="3" filter="url(#heroGlow)" />
+          <path d="M140 0 C 560 200, 740 560, 1080 800" stroke="url(#heroCurveGrad)" strokeWidth="2" opacity="0.5" />
+          <path d="M1080 20 C 640 240, 460 600, 80 780" stroke="url(#heroCurveGrad)" strokeWidth="1.5" opacity="0.3" />
+        </svg>
+
+        {/* Blur bubble anchors — same positions as DarkModeBackground */}
+        <div className="absolute left-[16%] top-[18%] h-28 w-28 rounded-full bg-cyan-400/15 blur-3xl" />
+        <div className="absolute left-[62%] top-[46%] h-36 w-36 rounded-full bg-blue-500/15 blur-[80px]" />
+        <div className="absolute left-[42%] top-[78%] h-24 w-24 rounded-full bg-cyan-400/15 blur-2xl" />
+        <div className="absolute right-[10%] top-[8%] h-40 w-40 rounded-full bg-blue-600/10 blur-[100px]" />
+
         {/* Grid overlay for texture */}
         <div
           className="absolute inset-0 mix-blend-overlay opacity-20"
@@ -78,9 +101,6 @@ export default function HeroSection() {
             backgroundSize: '72px 72px',
           }}
         />
-        
-        {/* Primary radial — electric blue top-center for branding */}
-        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90vw] h-[70vh] bg-[radial-gradient(ellipse,rgba(26,86,219,0.15)_0%,transparent_60%)]" />
       </div>
       {/* ── Content ────────────────────────────────────────── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-0 pb-20 sm:pt-16 sm:pb-16 lg:py-20 w-full">

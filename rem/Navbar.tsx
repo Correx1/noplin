@@ -11,39 +11,39 @@ const megaMenu = [
     heading: 'Design',
     color: '#1A56DB',
     services: [
-      { label: 'Brand Identity™', href: '/services/brand-identity' },
-      { label: 'Pitch Deck & Presentation™', href: '/services/pitch-deck' },
+      { label: 'Brand Identity', href: '/services/brand-identity' },
+      { label: 'Pitch Deck & Presentation', href: '/services/pitch-deck' },
     ],
   },
   {
     heading: 'Web & Dev',
     color: '#1A56DB',
     services: [
-      { label: 'Web Design™', href: '/services/web-design' },
-      { label: 'Web App Dev™', href: '/services/web-app-dev' },
-      { label: 'MVP Development™', href: '/services/mvp-development' },
-      { label: 'E-Commerce Dev™', href: '/services/ecommerce' },
-      { label: 'API Integration™', href: '/services/api-integration' },
+      { label: 'Web Design', href: '/services/web-design' },
+      { label: 'Web App Dev', href: '/services/web-app-dev' },
+      { label: 'MVP Development', href: '/services/mvp-development' },
+      { label: 'E-Commerce Dev', href: '/services/ecommerce' },
+      { label: 'API Integration', href: '/services/api-integration' },
     ],
   },
   {
     heading: 'Content',
     color: '#1A56DB',
     services: [
-      { label: 'Authority Content™', href: '/services/seo-content' },
-      { label: 'Conversion Copy™', href: '/services/conversion-copy' },
-      { label: 'Email Marketing™', href: '/services/email-marketing' },
-      { label: 'Video Content™', href: '/services/video-content' },
-      { label: 'Corporate Comms™', href: '/services/corporate-comms' },
+      { label: 'Authority Content', href: '/services/seo-content' },
+      { label: 'Conversion Copy', href: '/services/conversion-copy' },
+      { label: 'Email Marketing', href: '/services/email-marketing' },
+      { label: 'Video Content', href: '/services/video-content' },
+      { label: 'Corporate Comms', href: '/services/corporate-comms' },
     ],
   },
   {
     heading: 'Marketing',
     color: '#1A56DB',
     services: [
-      { label: 'Social Growth Engine™', href: '/services/social-growth' },
-      { label: 'Precision Ad Campaigns™', href: '/services/ad-campaigns' },
-      { label: 'Strategy Consulting™', href: '/services/strategy' },
+      { label: 'Social Growth Engine', href: '/services/social-growth' },
+      { label: 'Precision Ad Campaigns', href: '/services/ad-campaigns' },
+      { label: 'Strategy Consulting', href: '/services/strategy' },
     ],
   },
 ];
@@ -250,7 +250,7 @@ export default function Navbar() {
               >
                 <div className="flex-1 overflow-y-auto px-6 pt-6 pb-28 flex flex-col gap-1">
 
-                  
+
                   {/* Services Accordion with Link + Toggle */}
                   <div className="border-b border-(--border-default)">
                     <div className="flex w-full items-center justify-between">

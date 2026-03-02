@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Pitch Deck & Presentation™ | Noplin Digital',
+  title: 'Pitch Deck & Presentation | Noplin Digital',
   description: 'Investor-ready pitch decks and presentations that command attention. Starting from ₦80,000, delivered in 3–5 days.',
 };
 
 export default function PitchDeckPage() {
   return (
     <ServicePageTemplate
-      serviceName="Pitch Deck & Presentation™"
+      serviceName="Pitch Deck & Presentation"
       department="Design"
       leadSpecialist="Malachy"
       about=""
@@ -58,9 +58,9 @@ export default function PitchDeckPage() {
         { step: '04', title: 'Final Delivery', description: 'PDF + PPTX files delivered with all source files.' },
       ]}
       complementaryServices={[
-        { name: 'Brand Identity™', url: '/services/brand-identity' },
-        { name: 'Digital Strategy Consulting™', url: '/services/strategy-consulting' },
-        { name: 'Conversion Copy™', url: '/services/conversion-copy' },
+        { name: 'Brand Identity', url: '/services/brand-identity' },
+        { name: 'Digital Strategy Consulting', url: '/services/strategy-consulting' },
+        { name: 'Conversion Copy', url: '/services/conversion-copy' },
       ]}
       faqs={[
         { question: 'Do I need to provide the content?', answer: 'Yes — you provide the raw content and we structure and design it. If you need help with the narrative and copy, we can add that as a Conversion Copy add-on.' },

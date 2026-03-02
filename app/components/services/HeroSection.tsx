@@ -65,26 +65,7 @@ export default function HeroSection({
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 flex flex-col gap-6 items-start w-full">
-        {/* Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: EASE }}
-          className="flex flex-wrap gap-3"
-        >
-          <span
-            className="inline-flex px-3 py-1 rounded-full text-xs font-semibold"
-            style={{ background: deptColor.bg, color: deptColor.text }}
-          >
-            {department}
-          </span>
-          <span className="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-500 border border-yellow-300/30">
-            {startingPrice}
-          </span>
-          <span className="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-cyan-100 text-cyan-500 border border-cyan-300/30">
-            {turnaround}
-          </span>
-        </motion.div>
+    
 
         {/* Headline */}
         <motion.h1
@@ -106,16 +87,7 @@ export default function HeroSection({
           {tagline}
         </motion.p>
 
-        {/* Lead Specialist */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.22 }}
-          className="text-xs font-(--font-body) text-(--text-secondary)"
-        >
-          Lead Specialist:{' '}
-          <span className="text-(--text-primary) font-semibold">{leadSpecialist}</span>
-        </motion.p>
+       
 
         <motion.div
           initial={{ opacity: 0, y: 12 }}

@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'E-Commerce Development™ | Noplin Digital',
+  title: 'E-Commerce Development | Noplin Digital',
   description: 'Online stores built for conversions and growth. Payment integration, product catalogue, mobile-optimized. From ₦400,000.',
 };
 
 export default function EcommerceDevelopmentPage() {
   return (
     <ServicePageTemplate
-      serviceName="E-Commerce Development™"
+      serviceName="E-Commerce Development"
       department="Web & Dev"
       leadSpecialist="Gilbert"
       about=""
@@ -58,9 +58,9 @@ export default function EcommerceDevelopmentPage() {
         { step: '04', title: 'Test & Launch', description: 'End-to-end testing of every purchase flow, then go live.' },
       ]}
       complementaryServices={[
-        { name: 'Conversion-First Web Design™', url: '/services/web-design' },
-        { name: 'Precision Ad Campaigns™', url: '/services/paid-ads' },
-        { name: 'Social Growth Engine™', url: '/services/social-media' },
+        { name: 'Conversion-First Web Design', url: '/services/web-design' },
+        { name: 'Precision Ad Campaigns', url: '/services/paid-ads' },
+        { name: 'Social Growth Engine', url: '/services/social-media' },
       ]}
       faqs={[
         { question: 'What payment gateways do you integrate?', answer: 'We integrate Paystack, Flutterwave, Stripe, and PayPal depending on your market. We recommend the best option for your customer base.' },

@@ -8,7 +8,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const services = [
   {
     dept: 'WEB & DEV',
-    name: 'Conversion-First Web Design™',
+    name: 'Conversion-First Web Design',
     desc: 'Websites that rank, convert, and impress.',
     price: 'From ₦300,000',
     turnaround: '7–10 days',
@@ -16,7 +16,7 @@ const services = [
   },
   {
     dept: 'DESIGN',
-    name: 'A-Grade Brand Identity™',
+    name: 'A-Grade Brand Identity',
     desc: 'Logos and brand kits built to last.',
     price: 'From ₦80,000',
     turnaround: '3–5 days',
@@ -24,7 +24,7 @@ const services = [
   },
   {
     dept: 'MARKETING',
-    name: 'Social Growth Engine™',
+    name: 'Social Growth Engine',
     desc: 'Full social media management that drives real followers and engagement.',
     price: 'From ₦80,000/mo',
     turnaround: 'Ongoing',
@@ -32,7 +32,7 @@ const services = [
   },
   {
     dept: 'WEB & DEV',
-    name: 'Custom Web App Development™',
+    name: 'Custom Web App Development',
     desc: 'Scalable web applications built on Laravel.',
     price: 'From ₦500,000',
     turnaround: '4–8 weeks',
@@ -40,7 +40,7 @@ const services = [
   },
   {
     dept: 'MARKETING',
-    name: 'Precision Ad Campaigns™',
+    name: 'Precision Ad Campaigns',
     desc: 'Google & Meta ads managed by specialists.',
     price: 'From ₦50,000 setup',
     turnaround: 'Ongoing',
@@ -48,7 +48,7 @@ const services = [
   },
   {
     dept: 'MARKETING',
-    name: 'Digital Strategy Consulting™',
+    name: 'Digital Strategy Consulting',
     desc: 'Full digital strategy for serious businesses.',
     price: 'From ₦1,000,000',
     turnaround: 'Project-based',

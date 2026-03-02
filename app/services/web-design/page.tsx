@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Conversion-First Web Design™ | Noplin Digital',
+  title: 'Conversion-First Web Design | Noplin Digital',
   description: 'Professional web design services. Websites built to rank, convert, and impress — delivered in 7–10 days. Starting from ₦300,000.',
 };
 
 export default function WebDesignPage() {
   return (
     <ServicePageTemplate
-      serviceName="Conversion-First Web Design™"
+      serviceName="Conversion-First Web Design"
       department="Web & Dev"
       leadSpecialist="Gilbert"
       about=""
@@ -58,9 +58,9 @@ export default function WebDesignPage() {
         { step: '04', title: 'Launch', description: 'Final testing, your approval, then live deployment with 30 days of support.' },
       ]}
       complementaryServices={[
-        { name: 'Brand Identity™', url: '/services/brand-identity' },
-        { name: 'Authority Content™ (SEO)', url: '/services/seo-content' },
-        { name: 'Precision Ad Campaigns™', url: '/services/paid-ads' },
+        { name: 'Brand Identity', url: '/services/brand-identity' },
+        { name: 'Authority Content (SEO)', url: '/services/seo-content' },
+        { name: 'Precision Ad Campaigns', url: '/services/paid-ads' },
       ]}
       faqs={[
         { question: 'Do you build on WordPress?', answer: 'We build custom or on your preferred CMS (WordPress, Webflow, or Next.js). We recommend the right platform for your needs and budget.' },

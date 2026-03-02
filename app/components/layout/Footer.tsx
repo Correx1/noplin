@@ -4,24 +4,24 @@ import Link from 'next/link';
 import { Instagram, Linkedin, Twitter, MapPin } from 'lucide-react';
 
 const designDevLinks = [
-  { label: 'Brand Identity™', href: '/services/brand-identity' },
-  { label: 'Pitch Deck Design™', href: '/services/pitch-deck' },
-  { label: 'Web Design™', href: '/services/web-design' },
-  { label: 'Web App Dev™', href: '/services/web-app-dev' },
-  { label: 'MVP Development™', href: '/services/mvp-development' },
-  { label: 'E-Commerce Dev™', href: '/services/ecommerce' },
-  { label: 'API Integration™', href: '/services/api-integration' },
+  { label: 'Brand Identity', href: '/services/brand-identity' },
+  { label: 'Pitch Deck Design', href: '/services/pitch-deck' },
+  { label: 'Web Design', href: '/services/web-design' },
+  { label: 'Web App Dev', href: '/services/web-app-dev' },
+  { label: 'MVP Development', href: '/services/mvp-development' },
+  { label: 'E-Commerce Dev', href: '/services/ecommerce' },
+  { label: 'API Integration', href: '/services/api-integration' },
 ];
 
 const contentMarketingLinks = [
-  { label: 'Authority Content™', href: '/services/authority-content' },
-  { label: 'Conversion Copy™', href: '/services/conversion-copy' },
-  { label: 'Email Marketing™', href: '/services/email-marketing' },
-  { label: 'Video Content™', href: '/services/video-content' },
-  { label: 'Corporate Comms™', href: '/services/corporate-comms' },
-  { label: 'Social Media™', href: '/services/social-growth' },
-  { label: 'Paid Ads™', href: '/services/ad-campaigns' },
-  { label: 'Strategy Consulting™', href: '/services/strategy' },
+  { label: 'Authority Content', href: '/services/authority-content' },
+  { label: 'Conversion Copy', href: '/services/conversion-copy' },
+  { label: 'Email Marketing', href: '/services/email-marketing' },
+  { label: 'Video Content', href: '/services/video-content' },
+  { label: 'Corporate Comms', href: '/services/corporate-comms' },
+  { label: 'Social Media', href: '/services/social-growth' },
+  { label: 'Paid Ads', href: '/services/ad-campaigns' },
+  { label: 'Strategy Consulting', href: '/services/strategy' },
 ];
 
 const socials = [

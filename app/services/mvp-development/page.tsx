@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'MVP Development for Startups™ | Noplin Digital',
+  title: 'MVP Development for Startups | Noplin Digital',
   description: 'Launch your startup idea fast with a built-to-scale MVP. Starting from ₦400,000, delivered in 3–6 weeks.',
 };
 
 export default function MvpDevelopmentPage() {
   return (
     <ServicePageTemplate
-      serviceName="MVP Development for Startups™"
+      serviceName="MVP Development for Startups"
       department="Web & Dev"
       leadSpecialist="Gilbert"
       about=""
@@ -58,9 +58,9 @@ export default function MvpDevelopmentPage() {
         { step: '04', title: 'Launch & Handover', description: 'Deployed, tested, and handed over with documentation so your team can own it.' },
       ]}
       complementaryServices={[
-        { name: 'Digital Strategy Consulting™', url: '/services/strategy-consulting' },
-        { name: 'Custom Web App Development™', url: '/services/web-app-development' },
-        { name: 'Brand Identity™', url: '/services/brand-identity' },
+        { name: 'Digital Strategy Consulting', url: '/services/strategy-consulting' },
+        { name: 'Custom Web App Development', url: '/services/web-app-development' },
+        { name: 'Brand Identity', url: '/services/brand-identity' },
       ]}
       faqs={[
         { question: 'How do you decide what goes into the MVP?', answer: 'We run a scoping session to identify your single most critical user journey and build around that. Everything else is deferred to v2.' },

@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '../../components/services/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Precision Ad Campaigns™ | Noplin Digital',
+  title: 'Precision Ad Campaigns | Noplin Digital',
   description: 'Results-driven Google and Meta ad campaigns managed by specialists. Stop wasting ad spend — start getting real ROI.',
 };
 
 export default function PaidAdsPage() {
   return (
     <ServicePageTemplate
-      serviceName="Precision Ad Campaigns™"
+      serviceName="Precision Ad Campaigns"
       department="Marketing"
       about=""
       leadSpecialist="Benedict"
@@ -58,9 +58,9 @@ export default function PaidAdsPage() {
         { step: '04', title: 'Report & Scale', description: 'Regular reports, honest analysis, and scaling of what is working.' },
       ]}
       complementaryServices={[
-        { name: 'Web Design™', url: '/services/web-design' },
-        { name: 'Conversion Copy™', url: '/services/conversion-copy' },
-        { name: 'Digital Strategy Consulting™', url: '/services/strategy-consulting' },
+        { name: 'Web Design', url: '/services/web-design' },
+        { name: 'Conversion Copy', url: '/services/conversion-copy' },
+        { name: 'Digital Strategy Consulting', url: '/services/strategy-consulting' },
       ]}
       faqs={[
         { question: "What's the minimum ad budget?", answer: 'We recommend a minimum ad spend of ₦50,000/month for the Starter plan to see meaningful results. The management fee is separate from your ad spend.' },
