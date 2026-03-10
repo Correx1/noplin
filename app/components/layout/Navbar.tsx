@@ -12,36 +12,47 @@ const megaMenu = [
   {
     heading: 'Design',
     services: [
-      { label: 'Brand Identity', href: '/services/brand-identity' },
-      { label: 'Pitch Deck & Presentation', href: '/services/pitch-deck' },
+      { label: 'UI/UX Design', href: '/services/ui-ux-design' },
+      { label: 'Social Branding', href: '/services/social-branding' },
+      { label: 'Ad Creatives (Video)', href: '/services/ad-creatives' },
+      { label: 'Pitch Deck Design', href: '/services/pitch-deck' },
+      { label: 'Book / Publication Design', href: '/services/publication-design' },
     ],
   },
   {
-    heading: 'Web & Dev',
+    heading: 'Development',
     services: [
-      { label: 'Web Design', href: '/services/web-design' },
-      { label: 'Web App Dev', href: '/services/web-app-dev' },
-      { label: 'MVP Development', href: '/services/mvp-development' },
-      { label: 'E-Commerce Dev', href: '/services/ecommerce' },
-      { label: 'API Integration', href: '/services/api-integration' },
-    ],
-  },
-  {
-    heading: 'Content',
-    services: [
-      { label: 'Authority Content', href: '/services/seo-content' },
-      { label: 'Conversion Copy', href: '/services/conversion-copy' },
-      { label: 'Email Marketing', href: '/services/email-marketing' },
-      { label: 'Video Content', href: '/services/video-content' },
-      { label: 'Corporate Comms', href: '/services/corporate-comms' },
+      { label: 'A-Grade Website Design', href: '/services/website-design' },
+      { label: 'WordPress Development', href: '/services/wordpress' },
+      { label: 'E-Commerce Development', href: '/services/ecommerce' },
+      { label: 'Custom Web Application', href: '/services/web-application' },
+      { label: 'Landing Page Design', href: '/services/landing-page' },
     ],
   },
   {
     heading: 'Marketing',
     services: [
-      { label: 'Social Growth Engine', href: '/services/social-growth' },
-      { label: 'Precision Ad Campaigns', href: '/services/ad-campaigns' },
-      { label: 'Strategy Consulting', href: '/services/strategy' },
+      { label: 'Social Media Management', href: '/services/social-management' },
+      { label: 'Social Media Ads', href: '/services/social-ads' },
+      { label: 'SEO Optimization', href: '/services/seo' },
+      { label: 'Email Marketing', href: '/services/email-marketing' },
+      { label: 'Content Marketing', href: '/services/content-marketing' },
+    ],
+  },
+  {
+    heading: 'Training & Consulting',
+    services: [
+      { label: 'Branding Consultation', href: '/services/branding-consultation' },
+      { label: 'Website Strategy Session', href: '/services/website-strategy' },
+      { label: 'Digital Marketing Consult', href: '/services/marketing-consultation' },
+    ],
+  },
+  {
+    heading: 'Automation',
+    services: [
+      { label: 'Marketing Automation', href: '/services/marketing-automation' },
+      { label: 'CRM Setup', href: '/services/crm-setup' },
+      { label: 'Lead Generation System', href: '/services/lead-generation' },
     ],
   },
 ];
@@ -126,23 +137,23 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute left-1/2 -translate-x-1/2 mt-3 w-[840px] bg-[#12123A] border border-white/10 rounded-2xl shadow-xl p-8"
+                  className="absolute left-1/2 -translate-x-1/2 mt-3 w-[1100px] max-w-[90vw] bg-[#12123A] border border-white/10 rounded-2xl shadow-xl p-8"
                 >
-                  <div className="grid grid-cols-4 gap-8">
+                  <div className="grid grid-cols-5 gap-6">
                     {megaMenu.map((col) => (
                       <div key={col.heading}>
-                        <p className="mb-3 text-xs uppercase tracking-widest text-cyan-400 font-semibold">
+                        <p className="mb-3 text-[11px] uppercase tracking-widest text-cyan-400 font-semibold">
                           {col.heading}
                         </p>
-                        <ul className="space-y-1.5">
+                        <ul className="space-y-1">
                           {col.services.map((svc) => (
                             <li key={svc.href}>
                               <Link
                                 href={svc.href}
-                                className="flex items-center gap-3 px-3 py-2 -ml-3 rounded-lg text-[15px] text-slate-300 hover:text-cyan-400 hover:bg-white/5 transition"
+                                className="flex items-center gap-2.5 px-2 py-1.5 -ml-2 rounded-lg text-[14px] text-slate-300 hover:text-cyan-400 hover:bg-white/5 transition"
                               >
-                                <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full" />
-                                {svc.label}
+                                <span className="w-1 h-1 bg-cyan-400 rounded-full opacity-50" />
+                                <span className="truncate">{svc.label}</span>
                               </Link>
                             </li>
                           ))}
@@ -151,14 +162,14 @@ export default function Navbar() {
                     ))}
                   </div>
 
-                  <div className="mt-6 pt-5 border-t border-white/10 flex justify-between text-xs">
+                  <div className="mt-8 pt-5 border-t border-white/10 flex justify-between text-[13px]">
                     <p className="text-slate-400">
                       Not sure what you need?{' '}
-                      <Link href="/contact" className="text-cyan-400 hover:underline">
+                      <Link href="/contact" className="text-cyan-400 hover:underline font-medium">
                         Let’s talk →
                       </Link>
                     </p>
-                    <Link href="/services" className="text-cyan-400 hover:underline">
+                    <Link href="/services" className="text-cyan-400 hover:underline font-medium">
                       View all services →
                     </Link>
                   </div>

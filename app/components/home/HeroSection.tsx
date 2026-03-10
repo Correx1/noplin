@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link'
+import Link from 'next/link';
 import Image from 'next/image';
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -15,201 +15,139 @@ const fadeUp = {
   }),
 };
 
-const trustBadges = [
-  '50+ Projects Delivered',
-
-];
+const trustBadges = ['50+ Projects Delivered'];
 
 export default function HeroSection() {
   return (
-    <section
-      className="relative flex items-center pt-12 overflow-hidden linear-mesh force-dark w-full min-h-[70vh] lg:min-h-[82vh]"
-     
-    >
-      {/* ── Background layers ───────────────────────────────── */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 z-0 bg-navy overflow-hidden">
-        {/* Moving Background Image / Video */}
-        <div className="absolute inset-0 w-[110%] h-[110%] -top-[5%] -left-[5%] animate-[panRight_30s_ease-in-out_infinite]">
-          {(() => {
-            const bgSrc = "/images/hero.png";
-            const isVideo = bgSrc.endsWith('.mp4') || bgSrc.endsWith('.webm');
-            if (isVideo) {
-              return (
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover object-[80%_center] opacity-50"
-                  src={bgSrc}
-                />
-              );
-            }
-            return (
-              <Image
-                src={bgSrc}
-                alt="Hero background"
-                fill
-                className="object-cover object-[80%_center] opacity-50"
-                priority
+    <section className="relative flex items-center overflow-hidden w-full min-h-[75vh] lg:min-h-[90vh] bg-navy">
+
+      {/* Background Image & Effects */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Image wrapper pushed right */}
+        <div className="absolute inset-y-0 right-[-10%] sm:right-0 w-[120%] sm:w-full flex items-center justify-end pr-0 sm:pr-6 lg:pr-16">
+          <Image
+            src="/images/hero2.png"
+            alt="Agency showcase"
+            width={1200}
+            height={900}
+            priority
+            className="object-cover object-right sm:object-center opacity-90 w-full max-w-none mix-blend-luminosity"
+          />
+        </div>
+
+        {/* ── Background: soft glows + curves ── */}
+        <div className="absolute inset-0">
+          <div className="absolute -top-32 -left-32 w-[700px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(26,86,219,0.18)_0%,transparent_68%)] dark:opacity-100 opacity-60" />
+          <div className="absolute -bottom-24 right-[-4%] w-[520px] h-[420px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.14)_0%,transparent_68%)] dark:opacity-100 opacity-50" />
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="none" fill="none">
+            <path d="M-100,480 Q400,80 1300,360" stroke="url(#harc1)" strokeWidth="1.2" opacity="0.25" />
+            <path d="M-100,560 Q500,220 1300,480" stroke="url(#harc2)" strokeWidth="0.8" opacity="0.18" />
+            <defs>
+              <linearGradient id="harc1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="transparent" /><stop offset="30%" stopColor="#1A56DB" /><stop offset="70%" stopColor="#06B6D4" /><stop offset="100%" stopColor="transparent" />
+              </linearGradient>
+              <linearGradient id="harc2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="transparent" /><stop offset="40%" stopColor="#06B6D4" /><stop offset="100%" stopColor="transparent" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        {/* Left gradient over image for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-transparent" />
+        {/* Bottom fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 items-center">
+
+        {/* Left content */}
+        <div className="lg:col-span-7 flex flex-col gap-6 py-20 pointer-events-auto">
+
+          <motion.h1
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.1}
+            className="text-[clamp(2.25rem,5vw,4rem)] sm:text-[clamp(3rem,6vw,5rem)] font-bold leading-tight tracking-tight text-white"
+          >
+            Your Growth{' '}
+            <span className="relative inline-block">
+              Our Mission
+              <motion.span
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.7, ease: EASE, delay: 0.5 }}
+                className="absolute -bottom-1 left-0 right-0 h-1 bg-cyan-400 rounded-full origin-left"
               />
-            );
-          })()}
+            </span>
+          </motion.h1>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.2}
+            className="text-lg sm:text-xl text-gray-200 leading-relaxed max-w-xl"
+          >
+            A results-driven digital agency delivering premium design,
+            development, content and marketing —
+            <span className="text-cyan-400 font-semibold"> fast.</span>
+          </motion.p>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.28}
+            className="text-sm sm:text-base text-gray-400"
+          >
+            Trusted by startups, SMEs, and growing businesses across Africa and beyond.
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.36}
+            className="flex gap-2 sm:gap-4 pt-4"
+          >
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center bg-cyan-400 hover:bg-cyan-500 transition-colors text-white font-semibold px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-lg text-sm sm:text-base shrink-0"
+            >
+              Get a Free Quote
+            </Link>
+
+            <Link
+              href="/work"
+              className="inline-flex items-center justify-center border border-cyan-400 hover:bg-cyan-400 hover:text-white transition-colors text-cyan-400 font-semibold px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-lg text-sm sm:text-base shrink-0"
+            >
+              See Our Work
+            </Link>
+          </motion.div>
+
+          {/* Trust */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.44}
+            className="flex flex-wrap items-center gap-4 pt-4"
+          >
+            {trustBadges.map((badge) => (
+              <span key={badge} className="flex items-center gap-2 text-sm text-gray-300">
+                <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                {badge}
+              </span>
+            ))}
+          </motion.div>
+
         </div>
 
-        {/* Perfect Linear Overlays */}
-        <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/85 to-transparent" />
-        <div className="absolute inset-0 bg-linear-to-t from-navy via-transparent to-navy/60" />
-
-        {/* === Exact same art as DarkModeBackground === */}
-        <svg
-          viewBox="0 0 1200 800"
-          className="absolute left-1/2 top-0 h-full w-[1200px] -translate-x-1/2 opacity-10"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient id="heroCurveGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#22D3EE" />
-              <stop offset="100%" stopColor="#3B82F6" />
-            </linearGradient>
-            <filter id="heroGlow">
-              <feGaussianBlur stdDeviation="6" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-          <path d="M80 40 C 520 220, 700 580, 1120 760" stroke="url(#heroCurveGrad)" strokeWidth="3" filter="url(#heroGlow)" />
-          <path d="M140 0 C 560 200, 740 560, 1080 800" stroke="url(#heroCurveGrad)" strokeWidth="2" opacity="0.5" />
-          <path d="M1080 20 C 640 240, 460 600, 80 780" stroke="url(#heroCurveGrad)" strokeWidth="1.5" opacity="0.3" />
-        </svg>
-
-        {/* Blur bubble anchors — same positions as DarkModeBackground */}
-        <div className="absolute left-[16%] top-[18%] h-28 w-28 rounded-full bg-cyan-400/15 blur-3xl" />
-        <div className="absolute left-[62%] top-[46%] h-36 w-36 rounded-full bg-blue-500/15 blur-[80px]" />
-        <div className="absolute left-[42%] top-[78%] h-24 w-24 rounded-full bg-cyan-400/15 blur-2xl" />
-        <div className="absolute right-[10%] top-[8%] h-40 w-40 rounded-full bg-blue-600/10 blur-[100px]" />
-
-        {/* Grid overlay for texture */}
-        <div
-          className="absolute inset-0 mix-blend-overlay opacity-20"
-          style={{
-            backgroundImage:
-              'linear-gradient(var(--grid-line-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px)',
-            backgroundSize: '72px 72px',
-          }}
-        />
       </div>
-      {/* ── Content ────────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-0 pb-20 sm:pt-16 sm:pb-16 lg:py-20 w-full">
-        <div className="max-w-2xl lg:max-w-4xl">
-          {/* Left — copy */}
-          <div className="flex flex-col items-start gap-6">
-            {/* Badge */}
-            <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium border border-cyan-400/40 bg-cyan-400/8 text-cyan-400 font-body tracking-[0.02em]">
-                Results-First Digital Agency 
-              </span>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.h1
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={0.1}
-              className="leading-[1.1] tracking-tight font-display text-[clamp(2.25rem,6vw,4.5rem)] text-(--text-primary)"
-            >
-              Your Growth.{' '}
-              <span className="relative inline-block ">
-                Our Mission.
-                {/* Animated underline */}
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.7, ease: EASE, delay: 0.5 }}
-                  className="absolute -bottom-1 left-0 right-0 h-[3px] bg-linear-to-r from-electric to-electric rounded-full origin-left block"
-                />
-              </span>
-            </motion.h1>
-
-            {/* Sub-headline */}
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={0.2}
-              className="text-lg lg:text-xl leading-relaxed max-w-145 text-(--text-secondary) font-body"
-            >
-              We are a results-obsessed digital agency delivering premium design,
-              development, content and marketing —{' '}
-              <span className="text-(--text-primary) font-medium">fast.</span>
-            </motion.p>
-
-            {/* Supporting text */}
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={0.28}
-              className="text-sm text-(--text-muted) font-body"
-            >
-              Trusted by startups, SMEs, and growing businesses across Africa and beyond.
-            </motion.p>
-
-            {/* CTA Row */}
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={0.36}
-              className="flex flex-row flex-nowrap items-center gap-2 sm:gap-3 pt-2 w-full"
-            >
-              <Link
-                href="/contact"
-                className="btn-electric inline-flex items-center justify-center gap-1 sm:gap-2 px-4 sm:px-7 py-3 sm:py-3.5 rounded-xl text-[13px] sm:text-sm font-semibold text-white  flex-1 sm:flex-none whitespace-nowrap"
-              >
-                Get a Free Quote
-                <span aria-hidden>→</span>
-              </Link>
-              <Link
-                href="/work"
-                className="btn-ghost inline-flex items-center justify-center gap-1 sm:gap-2 px-4 sm:px-7 py-3 sm:py-3.5 rounded-xl text-[13px] sm:text-sm font-semibold flex-1 sm:flex-none whitespace-nowrap"
-              >
-                See Our Work
-              </Link>
-            </motion.div>
-
-            {/* Trust badges */}
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={0.44}
-              className="flex flex-wrap items-center gap-5 pt-1"
-            >
-              {trustBadges.map((badge) => (
-                <span
-                  key={badge}
-                  className="flex items-center font-semibold gap-2 text-sm text-(--text-secondary) font-body"
-                >
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 inline-block shrink-0" />
-                  {badge}
-                </span>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </div>
-      {/* Background Pan Animation CSS injected */}
-      <style>{`
-        @keyframes panRight {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(-4%); }
-        }
-      `}</style>
     </section>
   );
 }

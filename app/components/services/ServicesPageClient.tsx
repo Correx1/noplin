@@ -4,6 +4,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import FinalCTASection from '../home/FinalCTASection';
 import { ArrowRight } from 'lucide-react';
 
@@ -12,37 +13,67 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const departments = [
   {
     id: 'design', label: 'Design', headline: 'Brand & Visual Identity', sub: 'Everything your brand needs to look premium and be remembered.',
+    image: '/images/services/design_banner.png',
     services: [
-      { name: 'A-Grade Brand Identity', desc: 'Logos, visual systems, and brand kits that make your business unforgettable.', price: 'From ₦80,000', turnaround: '3–5 days', href: '/services/brand-identity' },
-      { name: 'Pitch Deck & Presentation', desc: 'Investor-ready pitch decks and presentations that command attention.', price: 'From ₦80,000', turnaround: '3–5 days', href: '/services/pitch-deck' },
+      { name: 'Social Branding', desc: 'Elevate your online presence with cohesive, premium social media identities.', href: '/services/social-branding' },
+      { name: 'Ad Creatives (Video)', desc: 'High-converting video ads engineered to capture attention and drive action.', href: '/services/ad-creatives-video' },
+      { name: 'Ad Creatives (Image)', desc: 'Striking static ad designs optimized for click-through rates and brand recall.', href: '/services/ad-creatives-image' },
+      { name: 'Infographics', desc: 'Complex data and concepts transformed into visually engaging, easy-to-digest graphics.', href: '/services/infographics' },
+      { name: 'Social Media Design (Content Pack)', desc: 'Monthly batches of custom-designed posts, stories, and carousels.', href: '/services/social-media-design' },
+      { name: 'Pitch Deck Design', desc: 'Investor-ready presentations that communicate your value and secure funding.', href: '/services/pitch-deck' },
+      { name: 'Vector Illustration', desc: 'Custom, scalable illustrations tailored to your brand\'s unique voice.', href: '/services/vector-illustration' },
+      { name: 'Book / Publication Design', desc: 'Professional layout and cover design for e-books, reports, and print.', href: '/services/publication-design' },
+      { name: 'UI/UX Design', desc: 'Intuitive, user-centric interfaces designed for frictionless digital experiences.', href: '/services/ui-ux-design' },
     ],
   },
   {
-    id: 'webdev', label: 'Web & Dev', headline: 'Sites & Apps That Convert', sub: 'From landing pages to full-scale web applications — built for results.',
+    id: 'development', label: 'Development', headline: 'Websites & Apps That Work', sub: 'High-performance digital products engineered for scale and conversions.',
+    image: '/images/services/dev_banner.png',
     services: [
-      { name: 'Conversion-First Web Design', desc: 'Websites engineered to rank, convert, and impress.', price: 'From ₦300,000', turnaround: '7–10 days', href: '/services/web-design' },
-      { name: 'Custom Web App Development', desc: 'Scalable applications built on Laravel for serious businesses.', price: 'From ₦500,000', turnaround: '4–8 weeks', href: '/services/web-app-development' },
-      { name: 'MVP Development for Startups', desc: 'Launch your startup idea fast with a built-to-scale MVP.', price: 'From ₦400,000', turnaround: '3–6 weeks', href: '/services/mvp-development' },
-      { name: 'E-Commerce Development', desc: 'Online stores built for conversions and growth.', price: 'From ₦400,000', turnaround: '2–4 weeks', href: '/services/ecommerce-development' },
-      { name: 'API Development & Integration', desc: 'Connect your tools, automate workflows, scale operations.', price: 'From ₦150,000', turnaround: '1–3 weeks', href: '/services/api-integration' },
+      { name: 'A-Grade Website Design', desc: 'Bespoke, conversion-optimized websites that serve as your ultimate digital storefront.', href: '/services/website-design' },
+      { name: 'Landing Page Design', desc: 'Highly focused, standalone pages engineered specifically for targeted campaigns.', href: '/services/landing-page-design' },
+      { name: 'Landing Page Hosting & Setup', desc: 'End-to-end deployment, ensuring your landing pages are fast, secure, and live.', href: '/services/landing-page-hosting' },
+      { name: 'Sales Funnel Design', desc: 'Strategic, multi-step user journeys crafted to maximize customer acquisition.', href: '/services/sales-funnel-design' },
+      { name: 'Funnel Hosting & Setup', desc: 'Technical deployment and stringing together of your complete sales funnel infrastructure.', href: '/services/funnel-hosting' },
+      { name: 'Web Hosting', desc: 'Secure, lightning-fast hosting solutions tailored for absolute reliability.', href: '/services/web-hosting' },
+      { name: 'WordPress Development', desc: 'Custom, scalable content management systems built on the world\'s leading platform.', href: '/services/wordpress' },
+      { name: 'E-Commerce Development', desc: 'High-performance online stores designed to maximize sales and streamline checkout.', href: '/services/ecommerce' },
+      { name: 'Custom Web Application', desc: 'Robust, scalable web apps built to solve complex business challenges.', href: '/services/web-application' },
+      { name: 'MVP Development', desc: 'Rapid development and deployment of Minimum Viable Products for agile startups.', href: '/services/mvp-development' },
+      { name: 'Custom API Development', desc: 'Secure, tailored bridging connections between your platforms and third-party tools.', href: '/services/api-development' },
+      { name: 'Third-Party Integration', desc: 'Seamlessly connect your ecosystem with external SaaS, payment gateways, and CRMs.', href: '/services/integration' },
+      { name: 'Website Hosting Setup', desc: 'Professional configuration of domains, SSLs, and fast servers for peace of mind.', href: '/services/hosting-setup' },
+      { name: 'Debugging & Maintenance', desc: 'Ongoing technical support to keep your digital assets running flawlessly.', href: '/services/maintenance' },
     ],
   },
   {
-    id: 'content', label: 'Content', headline: 'Copy That Connects', sub: 'Content and copy that drives real engagement and real results.',
+    id: 'marketing', label: 'Marketing', headline: 'Growth That Scales', sub: 'Digital marketing strategies that actually move the needle.',
+    image: '/images/services/marketing_banner.png',
     services: [
-      { name: 'Authority Content (SEO)', desc: 'SEO blog content that ranks on Google and converts readers to leads.', price: 'From ₦60,000/mo', turnaround: 'Ongoing', href: '/services/seo-content' },
-      { name: 'Conversion Copy', desc: 'Website copy, landing pages, and ad copy that drives action.', price: 'From ₦50,000', turnaround: '3–5 days', href: '/services/conversion-copy' },
-      { name: 'Revenue Email System', desc: 'Automated email sequences that sell while you sleep.', price: 'From ₦60,000/mo', turnaround: 'Ongoing', href: '/services/email-marketing' },
-      { name: 'Video Script & Editing', desc: 'Scripts and editing for YouTube, Instagram, TikTok, and corporate videos.', price: 'From ₦25,000/video', turnaround: '3–5 days', href: '/services/video-content' },
-      { name: 'Corporate Comms Suite', desc: 'Business proposals, reports, newsletters, and internal comms.', price: 'From ₦30,000', turnaround: '2–3 days', href: '/services/corporate-comms' },
+      { name: 'Social Media Management', desc: 'End-to-end management of your social channels to build community and authority.', href: '/services/social-management' },
+      { name: 'Social Media Ads Management', desc: 'Data-driven paid campaigns across Meta, LinkedIn, and more to maximize ROAS.', href: '/services/social-ads' },
+      { name: 'Email Marketing', desc: 'Automated newsletter and lifecycle campaigns that turn subscribers into loyal customers.', href: '/services/email-marketing' },
+      { name: 'SEO Optimization', desc: 'Strategic on-page and off-page efforts to dominate search engine results and drive organic traffic.', href: '/services/seo' },
+      { name: 'Content Marketing', desc: 'Authoritative articles, blogs, and whitepapers that educate prospects and drive inbound leads.', href: '/services/content-marketing' },
+      { name: 'Influencer Marketing', desc: 'Strategic partnerships with industry voices to expand your brand\'s reach and credibility.', href: '/services/influencer-marketing' },
     ],
   },
   {
-    id: 'marketing', label: 'Marketing', headline: 'Growth That Scales', sub: 'Paid ads, social media, and strategy that actually moves the needle.',
+    id: 'consulting', label: 'Consulting', headline: 'Expert Guidance', sub: 'Strategic insights and hands-on consulting to elevate your business.',
+    image: '/images/services/consulting_banner.png',
     services: [
-      { name: 'Social Growth Engine', desc: 'Full social media management that grows real audiences and engagement.', price: 'From ₦80,000/mo', turnaround: 'Ongoing', href: '/services/social-media' },
-      { name: 'Precision Ad Campaigns', desc: 'Google and Meta ad campaigns managed by specialists.', price: 'From ₦50,000 setup', turnaround: 'Ongoing', href: '/services/paid-ads' },
-      { name: 'Digital Strategy Consulting', desc: 'End-to-end digital strategy for CEOs who want real competitive advantage.', price: 'From ₦1,000,000', turnaround: 'Project-based', href: '/services/strategy-consulting' },
+      { name: 'Branding Consultation', desc: '1-on-1 strategic deep dives to define your brand architecture, voice, and visual direction.', href: '/services/branding-consultation' },
+      { name: 'Website Strategy Session', desc: 'Collaborative planning to map out user journeys, site structure, and conversion goals.', href: '/services/website-strategy' },
+      { name: 'Digital Marketing Consultation', desc: 'Expert guidance to audit your current efforts and build a high-ROI marketing playbook.', href: '/services/marketing-consultation' },
+    ],
+  },
+  {
+    id: 'automation', label: 'Automation', headline: 'Streamlined Operations', sub: 'Automate repetitive tasks, nurture leads, and scale your operations effortlessly.',
+    image: '/images/services/automation_banner.png',
+    services: [
+      { name: 'Marketing Automation Setup', desc: 'Streamline your marketing efforts with intelligent triggers, workflows, and sequences.', href: '/services/marketing-automation' },
+      { name: 'CRM Setup', desc: 'Implement and customize customer relationship management tools to track and close more deals.', href: '/services/crm-setup' },
+      { name: 'Lead Generation System', desc: 'Automated funnels designed to capture, qualify, and route high-value leads to your team.', href: '/services/lead-generation' },
     ],
   },
 ];
@@ -51,37 +82,41 @@ const departments = [
 function ServiceCard({ s, i }: { s: any; i: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.5, ease: EASE, delay: i * 0.05 }}
-      className="group flex flex-col h-full bg-(--bg-card) border border-(--border-card) rounded-lg overflow-hidden hover:shadow-lg "
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.6, ease: EASE, delay: i * 0.05 }}
+      className="group flex flex-col h-full bg-(--bg-card) border border-black/5 dark:border-white/5 rounded-lg shadow-sm overflow-hidden transition-all duration-300  dark:hover:border-white/10"
     >
-      <div className="p-7 flex flex-col flex-1 gap-4">
+      <div className="p-5 sm:p-7 flex flex-col flex-1 gap-4">
         {/* Header: Title */}
         <h3 className="font-display font-bold text-(--text-primary) text-[18px] leading-snug">
           {s.name}
         </h3>
 
-        {/* Description — visible on all breakpoints */}
-        <p className="font-body text-[15px] text-(--text-secondary) leading-relaxed flex-1">
-          {s.desc}
-        </p>
+        {/* Description — conditionally visible */}
+        {s.desc && (
+          <p className="font-body text-[15px] text-(--text-secondary) leading-relaxed flex-1">
+            {s.desc}
+          </p>
+        )}
 
-        {/* Specs: Price & Turnaround (uniform colors) */}
-        <div className="flex items-center gap-3 pt-3 border-t border-(--border-default) mt-2">
-          <span className="font-display font-semibold text-[13px] text-(--text-primary)">
-            {s.price}
-          </span>
-          <span className="w-1 h-1 rounded-full bg-(--text-muted) opacity-50" />
-          <span className="font-body text-[13px] text-(--text-secondary)">
-            {s.turnaround}
-          </span>
-        </div>
+        {/* Specs: Price & Turnaround */}
+        {s.price && s.turnaround && (
+          <div className="flex items-center gap-3 pt-3 border-t border-(--border-default) mt-2 mt-auto">
+            <span className="font-display font-semibold text-[13px] text-(--text-primary)">
+              {s.price}
+            </span>
+            <span className="w-1 h-1 rounded-full bg-(--text-muted) opacity-50" />
+            <span className="font-body text-[13px] text-(--text-secondary)">
+              {s.turnaround}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Action Footer */}
-      <div className="bg-(--bg-section) px-7 py-4 border-t border-(--border-default) mt-auto">
+      <div className="bg-(--bg-section) px-5 sm:px-7 py-4 border-t border-(--border-default) mt-auto">
         <Link
           href={s.href}
           className="inline-flex items-center gap-2 font-display font-semibold text-[13px] text-cyan-500 hover:text-cyan-400 transition-colors duration-200"
@@ -164,41 +199,64 @@ export default function ServicesPageClient() {
       </section>
 
       {/* ── SERVICE SECTIONS ─────────────────────── */}
-      <div className="py-24 bg-(--bg-page) relative z-10 w-full">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col gap-28">
+      <div className="py-12 bg-(--bg-page) relative z-10 w-full">
+        <div className="flex flex-col gap-28">
           {departments.map((dept) => (
             <section
               key={dept.id}
               id={dept.id}
               ref={(el) => { sectionRefs.current[dept.id] = el; }}
+              className="flex flex-col gap-10 sm:gap-14"
             >
-              {/* Department header */}
+              {/* Department Header Banner - FULL WIDTH */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, ease: EASE }}
-                className="mb-10 flex flex-col gap-2"
+                className="relative overflow-hidden flex flex-col justify-center min-h-[260px] sm:min-h-[300px] w-full"
               >
-                <div className="flex items-center gap-3 mb-1">
-                  <div className="w-8 h-[2px] bg-cyan-500" />
-                  <span className="font-display text-[11px] font-semibold tracking-[0.16em] uppercase text-cyan-500">
-                    {dept.label}
-                  </span>
+                {/* Background Image & Gradient */}
+                <div className="absolute inset-0 z-0 bg-[#0A0A1F]">
+                  <Image 
+                    src={dept.image} 
+                    alt={dept.label}
+                    fill
+                    className="object-cover opacity-50 mix-blend-luminosity grayscale-20"
+                  />
+                  {/* Dark blue overlay gradient (Footer color) */}
+                  <div className="absolute inset-0 bg-linear-to-r from-[#0A0A1F] via-[#0A0A1F]/80 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#0A0A1F] to-transparent/20 md:hidden" />
+                  {/* Electric blue glow (Hero color) */}
+                  <div className="absolute top-0 right-0 w-full md:w-[600px] h-full bg-linear-to-l from-electric/40 to-transparent mix-blend-screen opacity-80" />
                 </div>
-                <h2 className="font-display font-bold text-(--text-primary) text-[clamp(1.75rem,3.5vw,2.5rem)] leading-tight">
-                  {dept.headline}
-                </h2>
-                <p className="font-body text-(--text-secondary) text-[15px] sm:text-[16px] leading-relaxed max-w-xl">
-                  {dept.sub}
-                </p>
+
+                {/* Content - Constrained width */}
+                <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-10">
+                  <div className="flex flex-col gap-3 max-w-2xl">
+                    <div className="flex items-center gap-3 mb-1">
+                      <div className="w-8 h-[2px] bg-cyan-400" />
+                      <span className="font-display text-[11px] font-semibold tracking-[0.16em] uppercase text-cyan-400">
+                        {dept.label}
+                      </span>
+                    </div>
+                    <h2 className="font-display font-bold text-white text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] shadow-sm tracking-tight text-balance">
+                      {dept.headline}
+                    </h2>
+                    <p className="font-body text-white/80 text-[16px] sm:text-[18px] leading-[1.6] max-w-xl mt-2">
+                      {dept.sub}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
 
-              {/* Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {dept.services.map((s, i) => (
-                  <ServiceCard key={s.name} s={s} i={i} />
-                ))}
+              {/* Cards Grid - Constrained width, tighter on mobile */}
+              <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                  {dept.services.map((s, i) => (
+                    <ServiceCard key={s.name} s={s} i={i} />
+                  ))}
+                </div>
               </div>
             </section>
           ))}

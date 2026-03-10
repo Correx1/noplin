@@ -7,8 +7,9 @@ import { useRef } from 'react';
 import {
   Palette,
   Code2,
-  PenTool,
   TrendingUp,
+  Briefcase,
+  Bot
 } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -16,59 +17,43 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const services = [
   {
     id: 'design',
-    eyebrow: 'Brand & Visual Identity',
-    headline: 'Your brand, built to be unforgettable.',
-    body: 'From a seed idea to a complete brand system — we craft identity that earns recognition and builds trust from the very first look.',
-    href: '/services/brand-identity',
-    bullets: [
-      'Logo & full visual identity systems',
-      'Pitch deck design that wins rooms',
-      'Brand guidelines your whole team can follow',
-      'Business cards, stationery & collateral',
-    ],
+    eyebrow: 'Design',
+    headline: 'Brand & Visual Identity',
+    desc: 'Everything your brand needs to look premium and be remembered. From cohesive social media identities that stand out, to professional pitch decks built to win rooms.',
+    href: '/services#design',
     icon: Palette,
   },
   {
-    id: 'dev',
-    eyebrow: 'Web Design & Development',
-    headline: 'Sites & apps that turn visitors into customers.',
-    body: 'Speed-optimised, conversion-focused digital products built to grow with your business — from simple landing pages to complex web apps.',
-    href: '/services/web-design',
-    bullets: [
-      'High-converting business websites',
-      'Web apps & SaaS product interfaces',
-      'E-commerce stores engineered to sell',
-      'API integrations & MVPs',
-    ],
+    id: 'development',
+    eyebrow: 'Development',
+    headline: 'Websites & Apps That Work',
+    desc: 'High-performance digital products engineered for absolute scale and maximum conversions. We build robust, custom platforms tailored to solve your complex challenges.',
+    href: '/services#development',
     icon: Code2,
   },
   {
-    id: 'content',
-    eyebrow: 'Content & Copywriting',
-    headline: 'Words that pull readers in and push them to act.',
-    body: 'Strategic content crafted to rank on Google, win email clicks, and persuade website visitors to take the next step.',
-    href: '/services/content-writing',
-    bullets: [
-      'SEO articles that rank & drive traffic',
-      'Conversion-focused website copy',
-      'Email campaigns that nurture & sell',
-      'Corporate comms & thought leadership',
-    ],
-    icon: PenTool,
+    id: 'marketing',
+    eyebrow: 'Marketing',
+    headline: 'Growth That Scales',
+    desc: 'Data-driven marketing channels and strategies that actually move the needle. We focus on tracking true ROI, lowering acquisition costs, and building massive brand authority.',
+    href: '/services#marketing',
+    icon: TrendingUp,
   },
   {
-    id: 'marketing',
-    eyebrow: 'Digital Marketing & Growth',
-    headline: 'Growth strategy that actually moves the needle.',
-    body: 'Data-driven marketing channels that build audiences, increase revenue, and compound over time — not just noise.',
-    href: '/services/digital-marketing',
-    bullets: [
-      'Social media growth & management',
-      'Precision ad campaigns (Meta, Google)',
-      'Full-funnel growth strategy',
-      'Analytics, tracking & reporting',
-    ],
-    icon: TrendingUp,
+    id: 'consulting',
+    eyebrow: 'Consulting',
+    headline: 'Expert Guidance',
+    desc: 'Strategic insights and hands-on consulting to elevate your business trajectory. We offer 1-on-1 intensive deep dives to align your digital footprint with your revenue targets.',
+    href: '/services#consulting',
+    icon: Briefcase,
+  },
+  {
+    id: 'automation',
+    eyebrow: 'Automation',
+    headline: 'Streamlined Operations',
+    desc: 'Stop wasting hours on manual work. We automate your most repetitive tasks, nurture your inbound leads, and scale your operational logistics effortlessly around the clock.',
+    href: '/services#automation',
+    icon: Bot,
   },
 ];
 
@@ -91,19 +76,9 @@ function CardContent({ svc }: { svc: typeof services[0] }) {
         {svc.headline}
       </h3>
 
-      <p className="text-[15px] text-(--text-secondary) leading-relaxed">
-        {svc.body}
+      <p className="text-[15px] sm:text-[16px] text-(--text-secondary) leading-relaxed">
+        {svc.desc}
       </p>
-
-      {/* Bullets — specific sub-services */}
-      <ul className="flex flex-col gap-2.5">
-        {svc.bullets.map(bullet => (
-          <li key={bullet} className="flex items-start gap-2.5">
-            <span className="mt-[5px] shrink-0 w-1.5 h-1.5 rounded-full bg-cyan-400" />
-            <span className="text-[13.5px] text-(--text-secondary) leading-snug">{bullet}</span>
-          </li>
-        ))}
-      </ul>
 
       <Link
         href={svc.href}
